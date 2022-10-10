@@ -17,3 +17,4 @@ texmf
 thesis.pdf
 .directory
 build/*
+.idea
