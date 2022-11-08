@@ -1,3 +1,77 @@
 \chapter{Pendahuluan}
 
-\blindtext
+Konten pada bab ini berisi terkait gambaran umum dan permasalahan yang akan diselesaikan dalam tugas akhir ini. Bab ini akan dimulai dari penjelasan latar belakang dari masalah yang diselesaikan, rumusan masalah, tujuan, batasan masalah, metodologi yang digunakan, dan berakhir pada sistematika penulisan tugas akhir ini.
+
+\section{Latar Belakang}
+
+Aplikasi yang bersifat \textit{memory hog} adalah aplikasi yang menggunakan memori banyak. Sebenarnya, aplikasi yang bersifat \textit{memory hog} ini menggunakan memori sebanyak mungkin untuk melakukan \textit{caching} dan apabila dibatasi, tidak akan berpengaruh banyak terhadap kinerjanya. Sebagai contoh, dalam kehidupan sehari-hari, \textit{browser} seperti Google Chrome, aplikasi berbasis website seperti \textit{Microsoft Teams} dan \textit{text editor} seperti Visual Studio Code. Kebutuhan aplikasi-aplikasi tersebut sebenarnya menggunakan memori berlebih hanya untuk performa. Umumnya, apabila komputer sudah mulai \textit{lag} akibat memori yang dimakan oleh program-program tersebut berlebih, pengguna komputer tersebut akan menutup aplikasi atau \textit{tab browser} yang sudah tidak dipakai untuk saat itu. Namun, aplikasi yang bersifat \textit{memory hog} ini tidak hanya ada pada aplikasi berbasis website maupun dekstop. Sifat tersebut juga bisa ditemukan pada teknologi level basis data ataupun layanan. Hal ini akan mengakibatkan pengunaan sumber daya tidak efisien dan maksimal. \textit{Cost} yang dikeluarkan akan jauh lebih banyak ketika sumber daya yang dimiliki dipakai secara tidak efisien dan maksimal. Secara kasar, dapat diusulkan untuk secara manual mengubah alokasi sumber daya. Namun, hal tersebut dinilai kurang praktis karena sebenarnya dapat dilakukan secara otomatis. Untuk itu, diperlukan kontrol adaptif yang dapat mengubah alokasi sumber daya secara otomatis.
+
+\section{Rumusan Masalah}
+
+Berdasarkan latar belakang yang ada, rumusan tugas akhir ini adalah sebagai berikut.
+\begin{enumerate}
+    \item Bagaimana dampak sumber daya yang dipakai terhadap kinerja aplikasi?
+    \item Bagaimana cara untuk mengontrol alokasi sumber daya suatu aplikasi tanpa mengurangi kinerja aplikasi?
+    \item Bagaimana dampak \textit{adaptive control} terhadap efisiensi penggunaan sumber daya?
+\end{enumerate}
+
+\section{Tujuan}
+
+Tujuan yang akan dicapai untuk tugas akhir ini adalah sebagai berikut.
+
+\begin{enumerate}
+    \item Mengembangkan sebuah \textit{service mesh} yang berfungsi untuk melakukan \textit{monitoring} dan mendapatkan statistik kinerja aplikasi dan hubungannya dengan sumber daya yang dipakai.
+
+    \item Mengembangkan sebuah \textit{service} yang secara adaptif mengontrol alokasi sumber daya suatu aplikasi berdasarkan statistik kinerja aplikasi yang telah dicatat oleh \textit{service mesh}.
+
+    \item Mengetahui dampak pengaplikasian \textit{adaptive control} tersebut terhadap efisiensi penggunaan sumber daya.
+\end{enumerate}
+
+\section{Batasan Masalah}
+
+Terdapat batasan yang diambil dalam pelaksanaan tugas akhir ini, yaitu sebagai berikut.
+
+\begin{enumerate}
+    \item Solusi yang diimplementasikan hanya akan dalam skala kubernetes pods.
+    \item Solusi yang diimplementasikan hanya akan menyelesaikan permasalahan aplikasi yang bersifat \textit{memory hog}. Yang berarti, tidak diperhitungkan aplikasi akan direplikasi oleh Kubernetes. Karena pengunaan memori oleh aplikasi yang bersifat \textit{memory hog} cenderung dipakai untuk melakukan \textit{caching} sehingga ketika dikurangi batas memori yang bisa dipakai, aplikasi masih berjalan seperti biasa.
+    \item Solusi yang diimplementasikan memakai keadaan penggunaan secara normal yang berarti tidak memperhitungkan terjadi pemuncakan \textit{request} pada saat-saat tertentu.
+\end{enumerate}
+
+\section{Metodologi}
+
+Terdapat metodologi yang digunakan untuk melaksanakan tugas akhir ini, berikut adalah tahapan pelaksanaan.
+\subsection{Identifikasi Permasalahan}
+Tahapan ini adalah tahapan untuk melakukan identifikasi permasalahan. Hasil dari tahapan ini dijadikan gagasan utama dan arah kerja dalam tugas akhir ini.
+\subsection{Perancangan Solusi}
+Setelah mengidentifikasi permasalahan, dilakukan perancangan solusi yang bertujuan untuk mencari metode dan pendekatan yang dapat dikembangkan untuk menyelesaikan permasalahan yang ada. Analisis ini dimulai dari eksplorasi metode melalui studi literatur.
+\subsection{Implementasi}
+Setelah merancang solusi, gagasan tersebut akan dikembangkan dan diimplementasikan. Tahap ini akan menghasilkan dua hal sebagai berikut.
+\subsubsection{\textit{Service Mesh}}
+Layanan yang akan mencatat kinerja dari aplikasi terhadap variabel sumber daya yang dipakai.
+\subsubsection{\textit{Adaptive Control Service}}
+Layanan yang akan memutuskan alokasi sumber daya berdasarkan catatan kinerja yang telah disimpan oleh \textit{service mesh}.
+\subsection{Eksperimen Pengujian}
+Hasil implementasi yang sudah dibuat pada tahapan sebelumnya akan diuji pada tahapan ini. Tahapan ini juga akan melakukan analisis dampak pengaplikasian \textit{adaptive control} terhadap efisiensi sumber daya.
+\subsection{Evaluasi Hasil Eksperimen}
+Hasil eksperimen pada tahapan sebelumnya akan dianalisis dan dievaluasi. Jika kurang memuaskan, hasil dari eksperimen ini bisa digunakan untuk meningkatkan dampak \textit{adaptive control} terhadap efisiensi sumber daya yang dimiliki. Namun, jika sudah sesuai yang diekspektasikan, maka hasil eksperimen ini akan cukup untuk membuktikan efisiensi yang tercipta dari implementasi \textit{adaptive control}.
+
+\section{Sistematika Pembahasan}
+
+Konten dari Tugas Akhir ini akan dibagi menjadi lima bab sebagai berikut.
+\begin{enumerate}
+    \item Pendahuluan
+    \item Studi Literatur
+    \item Analisis Masalah dan Rancangan Solusi
+    \item Implementasi dan Pengujian
+    \item Kesimpulan dan Saran
+\end{enumerate}
+
+Pada Bab I akan dijelaskan gagasan utama dari tugas akhir ini yang berisi dari latar belakang, rumusan masalah, tujuan, batasan, metodologi hingga sistematika pembahasan.
+
+Selanjutnya, Bab II akan menjelaskan hasil studi literatur yang berkaitan dengan pengerjaan tugas akhir ini. Bab II ini berisi tentang pemahaman dasar seputar topik yang akan dibahas pada tugas akhir ini.
+
+Bab III ...
+
+Bab IV ...
+
+Bab V akan menjadi penutup pada tugas akhir ini. Konten pada bab ini akan menjelaskan jawaban terhadap rumusan masalah pada bab I. Pada bab ini juga akan disebutkan saran-saran perbaikan yang bisa dipakai untuk penelitian berikutnya. Bab ini akan menyimpulkan hasil implementasi dan rancangan solusi terhadap masalah yang sudah diidentifikasi.
