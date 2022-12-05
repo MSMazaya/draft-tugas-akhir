@@ -4,6 +4,14 @@ Konten pada bab ini berisi terkait gambaran umum dan permasalahan yang akan dise
 
 \section{Latar Belakang}
 
+% Outline
+% - Information Retrieval Application, Apache Lumen, Elastic Search
+% - Java
+% - Resource Limit
+% - Kubernetes, Pods, PersistentVolume, StatefulSet, Horizontal & Vertical Autoscaler
+% - Metrics
+% - Kontrol Adaptif
+
 Aplikasi yang bersifat \textit{memory hog} adalah aplikasi yang menggunakan memori banyak. Sebenarnya, aplikasi yang bersifat \textit{memory hog} ini menggunakan memori sebanyak mungkin untuk melakukan \textit{caching} dan apabila dibatasi, tidak akan berpengaruh banyak terhadap kinerjanya. Sebagai contoh, dalam kehidupan sehari-hari, \textit{browser} seperti Google Chrome, aplikasi berbasis website seperti \textit{Microsoft Teams} dan \textit{text editor} seperti Visual Studio Code. Kebutuhan aplikasi-aplikasi tersebut sebenarnya menggunakan memori berlebih hanya untuk performa. Umumnya, apabila komputer sudah mulai \textit{lag} akibat memori yang dimakan oleh program-program tersebut berlebih, pengguna komputer tersebut akan menutup aplikasi atau \textit{tab browser} yang sudah tidak dipakai untuk saat itu. Namun, aplikasi yang bersifat \textit{memory hog} ini tidak hanya ada pada aplikasi berbasis website maupun dekstop. Sifat tersebut juga bisa ditemukan pada teknologi level basis data ataupun layanan. Hal ini akan mengakibatkan pengunaan sumber daya tidak efisien dan maksimal. \textit{Cost} yang dikeluarkan akan jauh lebih banyak ketika sumber daya yang dimiliki dipakai secara tidak efisien dan maksimal. Secara kasar, dapat diusulkan untuk secara manual mengubah alokasi sumber daya. Namun, hal tersebut dinilai kurang praktis karena sebenarnya dapat dilakukan secara otomatis. Untuk itu, diperlukan kontrol adaptif yang dapat mengubah alokasi sumber daya secara otomatis.
 
 \section{Rumusan Masalah}
@@ -70,7 +78,9 @@ Pada Bab I akan dijelaskan gagasan utama dari tugas akhir ini yang berisi dari l
 
 Selanjutnya, Bab II akan menjelaskan hasil studi literatur yang berkaitan dengan pengerjaan tugas akhir ini. Bab II ini berisi tentang pemahaman dasar seputar topik yang akan dibahas pada tugas akhir ini.
 
-Bab III ...
+Bab III 
+
+Pada Bab III akan dijelaskan ulang masalah serta latar belakang untuk menyusun rancangan solusi. Di bab ini juga akan dipaparkan beberapa rancangan solusi yang kemudian akan dijelaskan lebih lanjut dan dipilih sebagai topik yang akan diimplementasikan pada bab selanjutnya.
 
 Bab IV ...
 
