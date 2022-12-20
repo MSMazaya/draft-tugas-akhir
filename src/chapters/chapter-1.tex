@@ -12,13 +12,24 @@ Konten pada bab ini berisi terkait gambaran umum dan permasalahan yang akan dise
 % - Metrics
 % - Kontrol Adaptif
 
-Aplikasi yang bersifat \textit{memory hog} adalah aplikasi yang menggunakan memori banyak. Sebenarnya, aplikasi yang bersifat \textit{memory hog} ini menggunakan memori sebanyak mungkin untuk melakukan \textit{caching} dan apabila dibatasi, tidak akan berpengaruh banyak terhadap kinerjanya. Sebagai contoh, dalam kehidupan sehari-hari, \textit{browser} seperti Google Chrome, aplikasi berbasis website seperti \textit{Microsoft Teams} dan \textit{text editor} seperti Visual Studio Code. Kebutuhan aplikasi-aplikasi tersebut sebenarnya menggunakan memori berlebih hanya untuk performa. Umumnya, apabila komputer sudah mulai \textit{lag} akibat memori yang dimakan oleh program-program tersebut berlebih, pengguna komputer tersebut akan menutup aplikasi atau \textit{tab browser} yang sudah tidak dipakai untuk saat itu. Namun, aplikasi yang bersifat \textit{memory hog} ini tidak hanya ada pada aplikasi berbasis website maupun dekstop. Sifat tersebut juga bisa ditemukan pada teknologi level basis data ataupun layanan. Hal ini akan mengakibatkan pengunaan sumber daya tidak efisien dan maksimal. \textit{Cost} yang dikeluarkan akan jauh lebih banyak ketika sumber daya yang dimiliki dipakai secara tidak efisien dan maksimal. Secara kasar, dapat diusulkan untuk secara manual mengubah alokasi sumber daya. Namun, hal tersebut dinilai kurang praktis karena sebenarnya dapat dilakukan secara otomatis. Untuk itu, diperlukan kontrol adaptif yang dapat mengubah alokasi sumber daya secara otomatis.
+\textit{Information Retrieval} (IR) adalah penemuan bahan seperti dokumen yang bersifat terstruktur yang memenuhi kebutuhan informasi dari dalam koleksi besar yang tersimpan di dalam komputer \parencite{introtoinforetri}. IR saat ini sangat sering dilakukan contohnya dalam pencarian informasi berkaitan dengan representasi, penyimpanan, pengaturan, dokumen, halaman web, katalog online, catatan, dan objek multimedia. Salah satu aplikasi yang membantu dalam melakukan hal tersebut adalah Elastic Search.
+
+\textit{Elasticsearch} merupakan mesin pencarian dan analitik terdistribusi yang dibangun di Apache Lucene. \textit{Elasticsearch} telah dengan cepat menjadi mesin pencari paling populer dan biasa digunakan untuk analisis log, pencarian teks lengkap, inteligensi keamanan, analisis bisnis, dan kasus penggunaan inteligensi operasional \parencite{elasticsearch}.
+
+Proses \textit{Elastic Search} menggunakan JVM. Umumnya pada \textit{Elastic Search}, hampir 50 persen memori yang tersedia akan dialokasikan ke JVM. Pemrosesan data berukuran besar dalam \textit{in-memory computing} dalam JVM memakan sangat banyak memory \parencite{jvm}. Dalam konteks \textit{Elastic Search}, mesin JVM memerlukan memakai memori karena Apache Lucene membutuhkan melakukan pengindeksan. Sedangkan, 50 persen sisanya akan dipakai untuk melakukan \textit{caching} dalam memori agar mempercepat pencarian file yang sering diakses.
+
+Hal ini menyebabkan \textit{Elastic Search} akan memakan memori sebanyak-banyaknya untuk dipakai \textit{caching}. Sedangkan, dalam segi kebutuhan, belum tentu semua data pada \textit{cache} akan dipakai. Ada kalanya waktu saat banyak terjadi \textit{miss} karena data yang dicari terlalu bervariasi. Atau kondisi lain seperti \textit{cost cache} yang terlalu besar dan tidak sebanding dengan pengunaan memori pada suatu \textit{Kubernetes Cluster}. Kondisi seperti itu tidak menjadi masalah ketika sebuah \textit{node} sedang kosong dan punya banyak memori. Namun, akan menjadi masalah ketika ada aplikasi lain yang ingin memakai bersama \textit{node} tersebut dan memori telah dipakai habis oleh \textit{Elastic Search}.
+
+Untuk menangani hal tersebut, Kubernetes sendiri sudah memiliki fitur bernama \textit{resource limit}. Fitur ini digunakan untuk membatasi pengunaan sumber daya oleh sebuah aplikasi. Namun, \textit{resource limit} ini bersifat statik dan tidak adaptif. Jika ingin mengubahnya, diperlukan pengubahan konfigurasi melalui file \textit{deployment} atau perintah \textit{kubectl}. Sedangkan, performa suatu \textit{information retrieval} sangat dinamis dan apabila ingin mengontrol pengunaan memori berdasarkan performa membutuhkan alat yang sangat dinamis.
+
+Kubernetes sendiri sudah memiliki \textit{auto-scaler} yang dinamis. Pada \textit{auto-scaler} versi horizontal, komponen ini akan mereplikasi secara otomatis ketika performa memburuk. Namun, \textit{auto-scaler} ini akan mematikan dan menyalakan \textit{node} baru pada kluster \textit{Elastic Search}. Dan oleh karena itu, akan terjadi banyak \textit{balancing} dan replikasi \textit{shard} pada \textit{Elastic Search} yang menyebabkan banyak \textit{overhead} apabila terlalu sering terjadi penambahan atau pengurangan \textit{node} pada kluster \textit{Elastic Search}. Sedangkan, pada \textit{auto-scaler} versi vertikal, komponen ini masih dikembangkan oleh Kubernetes, dan mengharuskan Kubernetes untuk melakukan \textit{restart} pada \textit{node} yang di-\textit{scale} secara vertikal yang berarti kasusnya tidak jauh beda dengan \textit{scaling} secara horizontal.
 
 \section{Rumusan Masalah}
 
 Berdasarkan latar belakang yang ada, rumusan tugas akhir ini adalah sebagai berikut.
 \begin{enumerate}
-    \item Bagaimana dampak sumber daya yang dipakai terhadap kinerja aplikasi?
+    \item Bagimana cara untuk mengontrol pengunaan memori \textit{Elastic Search} tanpa melakukan \textit{restart} atau penambahan \textit{node} baru?
+    \item Bagaimana dampak memori yang dipakai terhadap kinerja aplikasi?
     \item Bagaimana cara untuk mengontrol alokasi sumber daya suatu aplikasi tanpa mengurangi kinerja aplikasi?
     \item Bagaimana dampak \textit{adaptive control} terhadap efisiensi penggunaan sumber daya?
 \end{enumerate}
@@ -28,11 +39,11 @@ Berdasarkan latar belakang yang ada, rumusan tugas akhir ini adalah sebagai beri
 Tujuan yang akan dicapai untuk tugas akhir ini adalah sebagai berikut.
 
 \begin{enumerate}
-    \item Mengembangkan sebuah \textit{service mesh} yang berfungsi untuk melakukan \textit{monitoring} dan mendapatkan statistik kinerja aplikasi dan hubungannya dengan sumber daya yang dipakai.
+    \item Mengembangkan sebuah komponen yang menarik \textit{metrics} dari \textit{Elastic Search}.
 
-    \item Mengembangkan sebuah \textit{service} yang secara adaptif mengontrol alokasi sumber daya suatu aplikasi berdasarkan statistik kinerja aplikasi yang telah dicatat oleh \textit{service mesh}.
+    \item Mengembangkan sebuah komponen yang mempelajari dampak sumber daya berupa memori dan kondisi terhadap \textit{metrics} sehingga dapat memprediksi ukuran memori yang cocok dan efisien.
 
-    \item Mengetahui dampak pengaplikasian \textit{adaptive control} tersebut terhadap efisiensi penggunaan sumber daya.
+    \item Mengetahui dampak pengaplikasian \textit{adaptive control} tersebut terhadap efisiensi penggunaan memori pada \textit{Elastic Search}.
 \end{enumerate}
 
 \section{Batasan Masalah}
@@ -40,10 +51,11 @@ Tujuan yang akan dicapai untuk tugas akhir ini adalah sebagai berikut.
 Terdapat batasan yang diambil dalam pelaksanaan tugas akhir ini, yaitu sebagai berikut.
 
 \begin{enumerate}
-    \item Solusi yang diimplementasikan hanya akan dalam skala kubernetes pods.
-    \item Solusi yang diimplementasikan hanya akan menyelesaikan permasalahan aplikasi yang bersifat \textit{memory hog}. Yang berarti, tidak diperhitungkan aplikasi akan direplikasi oleh Kubernetes. Karena pengunaan memori oleh aplikasi yang bersifat \textit{memory hog} cenderung dipakai untuk melakukan \textit{caching} sehingga ketika dikurangi batas memori yang bisa dipakai, aplikasi masih berjalan seperti biasa.
-    \item Solusi yang diimplementasikan memakai keadaan penggunaan secara normal yang berarti tidak memperhitungkan terjadi pemuncakan \textit{request} pada saat-saat tertentu.
-\end{enumerate}
+    \item Solusi yang diimplementasikan akan pada level \textit{Pods} Kubernetes.
+    \item Solusi yang diimplementasikan hanya akan spesifik pada \textit{Elastic Search}.
+    \item Solusi yang diajukan tidak akan memakai replika dan akan dianggap sebagai solusi untuk satu buah \textit{node Elastic Search}.
+    \item Agar mensimulasikan lingkungan dengan sumber daya terbatas, solusi yang diajukan akan memakai lingkungan Kubernetes dengan \textit{single node}.
+ \end{enumerate}
 
 \section{Metodologi}
 
@@ -54,10 +66,10 @@ Tahapan ini adalah tahapan untuk melakukan identifikasi permasalahan. Hasil dari
 Setelah mengidentifikasi permasalahan, dilakukan perancangan solusi yang bertujuan untuk mencari metode dan pendekatan yang dapat dikembangkan untuk menyelesaikan permasalahan yang ada. Analisis ini dimulai dari eksplorasi metode melalui studi literatur.
 \subsection{Implementasi}
 Setelah merancang solusi, gagasan tersebut akan dikembangkan dan diimplementasikan. Tahap ini akan menghasilkan dua hal sebagai berikut.
-\subsubsection{\textit{Service Mesh}}
-Layanan yang akan mencatat kinerja dari aplikasi terhadap variabel sumber daya yang dipakai.
-\subsubsection{\textit{Adaptive Control Service}}
-Layanan yang akan memutuskan alokasi sumber daya berdasarkan catatan kinerja yang telah disimpan oleh \textit{service mesh}.
+\subsubsection{Komponen \textit{Metrics Controller}}
+Komponen yang akan mencatat kinerja dari aplikasi terhadap variabel sumber daya yang dipakai.
+\subsubsection{Komponen \textit{Memory Controller}}
+Komponen yang akan memutuskan alokasi sumber daya berdasarkan catatan kinerja yang telah disimpan menggunakan pembelajaran mesin.
 \subsection{Eksperimen Pengujian}
 Hasil implementasi yang sudah dibuat pada tahapan sebelumnya akan diuji pada tahapan ini. Tahapan ini juga akan melakukan analisis dampak pengaplikasian \textit{adaptive control} terhadap efisiensi sumber daya.
 \subsection{Evaluasi Hasil Eksperimen}
@@ -77,8 +89,6 @@ Konten dari Tugas Akhir ini akan dibagi menjadi lima bab sebagai berikut.
 Pada Bab I akan dijelaskan gagasan utama dari tugas akhir ini yang berisi dari latar belakang, rumusan masalah, tujuan, batasan, metodologi hingga sistematika pembahasan.
 
 Selanjutnya, Bab II akan menjelaskan hasil studi literatur yang berkaitan dengan pengerjaan tugas akhir ini. Bab II ini berisi tentang pemahaman dasar seputar topik yang akan dibahas pada tugas akhir ini.
-
-Bab III 
 
 Pada Bab III akan dijelaskan ulang masalah serta latar belakang untuk menyusun rancangan solusi. Di bab ini juga akan dipaparkan beberapa rancangan solusi yang kemudian akan dijelaskan lebih lanjut dan dipilih sebagai topik yang akan diimplementasikan pada bab selanjutnya.
 
