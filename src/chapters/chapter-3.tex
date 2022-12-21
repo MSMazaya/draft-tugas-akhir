@@ -33,7 +33,7 @@ Sistem Kontrol Adaptif akan memanfaatkan \textit{metrics} yang didapat dari \tex
 \section{Rancangan Solusi}
 
 Seperti yang sudah dijelaskan pada bagian sebelumnya, \ref{sec:sistemkontroladaptif}, Sistem Kontrol Adaptif akan disusun atas dua komponen, yaitu sebagai berikut.
-\subsection{Komponen \textit{Metrics Controller}}
+\subsection{Komponen \textit{Metrics Collector}}
 \label{sec:metricscontroller}
 
 Komponen ini bertugas untuk menarik data \textit{metrics} dari \textit{Elastic Search} menggunakan HTTP Client dan Database Connector Client. Data tersebut lalu akan disimpan ke sebuah database relasional yang dapat digunakan sebagai data historis. Sehingga, kedepannya dapat dilakukan analisis diagnostik dan analisis prediktif.
@@ -51,9 +51,9 @@ Secara periodik, algoritma ini akan memaksa memangkas limit memori sebesar 50 pe
 Apabila kinerja \textit{Elastic Search} memburuk, algoritma akan mengembalikan limit memori sebesar 50 persen dari kondisi saat itu.
 Hal ini akan terus dilakukan sampai konfigurasi algoritma sistem diubah.
 
-\subsubsection{Linear Support Vector Machine}
+\subsubsection{Support Vector Machine}
 
 Awalnya, algoritma ini akan memakai algoritma sebelumnya, \ref{sec:greedytrialerror}, untuk mengumpulkan data.
-Setelah data terkumpul, algoritma ini akan memprediksi menggunakan Linear Support Vector Machine untuk memutuskan melakukan peningkatan atau pengurangan limit memori.
-Jika terjadi perubahan trend, algoritma akan melakukan training ulang dari data-data terbaru.
-Linear Support Vector Machine ini akan menerima \textit{input} berupa memori yang dipakai, \textit{request per second}, waktu untuk melakukan pencarian, waktu untuk melakukan aggregasi, waktu untuk melakukan penggabungan.
+Setelah data terkumpul, algoritma ini akan memprediksi menggunakan  Support Vector Machine untuk memutuskan melakukan peningkatan atau pengurangan limit memori.
+Jika terjadi perubahan trend atau kebiasaan, algoritma akan melakukan training ulang dari data-data terbaru.
+Support Vector Machine ini akan menerima \textit{input} berupa memori yang dipakai, \textit{request per second}, waktu untuk melakukan pencarian, waktu untuk melakukan aggregasi, waktu untuk melakukan penggabungan.

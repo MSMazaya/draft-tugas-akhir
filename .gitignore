@@ -18,3 +18,4 @@ thesis.pdf
 .directory
 build/*
 .idea
+*.pdf
