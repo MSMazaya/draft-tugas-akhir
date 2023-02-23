@@ -1,59 +1,40 @@
-\chapter{Analisis Persoalan dan Rancangan Solusi}
+\chapter{Analisis Masalah dan Rancangan Solusi}
 
 Tujuan utama penulisan bab ini adalah untuk menguraikan rencana penyelesaian masalah tugas akhir yang akan dieksekusi secara utuh pada saat pelaksanaan Tugas Akhir II. Bab ini merupakan bab penutup Laporan Tugas Akhir I yang dapat dipandang sebagai bab yang akan menjembatani perpindahan ke proses pelaksanaan Tugas Akhir II. Pengembangan lebih lanjut dari bab ini dapat menjadi bagian dari bab Deskripsi Solusi pada Laporan Tugas Akhir.
 
-\section{Analisis Persoalan}
+\section{Analisis Masalah}
 
-Basis data, \textit{information retrieval} dan server memori seringkali digunakan sebagai \textit{technology stack} aplikasi zaman sekarang.
-Ketiga jenis aplikasi ini akan menggunakan memori semaksimal yang mereka dapat gunakan ketika memiliki jumlah data yang besar.
-Kegunaan dari memakai memori biasanya dipakai untuk melakukan \textit{caching} yang sebenarnya pada aplikasi skala besar tidak akan terlalu signifikan karena permintaan masuk yang terlalu beragam. 
-Akibatnya, memori yang ditahan oleh aplikasi tersebut tidak dapat digunakan oleh aplikasi lainnya.
-Permasalahan ini lebih nyata terasa ketika aplikasi tersebut diletakkan pada sebuah \textit{pods} Kubernetes. Karena, sebuah \textit{pods} harus bisa dimuat dalam sebuah \textit{node} yang sumber dayanya terbatas dan belum tentu berukuran besar. Meskipun \textit{cloud} seringkali dianggap sumber daya tak terbatas, namun penggunaan memori yang terlalu besar dan tidak berakibat terlalu signifikan terhadap performa adalah sangat tidak efisien.
-
-Salah satu aplikasi \textit{information retrieval} yang sering dipakai adalah \textit{Elastic Search}. 
-Aplikasi ini membungkus kakas \textit{Apache Lucene} yang dipermudah dengan membuat standar antarmuka berupa \textit{HTTP Request}.
-\textit{Elastic Search} juga diciptakan guna untuk menghilangkan keterbatasan bahasa, hanya aplikasi berbasis Java yang dapat menggunakan kakas \textit{Apache Lucene}.
-Sayangnya, aplikasi ini sangat boros dalam hal memori dan cenderung untuk mengambil memori sebanyak yang diberikan.
-
-\textit{Elastic Search} dijalankan diatas \textit{Java Virtual Machine} (JVM) yang pada umumnya memiliki command flag untuk membatasi memori yang akan digunakan. Tidak hanya itu, \textit{Kubernetes Pods} juga memiliki parameter berupa \textit{resource limit} yang dapat diubah-ubah untuk membatasi penggunaan CPU dan memori. Cara tersebut dapat dilakukan jika ingin diraih efisiensi sumber daya dengan mengacuhkan kinerja dari aplikasi dan kondisi jumlah permintaan dalam satu satuan waktu dalam jangka waktu tertentu. Oleh karena itu, diperlukan kontrol adaptif yang mengubah secara dinamis.
-
-\section{Analisis Solusi}
+% todo analisis persoalan
 
 Untuk membuat kontrol adaptif untuk menangani masalah efisiensi sumber daya berdasarkan kinerja aplikasi serta kondisi jumlah permintaan dalam satu satuan waktu dalam jangka waktu tertentu, akan diajukan dua buah pendekatan solusi. Berikut adalah analisis dari dua pendekatan yang diajukan pada tugas akhir ini.
 
-\subsection{Vertical Pod Autoscaler dari Kubernetes}
+% todo pemetaan masalah ke solusi
 
-Kubernetes sendiri saat ini sedang mengembangkan Vertical Pod Autoscaler (VPA), \parencite{vpa}. Fitur ini sudah bisa dipakai meskipun masih dalam tahap pengembangan. Namun, jika menggunakan pendekatan ini, terdapat beberapa \textit{drawback}. Pertama, VPA perlu melakukan \textit{restart} terhadap \textit{pod} yang ingin dibesarkan sedangkan \textit{Elastic Search} menggunakan sistem sharding, apabila mematikan salah satu \textit{Node Elastic Search} maka hal tersebut akan menyebabkan \textit{Elastic Search} perlu melakukan \textit{balancing shard data} setiap kali \textit{autoscale} yang tentunya akan memakan ketersediaan dan sumber daya. Kedua, VPA menggunakan \textit{metrics} yang didapatkan dari Kubernetes bukan dari Elastic Search, hal ini akan menyebabkan kurangnya akurasi dan atau tidak tercapainya tujuan untuk membebaskan memori yang dipakai namun dampaknya tidak signifikan terhadap kinerja \textit{Elastic Search} itu sendiri. Oleh karena itu, rancangan solusi dengan hal ini dirasa kurang cocok.
+% \subsection{Vertical Pod Autoscaler dari Kubernetes}
 
-\subsection{Sistem Kontrol Adaptif}
+% Kubernetes sendiri saat ini sedang mengembangkan Vertical Pod Autoscaler (VPA), \parencite{vpa}. Fitur ini sudah bisa dipakai meskipun masih dalam tahap pengembangan. Namun, jika menggunakan pendekatan ini, terdapat beberapa \textit{drawback}. Pertama, VPA perlu melakukan \textit{restart} terhadap \textit{pod} yang ingin dibesarkan sedangkan \textit{Elastic Search} menggunakan sistem sharding, apabila mematikan salah satu \textit{Node Elastic Search} maka hal tersebut akan menyebabkan \textit{Elastic Search} perlu melakukan \textit{balancing shard data} setiap kali \textit{autoscale} yang tentunya akan memakan ketersediaan dan sumber daya. Kedua, VPA menggunakan \textit{metrics} yang didapatkan dari Kubernetes bukan dari Elastic Search, hal ini akan menyebabkan kurangnya akurasi dan atau tidak tercapainya tujuan untuk membebaskan memori yang dipakai namun dampaknya tidak signifikan terhadap kinerja \textit{Elastic Search} itu sendiri. Oleh karena itu, rancangan solusi dengan hal ini dirasa kurang cocok.
+
+\section{Rancangan Solusi}
+
+\section{Sistem Kontrol Adaptif}
 \label{sec:sistemkontroladaptif}
 
 Sistem Kontrol Adaptif akan memanfaatkan \textit{metrics} yang didapat dari \textit{Elastic Search} secara periodik. Data tersebut akan dijadikan faktor dalam membuat keputusan untuk memperbesar atau memperkecil limit memori \textit{Elastic Search} tersebut. Sistem tersebut secara umum akan dibagi menjadi dua komponen, yaitu \textit{Metrics Collector} dan \textit{Memory Controller}.
 
-\section{Rancangan Solusi}
-
 Seperti yang sudah dijelaskan pada bagian sebelumnya, \ref{sec:sistemkontroladaptif}, Sistem Kontrol Adaptif akan disusun atas dua komponen, yaitu sebagai berikut.
 \subsection{Komponen \textit{Metrics Collector}}
-\label{sec:metricscontroller}
+\label{sec:metricscollector}
 
 Komponen ini bertugas untuk menarik data \textit{metrics} dari \textit{Elastic Search} menggunakan HTTP Client dan Database Connector Client. Data tersebut lalu akan disimpan ke sebuah database relasional yang dapat digunakan sebagai data historis. Sehingga, kedepannya dapat dilakukan analisis diagnostik dan analisis prediktif.
 
-\subsection{Komponen \textit{Memory Controller}}
+\subsection{Komponen \textit{Decision Maker}}
+Komponen \textit{Decision Maker} (DM) akan melakukan prediksi dan membuat model berdasarkan data historis yang sudah dikumpulkan.
+Komponen ini akan menggunakan data yang dikumpulkan oleh komponen Metrics Collector, \ref{sec:metricscollector}.
+Kakas yang akan dipakai, diantaranya HTTP Client, Database Connector Client, dan \textit{Library Machine Learning} atau \textit{Statistics}, jika diperlukan.
 
-Komponen ini bertugas untuk membuat keputusan untuk memperbesar, membiarkan atau memperkecil limit memory \textit{Elastic Search}. Komponen ini akan menggunakan data yang dikumpulkan oleh komponen Metrics Controller, \ref{sec:metricscontroller}. Kakas yang akan digunakan oleh komponen ini adalah Kubernetes Client Library, Database Connector Client, dan Library Machine Learning, jika diperlukan.
+\subsection{Komponen \textit{Resource Controller}}
 
-Adapun algoritma yang akan digunakan untuk membuat keputusan. Saat ini ada beberapa pilihan algoritma yang dapat diterapkan sebagai pembuat keputusan.
+Komponen ini bertugas untuk memperbesar, membiarkan atau memperkecil resource \textit{Elastic Search}. Kakas yang akan digunakan oleh komponen ini adalah Kubernetes Client Library dan HTTP Client.
 
-\subsubsection{Greedy, Trial and Error}
-\label{sec:greedytrialerror}
+% \subsection{\textit{Data Gathering: Greedy, Trial and Error}}
 
-Secara periodik, algoritma ini akan memaksa memangkas limit memori sebesar 50 persen dari kondisi sekarang.
-Apabila kinerja \textit{Elastic Search} memburuk, algoritma akan mengembalikan limit memori sebesar 50 persen dari kondisi saat itu.
-Hal ini akan terus dilakukan sampai konfigurasi algoritma sistem diubah.
-
-\subsubsection{Support Vector Machine}
-
-Awalnya, algoritma ini akan memakai algoritma sebelumnya, \ref{sec:greedytrialerror}, untuk mengumpulkan data.
-Setelah data terkumpul, algoritma ini akan memprediksi menggunakan  Support Vector Machine untuk memutuskan melakukan peningkatan atau pengurangan limit memori.
-Jika terjadi perubahan trend atau kebiasaan, algoritma akan melakukan training ulang dari data-data terbaru.
-Support Vector Machine ini akan menerima \textit{input} berupa memori yang dipakai, \textit{request per second}, waktu untuk melakukan pencarian, waktu untuk melakukan aggregasi, waktu untuk melakukan penggabungan.

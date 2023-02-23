@@ -2,55 +2,39 @@
 
 Pada bab ini, akan diisi oleh studi literatur, hal-hal yang berkaitan dengan topik persoalan tugas akhir akan dipaparkan dalam bab ini guna untuk memberikan informasi mengenai dasar teori dan studi yang dipakai. Bab ini diharapkan membantu pembaca untuk mengerti dalam membaca penelitian tugas akhir ini.
 
-\input{chapters/chapter-2/info-retri}
+\input{chapters/chapter-2/01-info-retri}
 
-\input{chapters/chapter-2/apache-lucene}
+\input{chapters/chapter-2/02-apache-lucene}
 
-\input{chapters/chapter-2/inverted-index}
+\input{chapters/chapter-2/03-inverted-index}
 
-\input{chapters/chapter-2/elastic-search}
+\input{chapters/chapter-2/04-elastic-search}
 
-\input{chapters/chapter-2/jvm}
+\input{chapters/chapter-2/05-jvm}
 
-\section{\textit{Indexing and Caching}}
-Kita dapat mencari halaman yang berisikan suatu topik atau kata kunci pada sebuah buku teks dengan melihat indeks sebuah buku. Indeks disusun secara terurut dan mengurangi usaha untuk mencari suatu hal yang diinginkan oleh penggunanya. Secara umum, indeks pada sebuah file di sebuah basis data berlaku sama pada indeks di buku teks, \parencite{database}.
+\input{chapters/chapter-2/06-index}
 
-Konsep \textit{caching} sendiri adalah menyimpan data yang sering diakses pada level cache atau memori yang lebih dekat dengan CPU agar dapat diakses dengan cepat saat ingin melakukan pencarian, lihat gambar \ref{fig:cache-level}. \textit{Cache} sendiri biasanya memiliki ruang yang terbatas sehingga biasanya membuang data yang sudah tidak diakses sehingga jika dibutuhkan harus dicari ke \textit{storage}. Konsep ini ditiru oleh basis data dan aplikasi \textit{information retrieval} untuk mempercepat proses pencarian dengan memanfaatkan \textit{indexing} untuk mencari (lihat gambar \ref{fig:cache-app}) dan \textit{caching} untuk mengembalikan data yang sering diakses dengan memanfaatkan memori.
+\input{chapters/chapter-2/07-cache}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{chapter-2/cache-app.png}
-    \caption{Prinsip Cache pada Aplikasi}
-    \label{fig:cache-app}
-\end{figure}
+\input{chapters/chapter-2/08-kubernetes}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{chapter-2/cache-memory.jpeg}
-    \caption{Level-level pada Cache}
-    \label{fig:cache-level}
-\end{figure}
+\input{chapters/chapter-2/09-pod}
 
-\section{Kubernetes}
+\input{chapters/chapter-2/10-autoscaler} 
 
-\subsection{Pod}
-Pod adalah unit komputasi terkecil yang dapat dibuat dan dikelola dalam Kubernetes. Pod berisi lebih dari satu kontainer dan memiliki jaringan serta penyimpanan yang dipakai bersama serta spesifikasi untuk menjalankan kontainer didalamnya, \parencite{pod}.
+\input{chapters/chapter-2/11-horizontal-autoscaler}
 
-\subsection{\textit{Autoscaler}}
-\textit{Autoscaler} adalah komponen yang mengatur alokasi sumber daya komputasi secara dinamis yang disesuaikan dengan beban layanan pada saat tertentu. Saat ini di Kubernetes, terdapat dua pendekatan \textit{Autoscaling} 
+\input{chapters/chapter-2/12-vertical-autoscaler}
 
-\subsubsection{\textit{Horizontal Autoscaler}}
-\textit{Horizontal Autoscaler} fokus untuk melakukan penskalaan dengan bantuan replikasi. \textit{Kubernetes Horizontal Pod Autoscaler} secara otomatis akan menlakukan penskalaan jumlah pod yang di-\textit{deploy} sehingga dapat menyesuaikan dengan kebutuhan dengan cara menambah atau mengurangi replikasi yang ada, \parencite{hpa}. 
+\input{chapters/chapter-2/13-kubernetes-client-lib}
 
-\subsubsection{\textit{Vertical Autoscaler}}
-Berbeda dengan cara horizontal, \textit{Vertical Autoscaler} lebih fokus untuk mengubah ukuran alokasi utilisasi pada pod yang ada. \textit{Kubernetes Vertical Pod Autoscaler} berguna untuk mengotomasi reservasi CPU dan memori yang sesuai. Penyesuaian ini dapat meningkatkan kluster kubernetes spesifiknya pada utilitasi sumber daya karena dapat mengurangi alokasi CPU dan memori pada sebuah \textit{node} agar bisa dipakai oleh pod lain, \parencite{vpa2}.
+\input{chapters/chapter-2/14-prediksi-statistik}
 
-\input{chapters/chapter-2/kubernetes-client-lib}
-
-\input{chapters/chapter-2/prediksi-statistik}
-
+\input{chapters/chapter-2/15-simulasi}
 % \section{Pembelajaran Mesin}
 % Pembelajaran Mesin adalah sebuah bidang pembelajaran yang mempelajari pemahaman dan membangun metode untuk "belajar" dengan memanfaatkan data untuk meningkatkan banyak aspek terutama efisiensi dan kualitas terhadap suatu rangkaian tugas. Algoritma pembelajaran mesin membangun model berdasarkan data sampel yang biasa disebut \textit{training data} untuk menghasilkan model yang dapat memprediksi atau membuat keputusan tanpa diprogram secara eksplisit, \parencite{ml}.
 
 % \subsection{\textit{Reinforcement Learning}}
 % \textit{Reinforcement learning} atau RL adalah bidang pembelajaran mesin yang mengotomasi sebuah agen untuk mengambil tindakan dan memaksimalkan \textit{reward} dari aksi yang dilakukan, \parencite{reinforcementlearning}. RL adalah salah satu paradigma dari tiga pembelajaran mesin dasar seperti \textit{Supervised Learning} dan \textit{Unsupervised Learning}. Singkatnya, RL membuat agen dapat mengoreksi pengetahuannya secara terus menerus agar dapat memaksimalkan fungsinya. Berbeda dengan \textit{Supervised Learning}, RL tidak memerlukan label dan tidak memerlukan secara eksplisit dikoreksi. Fokus dalam membangun RL, adalah mencari keseimbangan eksplorasi terhadap lingkungan baru dan eksploitasi terhadap pengetahuan yang dimiliki.
+
+% penelitian terkait
