@@ -3,7 +3,22 @@ Prediksi statistik adalah proses memprediksi nilai di masa depan dari suatu vari
 
 Dalam prediksi statistik, model matematis dikembangkan untuk menggambarkan hubungan antara variabel input dan variabel output yang ingin diprediksi. Model ini akan digunakan untuk memperkirakan nilai variabel output berdasarkan nilai variabel input yang diberikan. Tujuannya adalah untuk menghasilkan prediksi yang akurat dengan menggunakan model yang dapat diuji dan diperbaiki berdasarkan data historis yang tersedia.
 
-\section{Model Prediksi}
+\section{Model Prediktif}
+\textit{Predictive Modelling} atau Pemodelan Prediksi adalah proses mengembangkan alat matematis atau model yang dapat menghasilkan prediksi yang akurat, \parencite{appliedpredictivemodel}. Pemodelan prediksi adalah teknik matematika yang digunakan untuk memprediksi suatu hal di masa depan berdasarkan data historis yang tersedia. 
+Adapun teknik model prediksi yang sudah ada, seperti regresi linear, \textit{time series} (contohnya ARIMA dan SARIMA), \textit{random forest}, \textit{decision tree}, \textit{neural network} dan sebagainya. Teknik-teknik ini sudah umum digunakan dalam berbagai aplikasi.
+
+\section{Teknik Pengembangan Pemodelan Prediktif}
+
+Pengembangan model prediktif merupakan suatu proses yang kompleks dan membutuhkan berbagai tahapan. Umumnya dalam melakukan pengembangan, pengembang memilih teknik yang ingin digunakan. Salah satu opsi teknik pengembangan model prediktif yang umum digunakan adalah melihat dari data yang diolah, yaitu teknik \textit{streaming model} dan \textit{batch model}. Pemilihan teknik ini tergantung dari karakteristik data yang ada dan tujuan prediksi yang ingin dicapai.
+
+\subsection{\textit{Streaming Model}}
+\textit{Streaming model} adalah teknik pemodelan prediktif yang digunakan untuk memprediksi data secara \textit{real time} dengan cara memasukkan data ke dalam aliran kontinu sehingga model diperbarui secara terus-menerus. Teknik ini biasanya digunakan pada data deret waktu karena setiap observasi data memiliki ketergantungan pada waktu sebelumnya. \textit{Streaming model} memanfaatkan algoritma \textit{machine learning} seperti regresi linear, ARIMA, dan LSTM, serta teknik-teknik pengolahan data lain yang dapat melakukan prediksi dengan cepat dan akurat. Keuntungan dari teknik ini adalah hasil prediksi yang relevan dengan data \textit{real time}, sehingga memungkinkan pengambilan keputusan yang relevan dengan kondisi atau \textit{state} saat itu.
+
+\subsection{\textit{Batch Model}}
+\textit{Batch model} adalah teknik pemodelan prediktif yang mengacu pada pemrosesan data dalam \textit{batch} atau kelompok besar yang dilakukan dengan cara mengumpulkan data dan diproses secara terpisah. Dalam teknik ini, model dibuat berdasarkan data yang tersedia dan terpisah dari data \textit{real time}, kemudian model tersebut digunakan untuk memprediksi data yang akan datang. \textit{Batch model} memanfaatkan teknik-teknik \textit{machine learning} seperti regresi, \textit{decision tree}, \textit{clustering} dan \textit{neural network}. Keuntungan teknik ini adalah kemampuan proses dan analisis data dalam volume besar dalam satu waktu, sehingga pengambilan keputusan berdasarkan analisis yang mendalam. Namun, teknik ini kurang cocok untuk memproses data \textit{real time} karena memerlukan waktu untuk mengumpulkan, memproses, dan menganalisis data secara keseluruhan. Tak hanya itu, tipe model ini tidak dapat melakukan analisis terhadap data historis yang saling dependen satu sama lain.
+
+\section{Model Prediktif \textit{Time Series}}
+\textit{Time Series Predictive Model} adalah suatu metode untuk memprediksi nilai masa depan suatu variabel berdasarkan data historis dari variabel tersebut. Model ini memanfaatkan pola atau tren dalam data yang teramati untuk memperkirakan nilai masa depan. Model \textit{time series} berfokus pada karakteristik data dalam rentang waktu, seperti trend, musiman, dan faktor acak. Model ini sangat berguna dalam melakukan prediksi, identifikasi tren, dan memperkirakan fluktuasi dalam data yang dianalisis. Model ini memeriksa perilaku data dalam beberapa waktu terakhir untuk menentukan pola dan tren yang mungkin berulang di masa depan. Selain itu, model ini dapat digunakan untuk mengidentifikasi faktor-faktor yang mempengaruhi variabel yang diamati dan mengukur dampaknya di masa depan. \parencite{timeseriesanalysis}
 
 \subsection{\textit{Autoregressive Integrated Moving Average} (ARIMA)}
 
