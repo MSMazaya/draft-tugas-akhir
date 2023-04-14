@@ -2,88 +2,14 @@
 
 Konten pada bab ini berisi terkait gambaran umum dan permasalahan yang akan diselesaikan dalam tugas akhir ini. Bab ini akan dimulai dari penjelasan latar belakang dari masalah yang diselesaikan, rumusan masalah, tujuan, batasan masalah, metodologi yang digunakan, dan berakhir pada sistematika penulisan tugas akhir ini.
 
-\section{Latar Belakang}
+\input{chapters/chapter-1/01-latar-belakang}
 
-\textit{Information Retrieval} (IR) adalah penemuan bahan seperti dokumen yang bersifat terstruktur yang memenuhi kebutuhan informasi dari dalam koleksi besar yang tersimpan di dalam komputer \parencite{introtoinforetri}. IR saat ini sangat sering dilakukan contohnya dalam pencarian informasi berkaitan dengan representasi, penyimpanan, pengaturan, dokumen, halaman web, katalog online, catatan, dan objek multimedia. Salah satu aplikasi yang membantu dalam melakukan hal tersebut adalah Elastic Search.
+\input{chapters/chapter-1/02-rumusan-masalah}
 
-\textit{Elasticsearch} merupakan mesin pencarian dan analitik terdistribusi yang dibangun di Apache Lucene. \textit{Elasticsearch} telah dengan cepat menjadi mesin pencari paling populer dan biasa digunakan untuk analisis log, pencarian teks lengkap, inteligensi keamanan, analisis bisnis, dan kasus penggunaan inteligensi operasional \parencite{elasticsearch}.
+\input{chapters/chapter-1/03-tujuan}
 
-Proses \textit{Elastic Search} menggunakan JVM. Umumnya pada \textit{Elastic Search}, hampir 50 persen memori yang tersedia akan dialokasikan ke JVM. Pemrosesan data berukuran besar dalam \textit{in-memory computing} dalam JVM memakan sangat banyak memory \parencite{jvm}. Dalam konteks \textit{Elastic Search}, mesin JVM memerlukan memakai memori karena Apache Lucene membutuhkan melakukan pengindeksan. Sedangkan, 50 persen sisanya akan dipakai untuk melakukan \textit{caching} dalam memori agar mempercepat pencarian file yang sering diakses.
+\input{chapters/chapter-1/04-batasan-masalah}
 
-Hal ini menyebabkan \textit{Elastic Search} akan memakan memori sebanyak-banyaknya untuk dipakai \textit{caching}. Sedangkan, dalam segi kebutuhan, belum tentu semua data pada \textit{cache} akan dipakai. Ada kalanya waktu saat banyak terjadi \textit{miss} karena data yang dicari terlalu bervariasi. Atau kondisi lain seperti \textit{cost cache} yang terlalu besar dan tidak sebanding dengan pengunaan memori pada suatu \textit{Kubernetes Cluster}. Kondisi seperti itu tidak menjadi masalah ketika sebuah \textit{node} sedang kosong dan punya banyak memori. Namun, akan menjadi masalah ketika ada aplikasi lain yang ingin memakai bersama \textit{node} tersebut dan memori telah dipakai habis oleh \textit{Elastic Search}.
+\input{chapters/chapter-1/05-metodologi}
 
-Untuk menangani hal tersebut, Kubernetes sendiri sudah memiliki fitur bernama \textit{resource limit}. Fitur ini digunakan untuk membatasi pengunaan sumber daya oleh sebuah aplikasi. Namun, \textit{resource limit} ini bersifat statik dan tidak adaptif. Jika ingin mengubahnya, diperlukan pengubahan konfigurasi melalui file \textit{deployment} atau perintah \textit{kubectl}. Sedangkan, performa suatu \textit{information retrieval} sangat dinamis dan apabila ingin mengontrol pengunaan memori berdasarkan performa membutuhkan alat yang sangat dinamis.
-
-Kubernetes sendiri sudah memiliki \textit{auto-scaler} yang dinamis. Pada \textit{auto-scaler} versi horizontal, komponen ini akan mereplikasi secara otomatis ketika performa memburuk. Namun, \textit{auto-scaler} ini akan mematikan dan menyalakan \textit{node} baru pada kluster \textit{Elastic Search}. Dan oleh karena itu, akan terjadi banyak \textit{balancing} dan replikasi \textit{shard} pada \textit{Elastic Search} yang menyebabkan banyak \textit{overhead} apabila terlalu sering terjadi penambahan atau pengurangan \textit{node} pada kluster \textit{Elastic Search}. Sedangkan, pada \textit{auto-scaler} versi vertikal, komponen ini masih dikembangkan oleh Kubernetes, dan mengharuskan Kubernetes untuk melakukan \textit{restart} pada \textit{node} yang di-\textit{scale} secara vertikal yang berarti kasusnya tidak jauh beda dengan \textit{scaling} secara horizontal.
-
-\section{Rumusan Masalah}
-
-Berdasarkan latar belakang yang ada, rumusan tugas akhir ini adalah sebagai berikut.
-\begin{enumerate}
-    \item Bagimana cara untuk mengontrol pengunaan memori \textit{Elastic Search} tanpa melakukan \textit{restart} atau penambahan \textit{node} baru?
-    \item Bagaimana dampak memori yang dipakai terhadap kinerja aplikasi?
-    \item Bagaimana cara untuk mengontrol alokasi sumber daya suatu aplikasi tanpa mengurangi kinerja aplikasi?
-    \item Bagaimana dampak \textit{adaptive control} terhadap efisiensi penggunaan sumber daya?
-\end{enumerate}
-
-\section{Tujuan}
-
-Tujuan yang akan dicapai untuk tugas akhir ini adalah sebagai berikut.
-
-\begin{enumerate}
-    \item Mengembangkan sebuah komponen yang menarik \textit{metrics} dari \textit{Elastic Search}.
-
-    \item Mengembangkan sebuah komponen yang mempelajari dampak sumber daya berupa memori dan kondisi terhadap \textit{metrics} sehingga dapat memprediksi ukuran memori yang cocok dan efisien.
-
-    \item Mengetahui dampak pengaplikasian \textit{adaptive control} tersebut terhadap efisiensi penggunaan memori pada \textit{Elastic Search}.
-\end{enumerate}
-
-\section{Batasan Masalah}
-
-Terdapat batasan yang diambil dalam pelaksanaan tugas akhir ini, yaitu sebagai berikut.
-
-\begin{enumerate}
-    \item Solusi yang diimplementasikan akan pada level \textit{Pods} Kubernetes.
-    \item Solusi yang diimplementasikan hanya akan spesifik pada \textit{Elastic Search}.
-    \item Solusi yang diajukan tidak akan memakai replika dan akan dianggap sebagai solusi untuk satu buah \textit{node Elastic Search}.
-    \item Agar mensimulasikan lingkungan dengan sumber daya terbatas, solusi yang diajukan akan memakai lingkungan Kubernetes dengan \textit{single node}.
- \end{enumerate}
-
-\section{Metodologi}
-
-Terdapat metodologi yang digunakan untuk melaksanakan tugas akhir ini, berikut adalah tahapan pelaksanaan.
-\subsection{Identifikasi Permasalahan}
-Tahapan ini adalah tahapan untuk melakukan identifikasi permasalahan. Hasil dari tahapan ini dijadikan gagasan utama dan arah kerja dalam tugas akhir ini.
-\subsection{Perancangan Solusi}
-Setelah mengidentifikasi permasalahan, dilakukan perancangan solusi yang bertujuan untuk mencari metode dan pendekatan yang dapat dikembangkan untuk menyelesaikan permasalahan yang ada. Analisis ini dimulai dari eksplorasi metode melalui studi literatur.
-\subsection{Implementasi}
-Setelah merancang solusi, gagasan tersebut akan dikembangkan dan diimplementasikan. Tahap ini akan menghasilkan dua hal sebagai berikut.
-\subsubsection{Komponen \textit{Metrics Collector}}
-Komponen yang akan mencatat kinerja dari aplikasi terhadap variabel sumber daya yang dipakai.
-\subsubsection{Komponen \textit{Memory Controller}}
-Komponen yang akan memutuskan alokasi sumber daya berdasarkan catatan kinerja yang telah disimpan menggunakan pembelajaran mesin.
-\subsection{Eksperimen Pengujian}
-Hasil implementasi yang sudah dibuat pada tahapan sebelumnya akan diuji pada tahapan ini. Tahapan ini juga akan melakukan analisis dampak pengaplikasian \textit{adaptive control} terhadap efisiensi sumber daya.
-\subsection{Evaluasi Hasil Eksperimen}
-Hasil eksperimen pada tahapan sebelumnya akan dianalisis dan dievaluasi. Jika kurang memuaskan, hasil dari eksperimen ini bisa digunakan untuk meningkatkan dampak \textit{adaptive control} terhadap efisiensi sumber daya yang dimiliki. Namun, jika sudah sesuai yang diekspektasikan, maka hasil eksperimen ini akan cukup untuk membuktikan efisiensi yang tercipta dari implementasi \textit{adaptive control}.
-
-\section{Sistematika Pembahasan}
-
-Konten dari Tugas Akhir ini akan dibagi menjadi lima bab sebagai berikut.
-\begin{enumerate}
-    \item Pendahuluan
-    \item Studi Literatur
-    \item Analisis Masalah dan Rancangan Solusi
-    \item Implementasi dan Pengujian
-    \item Kesimpulan dan Saran
-\end{enumerate}
-
-Pada Bab I akan dijelaskan gagasan utama dari tugas akhir ini yang berisi dari latar belakang, rumusan masalah, tujuan, batasan, metodologi hingga sistematika pembahasan.
-
-Selanjutnya, Bab II akan menjelaskan hasil studi literatur yang berkaitan dengan pengerjaan tugas akhir ini. Bab II ini berisi tentang pemahaman dasar seputar topik yang akan dibahas pada tugas akhir ini.
-
-Pada Bab III akan dijelaskan ulang masalah serta latar belakang untuk menyusun rancangan solusi. Di bab ini juga akan dipaparkan beberapa rancangan solusi yang kemudian akan dijelaskan lebih lanjut dan dipilih sebagai topik yang akan diimplementasikan pada bab selanjutnya.
-
-% Bab IV ...
-
-% Bab V akan menjadi penutup pada tugas akhir ini. Konten pada bab ini akan menjelaskan jawaban terhadap rumusan masalah pada bab I. Pada bab ini juga akan disebutkan saran-saran perbaikan yang bisa dipakai untuk penelitian berikutnya. Bab ini akan menyimpulkan hasil implementasi dan rancangan solusi terhadap masalah yang sudah diidentifikasi.
+\input{chapters/chapter-1/06-sistematika-pembahasan}

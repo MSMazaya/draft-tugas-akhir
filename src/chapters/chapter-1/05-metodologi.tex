@@ -1,0 +1,49 @@
+\section{Metodologi}
+
+Terdapat metodologi yang digunakan untuk melaksanakan tugas akhir ini, berikut adalah tahapan pelaksanaan.
+\begin{enumerate}
+    \item Identifikasi Permasalahan
+    
+    Tahapan ini adalah tahapan untuk melakukan identifikasi permasalahan. Hasil dari tahapan ini dijadikan gagasan utama dan arah kerja dalam tugas akhir ini.
+
+    \item Perancangan Solusi
+    
+    Setelah mengidentifikasi permasalahan, dilakukan perancangan solusi yang bertujuan untuk mencari metode dan pendekatan yang dapat dikembangkan untuk menyelesaikan permasalahan yang ada. Analisis ini dimulai dari eksplorasi metode melalui studi literatur lalu ke penelitian yang pernah dilakukan.
+
+    \item Implementasi
+    
+    Setelah merancang solusi, gagasan tersebut akan dikembangkan dan diimplementasikan. Tahap ini akan terdiri dari beberapa bagian yaitu sebagai berikut.
+    \begin{enumerate}
+        \item Persiapan
+    
+        Mula-mula, dilakukan persiapan \textit{pods} pada Kubernetes yang sudah berisi \textit{Elastic Search}.
+
+        \item Komponen \textit{Resource Controller}
+        
+        Setelah semua siap, implementasi dilanjutkan untuk mengontrol sumber daya yang dipakai oleh \textit{Elastic Search}.
+
+        \item Komponen \textit{Metrics Gatherer}
+        
+        Dilanjutkan dengan membuat komponen yang akan menarik data \textit{metrics} dari \textit{Elastic Search}.
+
+        \item Komponen \textit{Decision Maker}
+        
+        Bagian ini dimulai dengan menentukan variabel yang akan dipakai pada data yang diberikan oleh komponen \textit{Metrics Gatherer}. Setelah itu, implementasi dilanjutkan dengan pengembangan model untuk menentukan keputusan kontrol berdasarkan data historis yang tersedia.
+
+        \item Simulasi
+        
+        Bagian ini bertujuan untuk melakukan validasi terhadap model yang telah dikembangkan. Simulasi akan dilakukan dengan \textit{Elastic Benchmark}.
+    
+        \item Evaluasi Hasil Eksperimen
+        
+        Hasil eksperimen pada tahapan sebelumnya akan dianalisis dan dievaluasi. Jika kurang memuaskan, hasil dari eksperimen ini bisa digunakan untuk meningkatkan dampak \textit{adaptive control} terhadap efisiensi sumber daya yang dimiliki. Namun, jika sudah sesuai yang diekspektasikan, maka hasil eksperimen ini akan cukup untuk membuktikan efisiensi yang tercipta dari implementasi \textit{adaptive control}.
+    \end{enumerate}
+\end{enumerate}
+% \subsubsection{Komponen \textit{Metrics Collector}}
+% Komponen yang akan mencatat kinerja dari aplikasi terhadap variabel sumber daya yang dipakai.
+% \subsubsection{Komponen \textit{Memory Controller}}
+% Komponen yang akan memutuskan alokasi sumber daya berdasarkan catatan kinerja yang telah disimpan menggunakan pembelajaran mesin.
+% \subsection{Eksperimen Pengujian}
+% Hasil implementasi yang sudah dibuat pada tahapan sebelumnya akan diuji pada tahapan ini. Tahapan ini juga akan melakukan analisis dampak pengaplikasian \textit{adaptive control} terhadap efisiensi sumber daya.
+% \subsection{Evaluasi Hasil Eksperimen}
+% Hasil eksperimen pada tahapan sebelumnya akan dianalisis dan dievaluasi. Jika kurang memuaskan, hasil dari eksperimen ini bisa digunakan untuk meningkatkan dampak \textit{adaptive control} terhadap efisiensi sumber daya yang dimiliki. Namun, jika sudah sesuai yang diekspektasikan, maka hasil eksperimen ini akan cukup untuk membuktikan efisiensi yang tercipta dari implementasi \textit{adaptive control}.
