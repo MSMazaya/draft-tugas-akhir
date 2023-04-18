@@ -5,7 +5,7 @@ Pada bab ini, akan diisi oleh studi literatur, hal-hal yang berkaitan dengan top
 \section{Sistem Terdistribusi}
 \label{sec:sister}
 
-Berdasarkan \parencite{distributedsystem}, Sistem terdistribusi adalah sistem yang terdiri dari beberapa komputer yang saling terhubung melalui jaringan komputer dan berkomunikasi melalui jaringan tersebut dengan cara bertukar pesan atau \emph{message passing}. Ada beberapa karakteristik dari sistem terdistribusi:
+Berdasarkan \parencite{{distributedsystem}, Sistem terdistribusi adalah sistem yang terdiri dari beberapa komputer yang saling terhubung melalui jaringan komputer dan berkomunikasi melalui jaringan tersebut dengan cara bertukar pesan atau \emph{message passing}. Ada beberapa karakteristik dari sistem terdistribusi:
 
 \subsection{\emph{Concurrency}}
 Program berjalan secara konkuren pada setiap komputer dalam suatu sistem terdistribusi.
@@ -22,7 +22,7 @@ Seperti yang dibahas pada bagian \ref{sec:sister}, ada dua karakteristik yang cu
 Menjalankan beberapa program secara konkuren pada komputer yang sama apabila saling berkegantungan membutuhkan sebuah penanganan khusus apabila program yang lain gagal.
 Masalah bertambah ketika program dijalankan secara konkuren pada komputer yang berbeda. Hal-hal yang harus diperhatikan tentunya bertambah seperti masalah jika jaringan terputus, pesan yang dikirimkan hilang, komputer sedang tidak berjalan, dan sebagainya.
 
-Eric Brewer mencetuskan teorema bernama CAP yang sebenarnya merupakan singkatan dari \emph{consistency}, \emph{availability}, dan \emph{Partial tolerance}. Teorema CAP menegaskan bahwa setiap sistem terdistribusi yang menyimpan data dan menggunakan jaringan hanya dapat memiliki dua dari tiga sifat yang diinginkan. Namun, sebenarnya desainer dapat mengoptimalkan komponen konsistensi dan ketersediaan sehingga dapat menimalisir \emph{tradeoff} dari ketiganya \parencite{captheorem}.
+Eric Brewer mencetuskan teorema bernama CAP yang sebenarnya merupakan singkatan dari \emph{consistency}, \emph{availability}, dan \emph{Partial tolerance}. Teorema CAP menegaskan bahwa setiap sistem terdistribusi yang menyimpan data dan menggunakan jaringan hanya dapat memiliki dua dari tiga sifat yang diinginkan. Namun, sebenarnya desainer dapat mengoptimalkan komponen konsistensi dan ketersediaan sehingga dapat menimalisir \emph{tradeoff} dari ketiganya \parencite{{captheorem}.
 
 Untuk memilih dua dari tiga sifat yang disebutkan harus ditentukan dari sistem terdistribusi yang dibangun. Terdapat kasus contoh dan penjelasan sebagai berikut.
 
@@ -36,15 +36,15 @@ Sistem ini biasa digunakan pada sistem yang tidak bisa mengorbankan konsistensi 
 Sebaliknya, sistem ini mengorbankan faktor konsistensi data. Bukan berarti data tidak pernah konsisten, namun dikenal sebuah istilah \emph{eventually consistent}. Pada sistem yang menggunakan pendekatan AP, kekonsistenan data akan tercapai seiring berjalannya waktu yang berarti komputer-komputer pada sebuah sistem akan berusaha untuk bertukar dan memperbaharui data sehingga pada akhirnya data akan konsisten.
 
 \section{\emph{Microservices}}
-\emph{Microservices} adalah layanan yang otonom, berukuran kecil, dan saling bekerja sama dengan \emph{microservice} lainnya. Sebuah \emph{microservice} biasa hidup di dalam sebuah sistem terdistribusi karena sifatnya yang saling membutuhkan layanan lain untuk bekerja sama. Lawan dari \emph{microservice} adalah layanan \emph{monolith}, sebuah layanan yang berukuran besar dan disusun oleh banyak layanan pada layanan yang sama \parencite{microservice}.
+\emph{Microservices} adalah layanan yang otonom, berukuran kecil, dan saling bekerja sama dengan \emph{microservice} lainnya. Sebuah \emph{microservice} biasa hidup di dalam sebuah sistem terdistribusi karena sifatnya yang saling membutuhkan layanan lain untuk bekerja sama. Lawan dari \emph{microservice} adalah layanan \emph{monolith}, sebuah layanan yang berukuran besar dan disusun oleh banyak layanan pada layanan yang sama \parencite{{microservice}.
 
 \subsection{Prinsip \emph{Microservice}}
-Menurut \parencite{microservice} terdapat 7 prinsip \emph{microservice}, lihat gambar \ref{fig:prinsip-microservice}.
+Menurut \parencite{{microservice} terdapat 7 prinsip \emph{microservice}, lihat gambar \ref{fig:prinsip-microservice}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{chapter-2/prinsip-microservice.png}
-    \caption{7 Prinsip \emph{Microservice} menurut \parencite{microservice}}
+    \caption{7 Prinsip \emph{Microservice} menurut \parencite{{microservice}}
     \label{fig:prinsip-microservice}
 \end{figure}
 
@@ -76,11 +76,11 @@ Dengan ketujuh prinsip tersebut, dapat digeneralisir, bahwa layanan \emph{micros
 \section{Virtualisasi}
 \label{sec:virtualisasi}
 \subsection{\emph{Container}}
-Seperti namanya, \emph{container} adalah sebuah kontainer yang mengemas aplikasi dengan mengabstraksikan lingkungan aplikasi tersebut. Di dalam kontainer terdapat kode dan \emph{dependencies} dari aplikasi agar dapat dijalankan dengan mudah dan lebih konsisten pada semua lingkungan komputasi \parencite{containers}.
+Seperti namanya, \emph{container} adalah sebuah kontainer yang mengemas aplikasi dengan mengabstraksikan lingkungan aplikasi tersebut. Di dalam kontainer terdapat kode dan \emph{dependencies} dari aplikasi agar dapat dijalankan dengan mudah dan lebih konsisten pada semua lingkungan komputasi \parencite{{containers}.
 
 \subsection{\emph{Virtual Machine}}
 \emph{Virtual Machine} melakukan pendekatan virtualisasi dengan mengabstraksikan mulai dari lapisan \emph{hardware stack}. Sehingga, \emph{virtual machine} menempel dengan sistem \emph{hypervisor}. //TODO masih kurang
 
 \subsection{Perbandingan menggunakan \emph{Virtual Machine} dan \emph{Containerization}}
 \label{sec:virtualvscontainer}
-Sistem \emph{hypervisor} membolehkan mesin dapat menjalankan beberapa sistem operasi tamu jalan di atas sistem operasi utama dengan mengabstraksi sistem komputasi, penyimpanan dan jaringan. Cara kerjanya dengan menggunakan \emph{binary translation} atau \emph{hardware virtualization}. Sedangkan, sebuah \emph{container} merupakan sistem operasi yang lebih ringan yang berjalan di dalam sistem operasi utama dan menjalankan instruksi pada \emph{CPU Core} asli. Sehingga, tidak diperlukannya melakukan translasi atau emulasi instruksi seperti yang dilakukan pada \emph{virtual machine}. Oleh karena itu, \emph{Containerization} lebih menghemat pemakaian sumber daya karena dinilai berhasil menghilangkan \emph{overhead} pada \emph{virtual machine} sambil memberikan sifat isolasi \parencite{virtualvscontainer}.
+Sistem \emph{hypervisor} membolehkan mesin dapat menjalankan beberapa sistem operasi tamu jalan di atas sistem operasi utama dengan mengabstraksi sistem komputasi, penyimpanan dan jaringan. Cara kerjanya dengan menggunakan \emph{binary translation} atau \emph{hardware virtualization}. Sedangkan, sebuah \emph{container} merupakan sistem operasi yang lebih ringan yang berjalan di dalam sistem operasi utama dan menjalankan instruksi pada \emph{CPU Core} asli. Sehingga, tidak diperlukannya melakukan translasi atau emulasi instruksi seperti yang dilakukan pada \emph{virtual machine}. Oleh karena itu, \emph{Containerization} lebih menghemat pemakaian sumber daya karena dinilai berhasil menghilangkan \emph{overhead} pada \emph{virtual machine} sambil memberikan sifat isolasi \parencite{{virtualvscontainer}.
