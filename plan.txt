@@ -1,0 +1,15 @@
+1. elastic search
+    - done
+2. buat modul untuk fetch stats dari elastic search
+    - tinggal masukin ke db
+    - pilih-pilih apa aja yang mau jadi factor
+    - done
+3. riset soal resource control di kubernetes
+4. buat modul untuk resource control
+5. modul arima, predict resource usage
+6. inject data untuk benchmark
+7. compare without and with adaptive control
+8. buat uji coba kasus:
+    - rame mendadak
+    - rame stabil
+    - sepi

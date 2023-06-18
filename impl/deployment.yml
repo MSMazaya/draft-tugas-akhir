@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  generateName: elasticsearch-
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+        - name: elasticsearch
+          image: docker.elastic.co/elasticsearch/elasticsearch:8.8.1
+          ports:
+            - containerPort: 9200
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              memory: 4Gi
+              cpu: 1
+          volumeMounts:
+            - name: data
+              mountPath: /usr/share/elasticsearch/data
+          env:
+            - name: cluster.name
+              value: cluster-ta
+            - name: node.name
+              value: node-1
+            - name: network.host
+              value: 0.0.0.0
+            - name: http.port
+              value: "9200"
+            - name: xpack.security.enabled
+              value: "false"
+            - name: discovery.seed_hosts
+              value: 0.0.0.0
+            - name: cluster.initial_master_nodes
+              value: '["node-1"]'
+      volumes:
+        - name: data
+          emptyDir: {}
