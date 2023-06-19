@@ -7,7 +7,11 @@
 3. riset soal resource control di kubernetes
 4. buat modul untuk resource control
 5. modul arima, predict resource usage
+    - yg belom: beresin masalah order, prediksi nilai selalu sama
+    - done
 6. inject data untuk benchmark
+    - save load model pake pickle
+    - done
 7. compare without and with adaptive control
 8. buat uji coba kasus:
     - rame mendadak
