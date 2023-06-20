@@ -1,15 +1,15 @@
 import requests
 import time
 import json
+import copy
+from configuration import STREAM_FILE_PATH, FETCHER_INTERVAL_SEC, ELASTICSEARCH_HOST
 
 GIB = 1073741824
-
-STREAM_FILE_PATH = "data.txt"
 
 LAST_FETCH = {}
 
 def fetch_node_stats():
-    url = 'http://localhost:9200/_nodes/stats'
+    url = ELASTICSEARCH_HOST + '/_nodes/stats'
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -80,7 +80,6 @@ def fetch_node_stats():
                     "refresh": 0,
                 }
             }
-        write = False
         if name in LAST_FETCH:
             changed = nodeTranslated[name]
             for each in changed["delta_time"].keys():
@@ -89,7 +88,11 @@ def fetch_node_stats():
                 changed["delta_total"][each] = nodeTranslated[name]["total"][each] - LAST_FETCH[name]["total"][each]
         LAST_FETCH[name] = nodeTranslated[name]
         with open(STREAM_FILE_PATH, 'a') as file:
-            file.write(json.dumps(nodeTranslated, separators=(',', ':')))
+            copied = copy.deepcopy(nodeTranslated)
+            for unused in ["time", "total"]:
+                for each in copied.keys():
+                    del copied[each][unused]
+            file.write(json.dumps(copied, separators=(',', ':')))
             file.write('\n')
     else:
         print('Failed to fetch node stats')
@@ -118,4 +121,4 @@ while True:
         fetch_node_stats()
     except ConnectionError:
         print('Connection error')
-    time.sleep(1)
+    time.sleep(FETCHER_INTERVAL_SEC)

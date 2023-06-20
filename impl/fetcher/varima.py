@@ -6,6 +6,8 @@ import pandas as pd
 from pmdarima import auto_arima
 from statsmodels.tsa.statespace.varmax import VARMAX
 
+# GAGAL GAGAL GAGAL
+
 NODE_NAME = "node-1"
 STREAM_FILE_PATH = 'data.txt'
 

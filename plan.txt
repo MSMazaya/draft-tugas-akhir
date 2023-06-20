@@ -17,3 +17,5 @@
     - rame mendadak
     - rame stabil
     - sepi
+
+saran: purger, merger batch data

@@ -19,3 +19,4 @@ thesis.pdf
 build/*
 .idea
 *.pdf
+__pycache__
