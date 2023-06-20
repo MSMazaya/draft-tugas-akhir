@@ -10,7 +10,6 @@
     - yg belom: beresin masalah order, prediksi nilai selalu sama
     - done
 6. inject data untuk benchmark
-    - save load model pake pickle
     - done
 7. compare without and with adaptive control
 8. buat uji coba kasus:
@@ -18,4 +17,11 @@
     - rame stabil
     - sepi
 
+besok harus:
+1. beresin main flow
+2. resource flow
+3. control rule
+4. siapin test
+5. uji coba
+6. laporan
 saran: purger, merger batch data

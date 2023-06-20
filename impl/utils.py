@@ -1,5 +1,5 @@
 import time
-from configuration import DEBUG, STREAM_FILE_PATH, NODE_NAME, MODEL_FILE_PATH, TIMEZONE, SAVE_MODEL
+from configuration import DEBUG, STREAM_FILE_PATH, NODE_NAME, MODEL_FILE_PATH, TIMEZONE, SAVE_MODEL, COMPONENTS
 import pandas as pd
 import numpy as np
 import json
@@ -60,7 +60,7 @@ def to_vector(stats_data):
     return np.asarray(result)
 
 def create_dataframe(data):
-    df = pd.DataFrame(data, columns=['Time', 'WriteLoad', 'Index', 'Get', 'Query', 'Fetch', 'Scroll', 'Suggest', 'Bulk', 'Flush', 'Refresh', 'CPUPercent', 'LoadAvg1m', 'LoadAvg5m', 'LoadAvg15m', 'MemUsedPercent'])
+    df = pd.DataFrame(data, columns=COMPONENTS)
     df['Time'] = pd.to_datetime(df['Time'], unit='ms')
     df['Time'] = df['Time'].dt.round('S')
     df['Time'] = pd.to_datetime(df['Time']).dt.tz_localize('UTC')

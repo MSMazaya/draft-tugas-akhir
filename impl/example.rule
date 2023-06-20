@@ -1,0 +1,5 @@
+id,type,action,amount,check_period,rule
+1,cpu,add,0.5,60,CPUPercent > 50
+2,cpu,rem,0.5,60,CPUPercent < 50
+3,mem,add,0.5,60,CPUPercent > 50
+4,mem,rem,0.5,60,CPUPercent > 50

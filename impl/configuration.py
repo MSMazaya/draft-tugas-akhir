@@ -9,3 +9,4 @@ OFFSET_TRESHOLD_RETRAIN = 120
 PREDICTOR_INTERVAL_SEC = 10
 SAVE_MODEL = False
 ELASTICSEARCH_HOST = 'http://localhost:9200'
+COMPONENTS = ['Time', 'WriteLoad', 'Index', 'Get', 'Query', 'Fetch', 'Scroll', 'Suggest', 'Bulk', 'Flush', 'Refresh', 'CPUPercent', 'LoadAvg1m', 'LoadAvg5m', 'LoadAvg15m', 'MemUsedPercent']
