@@ -19,9 +19,8 @@
 
 besok harus:
 1. beresin main flow
-2. resource flow
-3. control rule
-4. siapin test
-5. uji coba
-6. laporan
+2. resource control flow
+3. siapin test
+4. uji coba
+5. laporan
 saran: purger, merger batch data
