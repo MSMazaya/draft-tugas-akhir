@@ -22,6 +22,7 @@ def printd(*args):
         print(*args)
 
 def read_from_file():
+    readingtime = timings()
     with open(STREAM_FILE_PATH, 'r') as file:
         lines = file.readlines()
         if lines:
@@ -33,8 +34,11 @@ def read_from_file():
             #     file.write('')
             #     pass
             for i in range(len(result)):
-                result[i] = (to_vector(result[i][NODE_NAME]))
+                result[i] = to_vector(result[i][NODE_NAME])
+                #result[i] = to_vector(result[i])
+            printd("Reading data from file took", readingtime(), "ms")
             return result
+    printd("Reading data from file took", readingtime(), "ms")
     return []
 
 def to_vector(stats_data):

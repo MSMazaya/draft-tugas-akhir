@@ -8,6 +8,30 @@ from configuration import OFFSET_TRESHOLD_RETRAIN
 MODEL_RETRAINED = 0
 MODEL_UPDATED = 1
 
+class PredictComponentStorage:
+    def __init__(self, pcf):
+        assert type(pcf) is PredictComponentFactory
+        self.storage = pcf.build()
+        self.pcf = pcf
+        for c in pcf.components:
+            assert c in self.storage.keys()
+    
+    def forecast(self, second):
+        result = {}
+        for c in self.storage.keys():
+            predict = self.storage[c].forecast(second)
+            assert len(predict) == 2
+            result[c] = predict[1]
+        return result
+    
+    def update(self, new_data):
+        assert type(new_data) == pd.DataFrame
+        for c in self.pcf.components:
+            self.storage[c].update(new_data[c])
+    
+    def __str__(self):
+        return f"PredictComponentStorage({len(self.storage.keys())}):\n" + "\n".join([f"- {str(self.storage[x])}" for x in self.storage.keys()])
+
 class PredictComponentFactory:
 
     def __init__(self, data, components, treshold):
@@ -20,10 +44,10 @@ class PredictComponentFactory:
 
     def build(self):
         columns = set(self.data.columns.tolist())
-        result = []
+        result = {}
         for c in self.components:
             assert c in columns
-            result.append(PredictComponent(c, self.data[c], self.treshold))
+            result[c] = PredictComponent(c, self.data[c], self.treshold)
         return result
 
 class PredictComponent:
@@ -84,10 +108,7 @@ class PredictComponent:
             printd(f"({self.name}) Update time: {updatetiming()}ms, Next Retrain: {self.next_retrain}")
             return MODEL_UPDATED
     
-    def last_index(self):
-        return self.trained_model.nobs
-    
     def __str__(self):
         if (not self.is_trained):
-            return f"ARIMA ({self.name}) Not Trained"
-        return f"ARIMA ({self.name}) {self.order}"
+            return f'{"{:<14}".format(self.name)}: ARIMA Not Trained'
+        return f'{"{:<14}".format(self.name)}: ARIMA {self.order}'

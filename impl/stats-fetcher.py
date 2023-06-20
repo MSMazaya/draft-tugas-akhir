@@ -2,10 +2,9 @@ import requests
 import time
 import json
 import copy
-from configuration import STREAM_FILE_PATH, FETCHER_INTERVAL_SEC, ELASTICSEARCH_HOST
+from configuration import STREAM_FILE_PATH, FETCHER_INTERVAL_SEC, ELASTICSEARCH_HOST, NODE_NAME
 
 GIB = 1073741824
-
 LAST_FETCH = {}
 
 def fetch_node_stats():
@@ -88,34 +87,14 @@ def fetch_node_stats():
                 changed["delta_total"][each] = nodeTranslated[name]["total"][each] - LAST_FETCH[name]["total"][each]
         LAST_FETCH[name] = nodeTranslated[name]
         with open(STREAM_FILE_PATH, 'a') as file:
-            copied = copy.deepcopy(nodeTranslated)
+            copied = copy.deepcopy(nodeTranslated[NODE_NAME])
             for unused in ["time", "total"]:
-                for each in copied.keys():
-                    del copied[each][unused]
+                del copied[each][unused]
             file.write(json.dumps(copied, separators=(',', ':')))
             file.write('\n')
     else:
         print('Failed to fetch node stats')
 
-# def fetch_cluster_stats():
-#     url = 'http://localhost:9200/_cluster/stats'
-#     response = requests.get(url)
-
-#     if response.status_code == 200:
-#         data = response.json()
-#         cpu_percent = data['nodes']['process']['cpu']['percent']
-
-#         mem_free = data['nodes']['os']['mem']['free_in_bytes']/GIB
-#         mem_used = data['nodes']['os']['mem']['used_in_bytes']/GIB
-#         mem_total = data['nodes']['os']['mem']['total_in_bytes']/GIB
-#         mem_percent = data['nodes']['os']['mem']['used_percent']
-
-#         print(f'CPU Usage: {cpu_percent}%')
-#         print(f'Memory Usage: {mem_percent}% (Used: {mem_used:.2f} GiB, Free: {mem_free:.2f} GiB, Total: {mem_total:.2f} GiB)')
-#     else:
-#         print('Failed to fetch cluster stats')
-
-# Melakukan permintaan setiap 500ms
 while True:
     try:
         fetch_node_stats()
