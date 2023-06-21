@@ -86,9 +86,9 @@ class ResourceController:
         return f"ResourceController(cpu={self.last_cpu}, mem={self.last_mem}, queue={self.queue}, next_change={self.next_change})"
 
 
-rc = ResourceController()
-print(str(rc))
-rc.tick()
+# rc = ResourceController()
+# print(str(rc))
+# rc.tick()
 # rc.change_resource(800,4000)
 # rc.change_resource(1000,5000)
 # rc.change_resource(1500,3000)

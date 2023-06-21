@@ -92,6 +92,3 @@ class RuleManager:
                     'Type': each.ruletype
                 })
         return result
-    
-rm = RuleManager()
-print(rm.get_required_prediction_time())

@@ -5,7 +5,7 @@ import os
 import warnings
 from utils import printd, read_from_file, save_model, create_dataframe, timings
 from configuration import WARNING, MODEL_FILE_PATH, PREDICTOR_INTERVAL_SEC
-from predictcomponent import PredictComponent, PredictComponentFactory, PredictComponentStorage
+from predict import PredictComponent, PredictComponentFactory, PredictComponentStorage
 
 if not WARNING:
     warnings.filterwarnings("ignore")
