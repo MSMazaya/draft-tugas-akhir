@@ -1,71 +1,97 @@
-from configuration import COMPONENTS
-import csv
+from kubernetes import client, config
 import time
-
-class Rule:
-    def __init__(self, id, ruletype, action, amount, checkperiod, rule):
-        assert type(id) is str or type(id) is int or type(id) is float
-        assert type(ruletype) is str and ruletype.lower() in ["cpu", "mem"]
-        assert type(action) is str and action.lower() in ["add", "rem"]
-        if type(amount) is str:
-            try:
-                amount = float(amount)
-            except ValueError:
-                pass
-        assert type(amount) is float or type(amount) is int
-        if type(checkperiod) is str:
-            try:
-                checkperiod = int(checkperiod)
-            except ValueError:
-                pass
-        assert type(checkperiod) is int and checkperiod > 0
-        assert type(rule) is str and len(rule) > 0
-        self.id = id
-        self.ruletype = ruletype
-        self.action = action
-        self.amount = amount
-        self.checkperiod = checkperiod
-        self.nextcheck = 0
-        variableFound = False
-        self.rawrule = rule
-        for each in COMPONENTS:
-            if each in rule.split(" "):
-                variableFound = True
-                rule = rule.replace(each, f"x['{each}']")
-        assert variableFound
-        self.rule = eval("lambda x: " + rule)
-
-    def test(self, data):
-        result = self.rule(data)
-        assert type(result) is bool
-        if result:
-            if self.nextcheck < time.time():
-                self.nextcheck = time.time() + self.checkperiod
-            else:
-                result = False
-        return result
-    
-    def __str__(self):
-        return f"Rule({self.id}, {self.ruletype}, {self.action}, {self.amount}, {self.rawrule})"
-
-class RuleManager:
-    def __init__(self):
-        self.rules = []
-        with open("example.rule", "r") as file:
-            csvdata = csv.DictReader(file)
-            for each in csvdata:
-                self.rules.append(Rule(*each.values()))
-    
-    def test(self, data):
-        result = []
-        for each in self.rules:
-            result.append({'ID': each.id, 'Applying': each.test(data), 'Rule': each.rawrule})
-        return result
-
-# rm = RuleManager()
-# while True:
-#     print(rm.test({'CPUPercent': 51}))
-#     time.sleep(1)
+from utils import printd
+import json, os
+from configuration import KUBERNETES_NAMESPACE, KUBERNETES_DEPLOYMENT_NAME, RESOURCE_CHANGE_COOLDOWN, RSRC_CTRL_DATA_PATH
 
 class ResourceController:
-    pass
+    
+    def __init__(self):
+        config.load_kube_config()
+        self.api = client.CoreV1Api()
+        self.apps = client.AppsV1Api()
+
+        self.pod = self.api.read_namespaced_pod(name=self.auto_get_podname_from_deployment(), namespace=KUBERNETES_NAMESPACE)
+        assert len(self.pod.spec.containers) > 0
+        self.container = self.pod.spec.containers[0]
+        self.next_change = 0
+        self.queue = []
+        self.last_cpu = 1000
+        self.last_mem = 4096
+        self.load()
+
+    def load(self):
+        if os.path.exists(RSRC_CTRL_DATA_PATH):
+            with open(RSRC_CTRL_DATA_PATH, 'r') as file:
+                loaded = dict(json.load(file))
+            if 'mem' in loaded.keys():
+                self.last_mem = int(loaded['mem'])
+            if 'cpu' in loaded.keys():
+                self.last_cpu = int(loaded['cpu'])
+            if 'queue' in loaded.keys():
+                self.queue = loaded['queue']
+            if 'next' in loaded.keys():
+                self.next_change = loaded['next']
+    
+    def save(self):
+        with open(RSRC_CTRL_DATA_PATH, 'w') as file:
+            savedata = {
+                'mem': self.last_mem,
+                'cpu': self.last_cpu,
+                'next': self.next_change,
+                'queue': self.queue
+            }
+            json.dump(savedata, file, indent=4)
+    
+    def change_resource(self, cpu, memory):
+        assert type(cpu) is int and cpu > 0
+        assert type(memory) is int and memory > 0
+        self.queue.append({'cpu': cpu, 'mem': memory})
+        self.save()
+        printd(f"Resource change request queued: {self.queue}")
+    
+    def tick(self):
+        if len(self.queue) > 0 and time.time() > self.next_change:
+            current = self.queue.pop(0)
+            printd(f"Resource change request applied: {current}")
+            self.next_change = time.time() + RESOURCE_CHANGE_COOLDOWN
+            self.save()
+            self.__instant_change_resource(current['cpu'], current['mem'])
+            return True
+        return False
+
+    def __instant_change_resource(self, cpu, memory):
+        assert type(cpu) is int and cpu > 0
+        assert type(memory) is int and memory > 0
+        self.last_cpu = cpu
+        self.last_mem = memory
+        self.save()
+
+        self.deployment = self.apps.read_namespaced_deployment(name=KUBERNETES_DEPLOYMENT_NAME, namespace=KUBERNETES_NAMESPACE)
+        self.deployment.spec.template.spec.containers[0].resources.requests["cpu"] = f"{cpu}m"
+        self.deployment.spec.template.spec.containers[0].resources.requests["memory"] = f"{memory}Mi"
+        self.deployment.spec.template.spec.containers[0].resources.limits["cpu"] = f"{cpu}m"
+        self.deployment.spec.template.spec.containers[0].resources.limits["memory"] = f"{memory}Mi"
+        self.apps.replace_namespaced_deployment(name=KUBERNETES_DEPLOYMENT_NAME, namespace=KUBERNETES_NAMESPACE, body=self.deployment)
+
+    def auto_get_podname_from_deployment(self):
+        listPods = self.api.list_namespaced_pod(KUBERNETES_NAMESPACE, label_selector="app=elasticsearch")
+        if len(listPods.items) < 1:
+            print("Pod with label selector 'app=elasticsearch' not found.")
+            exit(0)
+        podname = list(listPods.items)[0].metadata.name
+        return podname
+    
+    def __str__(self):
+        return f"ResourceController(cpu={self.last_cpu}, mem={self.last_mem}, queue={self.queue}, next_change={self.next_change})"
+
+
+rc = ResourceController()
+print(str(rc))
+rc.tick()
+# rc.change_resource(800,4000)
+# rc.change_resource(1000,5000)
+# rc.change_resource(1500,3000)
+# while True:
+#     rc.tick()
+#     time.sleep(1)

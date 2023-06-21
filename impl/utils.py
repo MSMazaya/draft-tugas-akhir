@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 import pickle
+import re
 
 def save_model(model):
     if (not SAVE_MODEL):
@@ -71,3 +72,11 @@ def create_dataframe(data):
     #print(df.to_string())
     #print(df.columns.tolist())
     return df
+
+def extract_number_from_string(string):
+    pattern = r'(\d+)'
+    result = re.findall(pattern, string)
+    if result:
+        return int(result[0])
+    else:
+        return None
