@@ -1,5 +1,1 @@
-id,type,action,amount,check_period,rule
-1,cpu,add,500,5,CPUPercent[+30] + 5 > 50 and CPUPercent[+5] > 50
-2,cpu,rem,500,10,CPUPercent[+5] > 50
-3,mem,add,500,7,CPUPercent[+60] > 50
-4,mem,rem,500,5,CPUPercent[+70] > 75
+id,type,amount,check_period,rule

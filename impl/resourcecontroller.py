@@ -2,7 +2,7 @@ from kubernetes import client, config
 import time
 from utils import printd
 import json, os
-from configuration import KUBERNETES_NAMESPACE, KUBERNETES_DEPLOYMENT_NAME, RESOURCE_CHANGE_COOLDOWN, RSRC_CTRL_DATA_PATH
+from configuration import KUBERNETES_NAMESPACE, KUBERNETES_DEPLOYMENT_NAME, RESOURCE_CHANGE_COOLDOWN, RSRC_CTRL_DATA_PATH, CPU_MIN_LIMIT_IN_MILLI, MEM_MIN_LIMIT_IN_MIB
 
 class ResourceController:
     
@@ -44,16 +44,31 @@ class ResourceController:
             json.dump(savedata, file, indent=4)
     
     def change_resource(self, cpu, memory):
+        if (cpu == None and memory == None):
+            return
+        
+        if (cpu == None):
+            cpu = self.last_cpu
+        else:
+            cpu = self.last_cpu + cpu
+
+        if (memory == None):
+            memory = self.last_mem
+        else:
+            memory = self.last_mem + memory
+
         assert type(cpu) is int and cpu > 0
         assert type(memory) is int and memory > 0
+        cpu = max(cpu, CPU_MIN_LIMIT_IN_MILLI)
+        memory = max(memory, MEM_MIN_LIMIT_IN_MIB)
         self.queue.append({'cpu': cpu, 'mem': memory})
         self.save()
-        printd(f"Resource change request queued: {self.queue}")
+        #printd(f"Resource change request queued: {self.queue}")
     
     def tick(self):
         if len(self.queue) > 0 and time.time() > self.next_change:
             current = self.queue.pop(0)
-            printd(f"Resource change request applied: {current}")
+            printd(f"Applying resource change: {current}")
             self.next_change = time.time() + RESOURCE_CHANGE_COOLDOWN
             self.save()
             self.__instant_change_resource(current['cpu'], current['mem'])

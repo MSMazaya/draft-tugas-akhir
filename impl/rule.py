@@ -3,10 +3,9 @@ import csv
 import time
 
 class Rule:
-    def __init__(self, id, ruletype, action, amount, checkperiod, rule):
+    def __init__(self, id, ruletype, amount, checkperiod, rule):
         assert type(id) is str or type(id) is int or type(id) is float
         assert type(ruletype) is str and ruletype.lower() in ["cpu", "mem"]
-        assert type(action) is str and action.lower() in ["add", "rem"]
         if type(amount) is str:
             try:
                 amount = int(amount)
@@ -22,7 +21,6 @@ class Rule:
         assert type(rule) is str and len(rule) > 0
         self.id = id
         self.ruletype = ruletype
-        self.action = action
         self.amount = amount
         self.checkperiod = checkperiod
         self.nextcheck = 0
@@ -60,7 +58,7 @@ class Rule:
         return result
     
     def __str__(self):
-        return f"Rule({self.id}, {self.ruletype}, {self.action}, {self.amount}, {self.rawrule}, {self.requiredPredictionTime}, {self.checkperiod}, {self.nextcheck})"
+        return f"Rule({self.id}, {self.ruletype}, {self.amount}, {self.rawrule}, {self.requiredPredictionTime}, {self.checkperiod}, {self.nextcheck})"
 
 class RuleManager:
     def __init__(self):
@@ -88,7 +86,6 @@ class RuleManager:
                     'ID': each.id,
                     'Rule': each.rawrule,
                     'Amount': each.amount,
-                    'Action': each.action,
                     'Type': each.ruletype
                 })
         return result

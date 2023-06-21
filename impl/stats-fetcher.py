@@ -89,7 +89,7 @@ def fetch_node_stats():
         with open(STREAM_FILE_PATH, 'a') as file:
             copied = copy.deepcopy(nodeTranslated[NODE_NAME])
             for unused in ["time", "total"]:
-                del copied[each][unused]
+                del copied[unused]
             file.write(json.dumps(copied, separators=(',', ':')))
             file.write('\n')
     else:

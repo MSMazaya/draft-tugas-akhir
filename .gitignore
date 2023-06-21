@@ -20,3 +20,4 @@ build/*
 .idea
 *.pdf
 __pycache__
+**/data

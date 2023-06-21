@@ -58,6 +58,7 @@ class PredictComponent:
         self.data = data.copy()
         self.calculate_readiness()
         self.treshold = treshold
+        self.next_retrain = int(len(self.data) * self.treshold) + OFFSET_TRESHOLD_RETRAIN
         self.train()
     
     def calculate_readiness(self):

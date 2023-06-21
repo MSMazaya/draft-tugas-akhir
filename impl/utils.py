@@ -12,6 +12,13 @@ def save_model(model):
     with open(MODEL_FILE_PATH, 'wb') as file:
         pickle.dump(model, file)
 
+def load_model():
+    result = None
+    with open(MODEL_FILE_PATH, 'rb') as file:
+        result = pickle.load(file)
+    printd(f"Loaded model from '{MODEL_FILE_PATH}'.")
+    return result
+
 def timings(precision=3):
     start = time.time()
     def end():
