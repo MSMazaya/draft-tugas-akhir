@@ -30,7 +30,7 @@ class PredictComponentStorage:
             self.storage[c].update(new_data[c])
     
     def __str__(self):
-        return f"PredictComponentStorage({len(self.storage.keys())}):\n" + "\n".join([f"- {str(self.storage[x])}" for x in self.storage.keys()])
+        return f"PredictComponentStorage({len(self.storage.keys())}):\n" + "\n".join([f"\t- {str(self.storage[x])}" for x in self.storage.keys()])
 
 class PredictComponentFactory:
 

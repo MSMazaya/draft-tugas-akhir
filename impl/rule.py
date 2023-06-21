@@ -1,4 +1,4 @@
-from configuration import COMPONENTS
+from configuration import COMPONENTS, RULE_FILE_PATH
 import csv
 import time
 
@@ -28,10 +28,24 @@ class Rule:
         self.nextcheck = 0
         variableFound = False
         self.rawrule = rule
+        self.requiredPredictionTime = []
+
+        ruleSplitted = rule.split(" ")
         for each in COMPONENTS:
-            if each in rule.split(" "):
-                variableFound = True
-                rule = rule.replace(each, f"x['{each}']")
+            for each2 in ruleSplitted:
+                if each in each2 and '[+' in each2 and ']' in each2:
+                    variableFound = True
+                    predictTime = each2.replace(each, "", 1)
+                    assert predictTime.startswith("[+") and predictTime.endswith("]")
+                    predictTime = predictTime.replace("[+", "", 1)
+                    predictTime = predictTime[::-1].replace("]", "", 1)[::-1]
+                    try:
+                        predictTime = int(predictTime)
+                    except ValueError:
+                        print(f"Invalid rule: {self.rawrule}")
+                        exit(0)
+                    rule = rule.replace(each2, f"x[{predictTime}]['{each}']")
+                    self.requiredPredictionTime.append(predictTime)
         assert variableFound
         self.rule = eval("lambda x: " + rule)
 
@@ -46,19 +60,38 @@ class Rule:
         return result
     
     def __str__(self):
-        return f"Rule({self.id}, {self.ruletype}, {self.action}, {self.amount}, {self.rawrule})"
+        return f"Rule({self.id}, {self.ruletype}, {self.action}, {self.amount}, {self.rawrule}, {self.requiredPredictionTime}, {self.checkperiod}, {self.nextcheck})"
 
 class RuleManager:
     def __init__(self):
         self.rules = []
-        with open("example.rule", "r") as file:
+        with open(RULE_FILE_PATH, "r") as file:
             csvdata = csv.DictReader(file)
             for each in csvdata:
                 self.rules.append(Rule(*each.values()))
+        print(f"Loaded rule: {[str(x) for x in self.rules]}")
+
+    def get_required_prediction_time(self):
+        result = set()
+        for each in self.rules:
+            for x in each.requiredPredictionTime:
+                result.add(x)
+        result = list(result)
+        result.sort()
+        return result
     
     def test(self, data):
         result = []
         for each in self.rules:
             if (each.test(data)):
-                result.append({'ID': each.id, 'Rule': each.rawrule, 'Amount': each.amount, 'Action': each.action, 'Type': each.ruletype})
+                result.append({
+                    'ID': each.id,
+                    'Rule': each.rawrule,
+                    'Amount': each.amount,
+                    'Action': each.action,
+                    'Type': each.ruletype
+                })
         return result
+    
+rm = RuleManager()
+print(rm.get_required_prediction_time())

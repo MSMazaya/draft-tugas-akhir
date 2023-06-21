@@ -3,6 +3,7 @@ WARNING = False
 TIMEZONE = 'Asia/Jakarta'
 NODE_NAME = "node-1"
 STREAM_FILE_PATH = 'data.txt'
+RULE_FILE_PATH = 'example.rule'
 MODEL_FILE_PATH = 'model.pkl'
 RSRC_CTRL_DATA_PATH = 'resourcecontrol.json'
 FETCHER_INTERVAL_SEC = 1

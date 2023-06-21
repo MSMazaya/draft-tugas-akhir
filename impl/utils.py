@@ -31,12 +31,12 @@ def read_from_file():
             for line in lines:
                 data = json.loads(line)
                 result.append(data)
-            # with open(STREAM_FILE_PATH, 'w') as file:
-            #     file.write('')
+            with open(STREAM_FILE_PATH, 'w') as file:
+                file.write('')
             #     pass
             for i in range(len(result)):
-                result[i] = to_vector(result[i][NODE_NAME])
-                #result[i] = to_vector(result[i])
+                #result[i] = to_vector(result[i][NODE_NAME])
+                result[i] = to_vector(result[i])
             printd("Reading data from file took", readingtime(), "ms")
             return result
     printd("Reading data from file took", readingtime(), "ms")
