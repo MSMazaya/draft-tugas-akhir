@@ -28,6 +28,24 @@ Menurut \parencite{timeseriesanalysis}, \textit{Time Series Predictive Model} ad
     
     \textit{Autoregressive Integrated Moving Average} (ARIMA) adalah sebuah metode model time series yang digunakan untuk melakukan analisis dan prediksi pada data deret waktu. Metode ini memperhitungkan nilai-nilai sebelumnya dalam deret waktu dan menyusun model berdasarkan hubungan antara variabel historis dengan variabel yang ingin diprediksi. Model ARIMA terdiri dari tiga komponen yaitu \textit{autoregression} (AR), \textit{differencing} (I), dan \textit{moving average} (MA). Komponen AR memperhitungkan ketergantungan antara nilai historis. Komponen I digunakan untuk melihat siklus atau tren. Sedangkan, komponen MA memperhitungkan ketergantungan antara nilai residual dengan data historis.
 
+    Komponen AR (\textit{Autoregressive}) adalah representasi linear dari nilai-nilai sebelumnya dalam deret waktu. Komponen ini akan memastikan bahwa nilai pada waktu sekarang dipengaruhi oleh nilai-nilai sebelumnya dalam deret waktu. Model AR dinyatakan dengan persamaan berikut:
+
+    Yt = c + f1 * Y(t-1) + f2 * Y(t-2) + ... + fp * Y(t-p) + e(t)
+
+    Yt adalah nilai pada waktu t, c adalah konstanta, f1 hingga fp adalah \textit{parameter autoregressive}, dan e(t) adalah eror pada waktu t.
+
+    Komponen I (\textit{Integrated}) adalah proses differencing yang digunakan untuk membuat deret waktu menjadi stasioner. Differencing dilakukan dengan mengurangi nilai pada waktu sekarang dengan nilai pada waktu sebelumnya. Differencing dapat dilakukan secara berulang jika diperlukan untuk mencapai stasioneritas.
+
+    Komponen MA (\textit{Moving Average}) adalah representasi linier dari error pada deret waktu. Model MA memastikan bahwa nilai pada waktu sekarang dipengaruhi oleh nilai-nilai error pada waktu sebelumnya. Model MA dinyatakan dengan persamaan berikut:
+
+    Yt = u + e(t) + p1 * e(t-1) + p2 * e(t-2) + ... + pq * e(t-q)
+    
+    u adalah rata-rata dari deret waktu, et adalah eror pada waktu t, dan p1 hingga pq adalah \textit{parameter moving average}.
+
+    Dengan menggabungkan ketiga komponen ini, model ARIMA dapat dinyatakan sebagai:
+
+    Yt = c + f1 * Y(t-1\\) + f2 * Y(t-2) + ... + fp * Y(t-p) + e(t) + p1 * e(t-1) + p2 * e(t-2) + ... + pq * e(t-q)
+
     \item \textit{Seasonal Autoregressive Integrated Moving Average} (SARIMA)
     
     \textit{Seasonal Autoregressive Integrated Moving Average} (SARIMA) adalah model yang menggabungkan konsep ARIMA dengan kemampuan untuk menangani data musiman. Model ini memperhatikan pola musiman dalam data dan mengintegrasikannya ke dalam komponen model ARIMA. Komponen SARIMA dan ARIMA secara garis besar sama. Namun, terdapat perbedaan pada komponen \textit{differencing} karena ARIMA hanya melihat siklus dan tren, sedangkan, pada model SARIMA, pola musiman juga ikut diperhatikan.
