@@ -2,48 +2,48 @@
 
 Terdapat metodologi yang digunakan untuk melaksanakan tugas akhir ini, berikut adalah tahapan pelaksanaan.
 \begin{enumerate}
-    \item Identifikasi Permasalahan
+    \item \textbf{Identifikasi Permasalahan}
     
     Tahapan ini adalah tahapan untuk melakukan identifikasi permasalahan. Hasil dari tahapan ini dijadikan gagasan utama dan arah kerja dalam tugas akhir ini.
 
-    \item Perancangan Solusi
+    \item \textbf{Perancangan Solusi}
     
     Setelah mengidentifikasi permasalahan, dilakukan perancangan solusi yang bertujuan untuk mencari metode dan pendekatan yang dapat dikembangkan untuk menyelesaikan permasalahan yang ada. Analisis ini dimulai dari eksplorasi metode melalui studi literatur lalu ke penelitian yang pernah dilakukan.
 
-    \item Implementasi
+    \item \textbf{Implementasi}
     
     Setelah merancang solusi, gagasan tersebut akan dikembangkan dan diimplementasikan. Tahap ini akan terdiri dari beberapa bagian yaitu sebagai berikut.
     \begin{enumerate}
-        \item Persiapan
+        \item \textbf{Persiapan}
     
         Mula-mula, dilakukan persiapan \textit{pods} pada Kubernetes yang sudah berisi \textit{Elastic Search}.
 
 
-        \item Komponen \textit{Metrics Fetcher}
+        \item \textbf{Komponen \textit{Metrics Fetcher}}
         
         Dilanjutkan dengan membuat komponen yang akan menarik data \textit{metrics} dari \textit{Elastic Search}.
 
-        \item Komponen \textit{Predictor}
+        \item \textbf{Komponen \textit{Predictor}}
         
         Komponen ini dibuat untuk mengolah data dengan model prediktif berbasis \textit{time-series}.
 
-        \item Komponen \textit{Rule Manager}
+        \item \textbf{Komponen \textit{Rule Manager}}
         
         Setelah itu, dibuat komponen untuk mengatur rule masukkan dari pengguna. Komponen ini bertugas melakukan \textit{parsing} dan menentukan keperluan data prediksi pada waktu tertentu untuk diprediksi oleh \textit{Predictor}.
 
-        \item Komponen \textit{Resource Controller}
+        \item \textbf{Komponen \textit{Resource Controller}}
         
         Setelah semua siap, implementasi dilanjutkan untuk mengontrol sumber daya yang dipakai oleh \textit{Elastic Search}.
 
-        \item Komponen \textit{Adaptive Control}
+        \item \textbf{Komponen \textit{Adaptive Control}}
         
         Bagian ini dimulai dengan menentukan variabel yang akan dipakai pada data yang diberikan oleh komponen \textit{Metrics Fetcher}. Setelah itu, implementasi dilanjutkan dengan pengembangan model untuk menentukan keputusan kontrol berdasarkan prediksi dengan data historis yang ada berbasis \textit{rule} yang ditetapkan pengguna. Secara keseluruhan, komponen yang disebutkan diatas merupakan bagian dari komponen ini.
 
-        \item Simulasi dan Pengujian
+        \item \textbf{Simulasi dan Pengujian}
         
         Bagian ini bertujuan untuk melakukan validasi terhadap sistem adaptif kontrol yang telah dikembangkan.
     
-        \item Evaluasi Hasil Eksperimen
+        \item \textbf{Evaluasi Hasil Eksperimen}
         
         Hasil eksperimen pada tahapan sebelumnya akan dianalisis dan dievaluasi. Hasil adaptif kontrol harus sesuai dengan \textit{rule} yang ditentukan oleh pengguna.
     \end{enumerate}

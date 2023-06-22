@@ -11,39 +11,39 @@
 
 Dalam \textit{Elastic Search} terdapat beberapa operasi yang dapat dilakukan, diantaranya:
 \begin{enumerate}
-    \item \textit{Index}
+    \item \textbf{\textit{Index}}
     
     Operasi ini akan dijelaskan secara khusus pada bagian selanjutnya, \ref{sec:index}.
 
-    \item \textit{Get}
+    \item \textbf{\textit{Get}}
     
     Operasi \textit{Get} digunakan untuk mengambil dokumen individual berdasarkan ID-nya dari indeks tertentu.
     
-    \item \textit{Query}
+    \item \textbf{\textit{Query}}
     
     \textit{Query} digunakan untuk melakukan pencarian dan pengambilan data yang sesuai dengan kriteria tertentu. \textit{Elasticsearch} menyediakan berbagai jenis query seperti pencarian teks lengkap, pencocokan kata kunci, pencocokan frasa, pencarian fuzzy, dan lain-lain.
     
-    \item \textit{Fetch}
+    \item \textbf{\textit{Fetch}}
     
     \textit{Fetch} adalah proses pengambilan dokumen lengkap dari indeks setelah melakukan query. Saat ditemukan, \textit{Elasticsearch} mengambil dokumen dari indeks dan akan digunakan sebagai respon kepada pengguna.
     
-    \item \textit{Scroll}
+    \item \textbf{\textit{Scroll}}
     
     \textit{Scroll} adalah mekanisme pengambilan dokumen yang banyak dari hasil pencarian tanpa perlu mengirimkan \textit{query} ulang. Hal ini menyebabkan pengambilan dokumen dapat menjadi lebih efisien dalam beberapa permintaan, namun, dalam beberapa kasus, bisa menjadi lebih lama untuk mengambil semua dokumen yang relevan.
     
-    \item \textit{Suggest}
+    \item \textbf{\textit{Suggest}}
     
     \textit{Suggest} adalah mekanisme untuk memberikan saran atau \textit{autocompletion} saat pengguna memasukkan kata kunci atau frasa. Biasanya digunakan untuk \textit{autocompletion}, pengoreksi kesalahan pengejaan, dan saran pencarian lainnya.
     
-    \item \textit{Bulk}
+    \item \textbf{\textit{Bulk}}
     
     \textit{Bulk} adalah operasi yang digunakan untuk memasukkan atau memperbarui beberapa dokumen dalam satu permintaan.
     
-    \item \textit{Flush}
+    \item \textbf{\textit{Flush}}
     
     \textit{Flush} adalah operasi yang digunakan untuk mengosongkan memori \textit{cache} dan menulis data yang tertunda ke disk. Operasi ini memastikan bahwa data yang ditulis telah disimpan secara permanen di indeks.
     
-    \item \textit{Refresh}
+    \item \textbf{\textit{Refresh}}
     
     \textit{Refresh} adalah operasi yang digunakan untuk membuat perubahan yang terjadi pada indeks secara terlihat dan dapat dicari. Saat melakukan operasi indeks seperti menambahkan atau menghapus dokumen, perubahan tersebut tidak langsung terlihat oleh pencarian hingga dilakukan operasi refresh.
 \end{enumerate}

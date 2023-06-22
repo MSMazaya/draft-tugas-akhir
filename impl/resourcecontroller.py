@@ -2,7 +2,7 @@ from kubernetes import client, config
 import time
 from utils import printd
 import json, os
-from configuration import KUBERNETES_NAMESPACE, KUBERNETES_DEPLOYMENT_NAME, RESOURCE_CHANGE_COOLDOWN, RSRC_CTRL_DATA_PATH, CPU_MIN_LIMIT_IN_MILLI, MEM_MIN_LIMIT_IN_MIB
+from configuration import KUBERNETES_NAMESPACE, KUBERNETES_DEPLOYMENT_NAME, RESOURCE_CHANGE_COOLDOWN, RSRC_CTRL_DATA_PATH, CPU_LIMIT_IN_MILLI, MEM_LIMIT_IN_MIB
 
 class ResourceController:
     
@@ -59,8 +59,13 @@ class ResourceController:
 
         assert type(cpu) is int and cpu > 0
         assert type(memory) is int and memory > 0
-        cpu = max(cpu, CPU_MIN_LIMIT_IN_MILLI)
-        memory = max(memory, MEM_MIN_LIMIT_IN_MIB)
+        cpu = max(cpu, CPU_LIMIT_IN_MILLI[0])
+        memory = max(memory, MEM_LIMIT_IN_MIB[0])
+        cpu = min(cpu, CPU_LIMIT_IN_MILLI[1])
+        memory = min(memory, MEM_LIMIT_IN_MIB[1])
+        if (cpu == self.last_cpu and memory == self.last_mem):
+            return
+        
         self.queue.append({'cpu': cpu, 'mem': memory})
         self.save()
         #printd(f"Resource change request queued: {self.queue}")
