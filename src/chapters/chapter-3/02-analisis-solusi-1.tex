@@ -1,0 +1,34 @@
+\section{Analisis Solusi}
+
+Untuk melakukan penelitian pengembangan kontrol adaptif tersebut, dilakukan pemetaan masalah, penanganan serta kebutuhan untuk melakukan penanganan tersebut.
+
+\subsection{Pemetaan Masalah dan Penanganan}
+\label{sec:pemetaan-masalah}
+Masalah-masalah yang ada akan dipetakan dengan penanganan yang akan dilakukan. Pemetaan masalah dan penanganan dapat dilihat pada Tabel \ref{tab:pemetaan-masalah}.
+
+\begin{table}[h]
+    \caption{Tabel Pemetaan Masalah dan Penanganan}
+    \vspace{0.25cm}
+    \begin{center}
+        \begin{tabular}{|c|p{2.5in}|p{2.5in}|}
+            \hline
+            Nomor & Masalah & Penanganan \tabularnewline
+            \hline
+            1 &
+            Kubernetes tidak bisa melakukan kontrol adaptif berdasarkan variabel spesifik pada suatu kontainer. &
+            Kontrol adaptif harus spesifik untuk suatu jenis kontainer, pada tugas akhir ini, akan berfokus pada \textit{Elastic Search}. \tabularnewline
+            2 &
+            \textit{Metrics} yang digunakan adalah data \textit{realtime} sehingga jika ada turbulensi akan mengurangi efisiensi dan performa. &
+            Kontrol adaptif memakai model prediksi berbasis \textit{time series} sehingga dapat melihat korelasi dengan data yang ada di masa lalu.\tabularnewline
+            3 & Terdapat keperluan untuk \textit{error and trial} untuk memenuhi standar \textit{quality of service} yang berbentuk \textit{throughput} karena tidak memiliki data sebab akibat dari prosesor dan memori pada \textit{throughput}. &
+            Menambah variabel \textit{throughput} untuk melakukan kontrol adaptif.
+            \tabularnewline
+            4 & \textit{Rolling Update} yang terlalu sering mengharuskan kubernetes memiliki sumber daya minimal sejumlah dua kali lipat. &
+            Menggunakan \textit{In-Place Update of Pod Resources} \tabularnewline
+            5 & \textit{Quality of service} dan toleransi kepada \textit{tradeoff} antara efisiensi dan \textit{cost} dapat berbeda antara pengguna. &
+            Kontrol adaptif harus memiliki ruang untuk pengguna membuat aturan terhadap kontrol adaptif.\tabularnewline
+            \hline
+        \end{tabular}
+    \end{center}
+    \label{tab:pemetaan-masalah}
+\end{table}

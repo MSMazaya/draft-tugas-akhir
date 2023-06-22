@@ -53,6 +53,7 @@ class PredictComponentFactory:
 class PredictComponent:
 
     def __init__(self, name, data, treshold=0.7):
+        assert type(data) is pd.DataFrame or type(data) is pd.Series
         self.name = name
         self.is_trained = False
         self.data = data.copy()
