@@ -15,7 +15,7 @@ index_mapping = {
 }
 
 # Buat indeks dengan mapping
-es.indices.create(index='my_index2', body=index_mapping)
+es.indices.create(index='my_index3', body=index_mapping)
 
 # Data yang akan dimasukkan ke Elasticsearch
 data = [
@@ -26,20 +26,4 @@ data = [
 
 # Memasukkan data ke Elasticsearch
 for item in data:
-    es.index(index='my_index', body=item)
-
-# Melakukan pencarian
-search_query = {
-    "query": {
-        "match": {
-            "description": "article"
-        }
-    }
-}
-
-# Mengeksekusi pencarian
-search_results = es.search(index='my_index', body=search_query)
-
-# Menampilkan hasil pencarian
-for hit in search_results['hits']['hits']:
-    print(f"Title: {hit['_source']['title']}, Description: {hit['_source']['description']}, Timestamp: {hit['_source']['timestamp']}")
+    es.index(index='my_index3', body=item)

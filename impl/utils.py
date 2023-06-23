@@ -1,5 +1,5 @@
 import time
-from configuration import DEBUG, STREAM_FILE_PATH, NODE_NAME, MODEL_FILE_PATH, TIMEZONE, SAVE_MODEL, COMPONENTS
+from configuration import DEBUG, STREAM_FILE_PATH, MODEL_FILE_PATH, TIMEZONE, SAVE_MODEL, COMPONENTS
 import pandas as pd
 import numpy as np
 import json

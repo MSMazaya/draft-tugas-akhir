@@ -8,10 +8,13 @@ es = Elasticsearch(['http://localhost:9200'])
 fake = Faker()
 
 # Jumlah data yang akan dimasukkan
-num_documents = 5000
+num_documents = 10000
 
 # Loop untuk memasukkan data acak ke Elasticsearch
 for _ in range(num_documents):
+
+    if _ % 1000 == 0:
+        print(f"Inserting document #{_}")
     # Generate data acak
     title = fake.sentence()
     description = fake.paragraph()
@@ -25,6 +28,6 @@ for _ in range(num_documents):
     }
 
     # Memasukkan data ke Elasticsearch
-    es.index(index='my_index2', body=data)
+    es.index(index='my_index3', body=data)
 
 print(f"Total {num_documents} documents inserted to Elasticsearch.")

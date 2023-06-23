@@ -18,7 +18,7 @@ search_query = {
 
 for i in range(100):
     # Mengeksekusi pencarian
-    search_results = es.search(index='my_index', body=search_query, profile=True)
+    search_results = es.search(index='my_index3', body=search_query, profile=True)
 
     # Menampilkan hasil pencarian
     for hit in search_results['hits']['hits']:

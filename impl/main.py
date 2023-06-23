@@ -2,7 +2,7 @@ import warnings
 import time
 import os
 import datetime
-from configuration import WARNING, COMPONENTS, MODEL_FILE_PATH, DATA_UPDATE_TICK_SEC
+from configuration import WARNING, COMPONENTS, MODEL_FILE_PATH, DATA_UPDATE_TICK_SEC, PERCENT_RETRAIN
 from utils import printd, read_from_file, create_dataframe, timings, load_model, save_model
 from predict import PredictComponentFactory, PredictComponentStorage
 from rule import RuleManager
@@ -62,7 +62,7 @@ class AdaptiveControl:
         printd("Data found! Loading data...")
         df = create_dataframe(data)
 
-        self.pcf = PredictComponentFactory(df, COMPONENTS[1:], 0.8)
+        self.pcf = PredictComponentFactory(df, COMPONENTS[1:], PERCENT_RETRAIN)
 
         if os.path.exists(MODEL_FILE_PATH):
             self.__load_model()

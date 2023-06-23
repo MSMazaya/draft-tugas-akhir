@@ -1,6 +1,8 @@
 from configuration import COMPONENTS, RULE_FILE_PATH
 import csv
 import time
+import numpy
+from utils import printd
 
 class Rule:
     def __init__(self, id, ruletype, amount, checkperiod, rule):
@@ -49,7 +51,7 @@ class Rule:
 
     def test(self, data):
         result = self.rule(data)
-        assert type(result) is bool
+        assert type(result) is bool or type(result) is numpy.bool_
         if result:
             if self.nextcheck < time.time():
                 self.nextcheck = time.time() + self.checkperiod

@@ -35,7 +35,7 @@ Pada gambar \ref{fig:rancangan-sistem}, sistem kontrol adaptif tersusun dari beb
 
     \item \textbf{\textit{Resource Controller}}
     
-    Komponen \textit{Resource Controller} akan memanfaatkan \textit{Kubernetes Client Library} untuk mengubah spesifikasi \textit{deployment} sehingga alokasi sumber daya dapat berubah.
+    Komponen \textit{Resource Controller} akan memanfaatkan \textit{Kubernetes Client Library} untuk mengubah spesifikasi \textit{deployment} sehingga alokasi sumber daya dapat berubah. Pada pembuatan komponen ini, harus dilakukan eksperimen \textit{In-place Resource Resize} untuk mengubah alokasi sumber daya tanpa melakukan \textit{restart}.
 
     \item \textbf{\textit{Adaptive Control}}
     
