@@ -104,11 +104,11 @@ class PredictComponent:
         if self.next_retrain < 0 or not self.is_trained:
             self.train()
             return MODEL_RETRAINED
-        else:
-            updatetiming = timings()
-            self.model.update(new_data_copied)
-            printd(f"({self.name}) Update time: {updatetiming()}ms, Next Retrain: {self.next_retrain}")
-            return MODEL_UPDATED
+        #else:
+        #    updatetiming = timings()
+            #self.model.update(new_data_copied)
+        #    printd(f"({self.name}) Update time: {updatetiming()}ms, Next Retrain: {self.next_retrain}")
+        #    return MODEL_UPDATED
     
     def __str__(self):
         if (not self.is_trained):
