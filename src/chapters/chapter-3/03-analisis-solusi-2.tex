@@ -3,7 +3,7 @@
 Masalah sudah dipetakan pada bagian \ref{sec:pemetaan-masalah} dan penanganan secara kasar telah dirancangkan. Dalam melakukan penanganan masalah tersebut, diperlukan beberapa kebutuhan yang akan dijelaskan pada bagian ini.
 
 \begin{enumerate}
-    \item \textbf{Menambah variabel untuk melakukan kontrol adaptif yang spesifik pada \textit{throughput} dan spesifikasi \textit{Elastic Search}}
+    \item \textbf{Menambah variabel untuk melakukan kontrol fleksibel yang spesifik pada \textit{throughput} dan spesifikasi \textit{Elastic Search}}
     
     Kebutuhan ini secara umum bisa didapatkan melalui \href{https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-stats.html}{\textit{Node Stats API}}. Untuk variabel yang akan ditarik, akan digunakan \textit{metrics response time} dari setiap operasi yang ada di \textit{Elastic Search} seperti \textit{Index, Get, Query, Fetch, Bulk, Refresh, Scroll, Suggest} dan \textit{Flush} serta \textit{metrics} umum seperti utilisasi prosesor serta memori.
 
@@ -15,8 +15,8 @@ Masalah sudah dipetakan pada bagian \ref{sec:pemetaan-masalah} dan penanganan se
 
     \textit{In-Place Update of Pod Resources} merupakan fitur baru yang dikembangkan oleh Kubernetes yang bertujuan untuk dapat mengubah ukuran pod secara dinamis tanpa melakukan \textit{restart}. Fitur ini baru saja dicoba diimplementasikan dan dipublikasikan dengan status \textit{alpha testing} sejak 12 Mei 2023, \parencite{kubeinplaceupdate}. Fitur ini layak diteliti untuk melakukan \textit{resizing} tanpa melakukan \textit{restart}. Sebagai catatan, saat tugas akhir ini dikerjakan, fitur ini masih memiliki banyak keterbatasan dan masalah yang tertulis pada blog kubernetes maupun belum tertulis.
 
-    \item \textbf{Menerapkan \textit{rule} untuk kontrol adaptif yang ditetapkan pengguna}
+    \item \textbf{Menerapkan \textit{rule} untuk kontrol fleksibel yang ditetapkan pengguna}
     
-    Kebutuhan ini bisa dipenuhi dengan membuat bahasa \textit{scripting} yang simpel untuk mengekspresikan \textit{rule}/kondisi yang ingin ditetapkan pengguna. Prediksi dan waktu prediksi suatu variabel dapat ditentukan oleh pengguna melalui bahasa \textit{scripting} sehingga pengguna dapat menggunakan model prediksi dengan leluasa. Selain itu, terdapat juga beberapa konfigurasi sistem yang dapat dikonfigurasi oleh pengguna agar dapat menyesuaikan sistem kontrol adaptif dengan kebutuhan.
+    Kebutuhan ini bisa dipenuhi dengan membuat bahasa \textit{scripting} yang simpel untuk mengekspresikan \textit{rule}/kondisi yang ingin ditetapkan pengguna. Prediksi dan waktu prediksi suatu variabel dapat ditentukan oleh pengguna melalui bahasa \textit{scripting} sehingga pengguna dapat menggunakan model prediksi dengan leluasa. Selain itu, terdapat juga beberapa konfigurasi sistem yang dapat dikonfigurasi oleh pengguna agar dapat menyesuaikan sistem kontrol fleksibel dengan kebutuhan.
 
 \end{enumerate}
