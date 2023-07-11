@@ -41,6 +41,8 @@
 \usepackage{afterpage}
 \usepackage{relsize}
 \usepackage{longtable}
+\usepackage{xcolor, colortbl}
+\usepackage{setspace}
 
 \graphicspath{{resources/}}   % letak direktori penyimpanan gambar
 
@@ -82,7 +84,7 @@
 
 % Hilangkan titik pada toc
 \makeatletter
-\renewcommand{\@dotsep}{10000} 
+\renewcommand{\@dotsep}{1} 
 \makeatother
 
 % Setel title pada chapter-chapter di toc, lof, lot
@@ -91,19 +93,19 @@
   {\bfseries}
   {\MakeUppercase{Bab} \thecontentslabel\quad\uppercase}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 \titlecontents{figure}
   [0pt]
   {}
   {Gambar \thecontentslabel.\quad}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 \titlecontents{table}
   [0pt]
   {}
   {Tabel \thecontentslabel.\quad}
   {}
-  {\hfill\contentspage}
+  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 
 % Masukin Daftar Pustaka ke toc
 \let\originalprintbibliography\printbibliography
@@ -137,3 +139,21 @@
 
 % Define blank page
 \newcommand*{\blankpage}{\afterpage{\null\newpage}}
+
+% Translate autoref into Indonesian
+\renewcommand*{\equationautorefname}{Persamaan}%
+\renewcommand*{\footnoteautorefname}{catatan kaki}%
+\renewcommand*{\itemautorefname}{item}%
+\renewcommand*{\figureautorefname}{Gambar}%
+\renewcommand*{\tableautorefname}{Tabel}%
+\renewcommand*{\partautorefname}{Bagian}%
+\renewcommand*{\appendixautorefname}{Lampiran}%
+\renewcommand*{\chapterautorefname}{Bab}%
+\renewcommand*{\sectionautorefname}{Subbab}%
+\renewcommand*{\subsectionautorefname}{Subsubbab}%
+\renewcommand*{\subsubsectionautorefname}{Subsubsubbab}%
+\renewcommand*{\paragraphautorefname}{paragraf}%
+\renewcommand*{\subparagraphautorefname}{subparagraf}%
+\renewcommand*{\FancyVerbLineautorefname}{garis}%
+\renewcommand*{\theoremautorefname}{Teorema}%
+\renewcommand*{\pageautorefname}{halaman}%
