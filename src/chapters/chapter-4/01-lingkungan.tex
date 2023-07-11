@@ -1,10 +1,10 @@
 \section{Lingkungan}
 
-Sistem kontrol adaptif akan diimplementasikan di lingkungan komputer lokal. Berikut adalah lingkungan perangkat keras dan perangkat lunak secara terperinci.
+\textit{Autoscaler} berbasis kontrol fleksibel akan diimplementasikan di lingkungan komputer lokal. Berikut adalah lingkungan perangkat keras dan perangkat lunak secara terperinci.
 
-Implementasi sistem tugas akhir dilakukan dengan mengimplementasikan diatas beberapa kakas pada bahasa \textit{python}. Implementasi dikembangkan di luar \textit{kubernetes cluster} dan mengakses Kubernetes beserta \textit{pods}-nya melalui \textit{Kubernetes Client Library} serta mengekspos port melalui \textit{service} yang disediakan Kubernetes. 
+Implementasi sistem tugas akhir dilakukan dengan mengimplementasikan dengan bantuan beberapa kakas pada bahasa \textit{python}. Sistem akan hidup di luar \textit{kubernetes cluster} dan mengakses Kubernetes beserta \textit{pods}-nya melalui \textit{Kubernetes Client Library} dan \textit{service Elastic search} melalui \textit{web service} yang dapat diakses dari luar \textit{cluster}.
 
-Sistem kontrol adaptif akan berjalan di \textit{cluster} Kubernetes lokal. Penelitian ini juga hanya dibataskan pada \textit{single node} dan \textit{single pods}. Adapun spesifikasi dari komputer yang dipakai untuk pengembangan adalah sebagai berikut.
+\textit{Autoscaler} berbasis kontrol fleksibel akan berjalan di \textit{cluster} Kubernetes lokal. Adapun spesifikasi dari komputer yang dipakai untuk pengembangan adalah sebagai berikut.
 \begin{enumerate}
     \item \textbf{Perangkat Keras}
     
