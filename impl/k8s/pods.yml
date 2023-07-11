@@ -3,31 +3,7 @@ kind: Pod
 metadata:
   name: elasticsearch
   generateName: elasticsearch-
-# spec:
-#   selector:
-#     matchLabels:
-#       app: elasticsearch
-#   template:
-#     metadata:
-#       labels:
-#         app: elasticsearch
 spec:
-  # containerStatuses:
-  #   name: elasticsearch-cs
-  #   ready: true
-  #   allocatedResources:
-  #     cpu: "900m"
-  #     memory: "5000Mi"
-  #   resources:
-  #     requests:
-  #       memory: "5000Mi"
-  #       cpu: "900m"
-  #     limits:
-  #       memory: "5000Mi"
-  #       cpu: "900m"
-  #   restartCount: 0
-  #   started: true
-  # qosClass: Guaranteed
   containers:
     - name: elasticsearch
       image: docker.elastic.co/elasticsearch/elasticsearch:8.8.1

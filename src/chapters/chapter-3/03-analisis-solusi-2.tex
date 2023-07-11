@@ -1,22 +1,22 @@
 \subsection{Rencana Penanganan Masalah dan Analisis Kebutuhan}
 
-Masalah sudah dipetakan pada bagian \ref{sec:pemetaan-masalah} dan penanganan secara kasar telah dirancangkan. Dalam melakukan penanganan masalah tersebut, diperlukan beberapa kebutuhan yang akan dijelaskan pada bagian ini.
+Masalah sudah dipetakan pada bagian \ref{sec:pemetaan-masalah} dan penanganan secara singkat telah dipaparkan. Bagian ini akan menguraikan kebutuhan secara detil untuk melakukan penanganan masalah tersebut.
 
 \begin{enumerate}
-    \item \textbf{Menambah variabel untuk melakukan kontrol fleksibel yang spesifik pada \textit{throughput} dan spesifikasi \textit{Elastic Search}}
+    \item \textbf{(M1,M2) Menambah variabel \textit{throughput} dan spesifik terhadap\textit{Elastic Search}}
     
-    Kebutuhan ini secara umum bisa didapatkan melalui \href{https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-stats.html}{\textit{Node Stats API}}. Untuk variabel yang akan ditarik, akan digunakan \textit{metrics response time} dari setiap operasi yang ada di \textit{Elastic Search} seperti \textit{Index, Get, Query, Fetch, Bulk, Refresh, Scroll, Suggest} dan \textit{Flush} serta \textit{metrics} umum seperti utilisasi prosesor serta memori.
+    Kebutuhan ini secara umum bisa didapatkan melalui \href{https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-stats.html}{\textit{Node Stats API}}. Untuk variabel yang akan ditarik, akan digunakan \textit{metrics response time} dari setiap operasi yang ada di \textit{Elastic Search} seperti \textit{Index, Get, Query, Fetch, Bulk, Refresh, Scroll, Suggest} dan \textit{Flush} serta metrik umum seperti utilisasi prosesor, beban tulis (\textit{write load}), serta memori.
 
-    \item \textbf{Membuat model prediksi berbasis \textit{time series}}
+    \item \textbf{(M3) Membuat model prediksi berbasis \textit{time series}}
     
-    Kebutuhan ini bisa dilakukan dengan beberapa pendekatan seperti ARIMA, SARIMA, LSTM serta variasi seperti ARIMA. Dalam tugas akhir ini, akan digunakan ARIMA untuk melakukan prediksi \textit{metrics} yang ada. Alasan menggunakan ARIMA adalah karena ARIMA merupakan model yang sederhana dan mudah untuk diimplementasikan. Selain itu, ARIMA juga merupakan model yang cukup baik untuk melakukan prediksi \textit{time series} yang memiliki \textit{trend} dan \textit{seasonality}. Ditambah, variasi dari ARIMA memiliki masalah ketika data memiliki standar deviasi rendah, contohnya adalah VARMAX atau \textit{Vector Auto Regressive Moving Average with Exogenous Regressors}. Meskipun dengan satu model VARMAX, koneksi antara variabel juga bisa ditentukan, namun ARIMA juga sudah cukup baik untuk memprediksi variabel-variabel secara terpisah.
+    Kebutuhan ini bisa dilakukan dengan beberapa pendekatan seperti ARIMA dan LSTM. Dalam tugas akhir ini, akan digunakan ARIMA untuk melakukan prediksi \textit{metrics} yang ada. Alasan menggunakan ARIMA adalah karena ARIMA merupakan model yang sederhana dan mudah untuk diimplementasikan, tidak perlu banyak riset dan percobaan terkait algoritma dan konfigurasi model. Selain itu, ARIMA juga merupakan model yang cukup baik untuk melakukan prediksi \textit{time series} yang memiliki \textit{trend} dan \textit{seasonality}.
 
-    \item \textbf{Menggunakan \textit{In-Place Update of Pod Resources}}
-
-    \textit{In-Place Update of Pod Resources} merupakan fitur baru yang dikembangkan oleh Kubernetes yang bertujuan untuk dapat mengubah ukuran pod secara dinamis tanpa melakukan \textit{restart}. Fitur ini baru saja dicoba diimplementasikan dan dipublikasikan dengan status \textit{alpha testing} sejak 12 Mei 2023, \parencite{kubeinplaceupdate}. Fitur ini layak diteliti untuk melakukan \textit{resizing} tanpa melakukan \textit{restart}. Sebagai catatan, saat tugas akhir ini dikerjakan, fitur ini masih memiliki banyak keterbatasan dan masalah yang tertulis pada blog kubernetes maupun belum tertulis.
-
-    \item \textbf{Menerapkan \textit{rule} untuk kontrol fleksibel yang ditetapkan pengguna}
+    \item \textbf{(M4) Menerapkan \textit{rule-based} system yang ditetapkan pengguna}
     
-    Kebutuhan ini bisa dipenuhi dengan membuat bahasa \textit{scripting} yang simpel untuk mengekspresikan \textit{rule}/kondisi yang ingin ditetapkan pengguna. Prediksi dan waktu prediksi suatu variabel dapat ditentukan oleh pengguna melalui bahasa \textit{scripting} sehingga pengguna dapat menggunakan model prediksi dengan leluasa. Selain itu, terdapat juga beberapa konfigurasi sistem yang dapat dikonfigurasi oleh pengguna agar dapat menyesuaikan sistem kontrol fleksibel dengan kebutuhan.
+    Kebutuhan ini bisa dipenuhi dengan membuat bahasa \textit{scripting} yang sederhana untuk mengekspresikan \textit{rule}/kondisi yang ingin ditetapkan pengguna. Prediksi dan waktu prediksi suatu variabel dapat ditentukan oleh pengguna melalui bahasa \textit{scripting} sehingga pengguna dapat menggunakan model prediksi dengan leluasa. Selain itu, terdapat juga beberapa konfigurasi sistem kontrol fleksibel yang dapat dikonfigurasi oleh pengguna agar dapat menyesuaikan \textit{autoscaling} dengan kebutuhan.
+
+    \item \textbf{(M5) Menggunakan \textit{In-Place Update of Pod Resources}}
+
+    \textit{In-Place Update of Pod Resources} merupakan fitur baru yang dikembangkan oleh Kubernetes yang bertujuan untuk dapat mengubah ukuran pod secara dinamis tanpa melakukan \textit{restart}. Fitur ini baru saja dicoba diimplementasikan dan dipublikasikan dengan status \textit{alpha testing} sejak 12 Mei 2023, \parencite{kubeinplaceupdate}. Fitur ini bisa untuk melakukan \textit{resizing} tanpa melakukan \textit{restart}. Fitur ini bisa langsung digunakan melalui perintah \textit{kubectl} maupun \textit{Kubernetes Client Library}. Eksperimen penggunaan fitur ini bisa dilihat pada lampiran \ref{appendix:eksperimen-in-place-resource-resize}.
 
 \end{enumerate}
