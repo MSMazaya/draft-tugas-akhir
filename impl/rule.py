@@ -9,6 +9,11 @@ def assign(name, value):
     Rule.context[name] = value
     return True
 
+def assignif(condition, name, value):
+    if condition:
+        Rule.context[name] = value
+    return condition
+
 def declare(name, defaultValue=None):
     assign(name, defaultValue)
     return True
