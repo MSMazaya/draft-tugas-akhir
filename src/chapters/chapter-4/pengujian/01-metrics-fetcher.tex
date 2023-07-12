@@ -10,11 +10,15 @@ Tujuan pengujian ini memastikan komponen \textbf{\textit{Metrics Fetcher}} dapat
 
 Pengujian terhadap komponen \textbf{\textit{Metrics Fetcher}} dilakukan dengan beberapa skenario sebagai berikut serta ekspektasi dari pengujian yang dilakukan.
 \begin{enumerate}
-    \item \textit{Elastic Search} sedang \textit{idle}.
+    \item \bfseries\textit{Elastic Search} sedang \textit{idle}.\normalfont
+    
         Data yang diminta dari \textit{Node Stats API} diekspektasikan relatif statis dan berhasil diletakkan pada \textit{stream file}.
-    \item \textit{Elastic Search} sedang digunakan untuk melakukan operasi penambahan data.
+    \item \bfseries\textit{Elastic Search} sedang digunakan untuk melakukan operasi penambahan data.\normalfont
+    
         Data yang diminta dari \textit{Node Stats API} seharusnya relatif berubah terutama pada aspek \textit{throughput} operasi \textit{index} dan \textit{bulk}. Lalu, data tersebut diekspektasikan berhasil diletakkan pada \textit{stream file}.
-    \item \textit{Elastic Search} sedang digunakan untuk melakukan operasi pencarian data.
+
+    \item \bfseries\textit{Elastic Search} sedang digunakan untuk melakukan operasi pencarian data.\normalfont
+    
         Data yang diminta dari \textit{Node Stats API} seharusnya relatif berubah terutama pada aspek \textit{throughput} operasi \textit{query} dan \textit{fetch}. Lalu, data tersebut diekspektasikan berhasil diletakkan pada \textit{stream file}.
 \end{enumerate}
 

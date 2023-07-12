@@ -1,4 +1,5 @@
-\subsubsection{Komponen Pendukung: Konfigurasi dan Utilitas}
+\subsection{Komponen Pendukung: Konfigurasi dan Utilitas}
+\label{sec:komponen-pendukung}
 
 Seperti yang sudah dijelaskan sebelumnya, terdapat konfigurasi yang dapat mengatur sistem. Konfigurasi yang dapat diatur dapat dilihat pada gambar \ref{fig:config-spek}.
 
@@ -18,11 +19,11 @@ Setiap konfigurasi tersebut mengatur perilaku dari sistem. Untuk setiap konfigur
 
     \item \textbf{\textit{Timezone}}
     
-    Untuk mengubah zona waktu yang digunakan oleh pandas. Karena data yang didapatkan dari \textit{Elastic Search} adalah berupa unix time sehingga akan dibaca \textit{default} menjadi UTC saat dikonversi. Flag ini berfungsi untuk mengubah zona waktu yang digunakan oleh pandas.
+    Flag ini bertujuan untuk mengubah zona waktu yang digunakan oleh pandas karena data yang didapatkan dari \textit{Elastic Search} adalah berupa unix time sehingga akan dibaca secara \textit{default} menjadi UTC saat dikonversi.
 
     \item \textbf{\textit{Node Name}}, \textbf{\textit{Namespace}} dan \textbf{\textit{Deployment Name}}
     
-    \textbf{\textit{Node Name}} adalah nama \textit{node} yang telah dikonfigurasi pada \textit{elastic search}. Nama harus sesuai karena \textbf{\textit{Metrics Fetcher}} akan mencari data untuk node dengan nama tersebut. Sedangkan, \textbf{\textit{Namespace}} dan \textbf{\textit{Deployment Name}} berkaitan dengan \textit{namespace} dan \textit{deployment Elasticsearch} dengan Kubernetes.
+    \textbf{\textit{Node Name}} adalah nama \textit{node} yang telah dikonfigurasi pada \textit{pods Elastic Search}. Nama harus sesuai karena \textbf{\textit{Metrics Fetcher}} akan mencari data untuk node dengan nama tersebut. Sedangkan, \textbf{\textit{Namespace}} dan \textbf{\textit{Deployment Name}} berkaitan dengan \textit{namespace} dan \textit{deployment Elasticsearch} dengan Kubernetes.
 
     \item \textbf{\textit{Elasticsearch Host}}
     
@@ -46,7 +47,7 @@ Setiap konfigurasi tersebut mengatur perilaku dari sistem. Untuk setiap konfigur
 
     \item \textbf{\textit{Offset Treshold Retrain}} dan \textbf{\textit{Percent Retrain}}
     
-    Dalam melakukan penambahan data, tidak setiap saat model akan di-\textit{retrain}. Saat tidak di-\textit{retrain}, model prediksi hanya melakukan update yang jauh lebih cepat namun tidak terlalu akurat. Terdapat sebuah angka yang akan menentukan kapan model harus di-\textit{retrain}. Hal ini diperlukan karena melakukan \textit{retrain} membutuhkan waktu yang lama terutama saat data sudah sangat besar. \textbf{\textit{Offset Treshold Retrain}} adalah angka yang menentukan kapan model harus di-\textit{retrain} berdasarkan jumlah data fixed. Sedangkan, \textbf{\textit{Percent Retrain}} adalah angka yang menentukan kapan model harus di-\textit{retrain} berdasarkan persentase jumlah data saat itu. Contohnya ketika saat ini data berukuran 100, dengan konfigurasi yang ada pada gambar \ref{fig:config-spek}, maka model akan di-\textit{retrain} ketika jumlah data sudah mencapai 200 atau 120+(80\% dari 100).
+    Dalam melakukan penambahan data, tidak setiap saat model akan di-\textit{retrain}. Saat tidak di-\textit{retrain}, model prediksi hanya melakukan update yang jauh lebih cepat namun tidak terlalu akurat. Terdapat sebuah angka yang akan menentukan kapan model harus di-\textit{retrain}. Hal ini diperlukan karena melakukan \textit{retrain} membutuhkan waktu yang lama terutama saat data sudah sangat besar. \textbf{\textit{Offset Treshold Retrain}} adalah angka yang menentukan kapan model harus di-\textit{retrain} berdasarkan jumlah data fixed. Sedangkan, \textbf{\textit{Percent Retrain}} adalah angka yang menentukan kapan model harus di-\textit{retrain} berdasarkan persentase jumlah data saat itu. Dengan persamaan \ref{eq:retrain-time}, \textbf{\textit{Offset Treshold Retrain}} adalah variable $c$ dan \textbf{\textit{Percent Retrain}} adalah variable $p$.
 \end{enumerate}
 
 Terdapat juga fungsi-fungsi utilitas yang akan membantu komponen-komponen yang telah dijelaskan sebelumnya, spesifikasi utilitas bisa dilihat pada gambar \ref{fig:util-spek}. Untuk setiap fungsinya, berikut adalah kegunaannya.
@@ -70,7 +71,7 @@ Terdapat juga fungsi-fungsi utilitas yang akan membantu komponen-komponen yang t
 
     \item \textbf{\textit{Read From File}}
     
-    Fungsi ini digunakan untuk membaca \textit{stream file}. Fungsi ini digunakan oleh komponen \textbf{\textit{Adaptive Control}} untuk membaca secara periodik, mentranformasikan dan mengirimkan data ke \textbf{\textit{Predict Component Storage}}.
+    Fungsi ini digunakan untuk membaca \textit{stream file}. Fungsi ini digunakan oleh komponen \textbf{\textit{Flexible Control}} untuk membaca secara periodik, mentranformasikan dan mengirimkan data ke \textbf{\textit{Predict Component Storage}}.
 
     \item \textbf{\textit{To Vector}}
     

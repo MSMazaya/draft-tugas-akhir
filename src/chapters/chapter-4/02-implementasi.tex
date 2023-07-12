@@ -25,14 +25,7 @@ Dalam melakukan implementasi ini diperlukan beberapa kakas, diantaranya adalah s
 
 \subsection{Persiapan \textit{Pods Elastic Search}}
 
-Sebelum melakukan implementasi, diperlukan untuk menyalakan \textit{Pods Elastic Search}. Konfigurasi ini dilakukan dengan cara membuat \textit{file deployment}, contoh dapat dilihat pada gambar \ref{fig:spek-deployment}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\textwidth]{chapter-4/spek-deployment.png}
-    \caption{Konfigurasi \textit{Pods Elastic Search}}
-    \label{fig:spek-deployment}
-\end{figure}
+Sebelum melakukan implementasi, diperlukan untuk menyalakan \textit{Pods Elastic Search}. Konfigurasi ini dilakukan dengan cara membuat \textit{file deployment} untuk \textit{pods Elastic Search} serta sebuah \textit{persistent volume claim} untuk tempat penyimpanan data. Sebagai contoh dan konfigurasi yang dipakai dalam membuat tugas akhir ini dapat dilihat pada lampiran \ref{appendix:cth-konfigurasi-es-pods}.
 
 \input{chapters/chapter-4/implementasi/01-metrics-fetcher}
 \input{chapters/chapter-4/implementasi/02-predictor}
