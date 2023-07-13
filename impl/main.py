@@ -11,7 +11,7 @@ from resourcecontroller import ResourceController
 if not WARNING:
     warnings.filterwarnings("ignore")
 
-class AdaptiveControl:
+class FlexibleControl:
 
     def __init__(self):
         self.is_launched = False
@@ -57,7 +57,7 @@ class AdaptiveControl:
 
     def launch(self):
         printd("-"*10)
-        printd("Launching adaptive control...")
+        printd("Launching flexible control...")
         data = self.__wait_for_data()
         printd("Data found! Loading data...")
         df = create_dataframe(data)
@@ -100,7 +100,7 @@ class AdaptiveControl:
                 exit(0)
         return data
 
-ac = AdaptiveControl()
+ac = FlexibleControl()
 ac.launch()
 while True:
     ac.tick()
