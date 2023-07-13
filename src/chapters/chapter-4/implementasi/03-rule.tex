@@ -15,6 +15,9 @@ Komponen \textbf{\textit{Rule Manager}} berfungsi untuk melakukan parsing terhad
     \label{fig:rule-example}
 \end{figure}
 
+% fungsi declare, assign, assignif, has
+% jelasin boolean etc.
+
 Sebuah \textit{rule} memiliki fungsi sebagai berikut.
 \begin{enumerate}
     \item Memiliki sebuah kondisi yang akan dievaluasi dengan data prediksi pada waktu prediksi yang diinginkan. Contoh: kondisi \textit{throughput} untuk operasi X untuk 1 menit kedepan dan 5 menit kedepan lebih dari 1s, maka tingkatkan prosesor sebanyak 500m.
@@ -89,6 +92,8 @@ Seperti yang bisa dilihat pada contoh gambar \ref{fig:rule-example}, untuk membu
         \end{enumerate}
 
         Untuk nomor \ref{item:index} sampai \ref{item:refresh} adalah \textit{throughput} operasi-operasi \textit{Elastic Search} dalam bentuk milisekon. Sedangkan, \ref{item:cpupercent} dan \ref{item:mempercent} adalah pemakaian CPU dan memori dalam bentuk bilangan bulat 1-100 yang merepresentasikan persen pemakaian. \textit{Load Average} adalah indikator beban sistem dalam 1, 5, dan 15 menit terakhir. Biasanya angka ini digunakan untuk menentukan turun naiknya beban prosesor sistem. Apabila menunjukkan kenaikan, maka dapat dipastikan bahwa sistem mulai digunakan. Sedangkan, apabila menunjukkan penurunan, maka sistem mulai tidak digunakan. Persamaan \ref{eq:load-average} akan digunakan untuk menjelaskan angka pada \textit{Load Average}. Pada persamaan tersebut, $U(t)$ adalah persen utilisasi di waktu $t$. Sebagai contoh, ketika $LoadAvg(t)$ bernilai $1.0$ dan $NumberOfCPU$ adalah $4$, maka dapat disimpulkan bahwa persentase utilisasi CPU adalah $25\%$ sehingga bisa disimpulkan sebagai sistem belum maksimal dimanfaatkan. Namun, variabel ini biasanya bercampur juga dengan utilisasi prosesor dari sistem, jaringan, file I/O dan network I/O berbeda dengan \textit{CPUPercent} yang murni menunjukkan utilisasi prosesor dari sistem untuk proses \textit{Elastic Search}.
+
+        Untuk mendeklarasikan variabel prediksi sistem metrik, bisa memakai format \textbf{Variabel[+T]} dengan $T$ adalah waktu prediksi. Sebagai contoh, \textbf{CPUPercent[+7]} adalah prediksi variabel \textbf{CPUPercent} 7 detik kedepan.
 
         \begin{equation}
             \label{eq:load-average}

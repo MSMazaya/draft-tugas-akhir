@@ -99,7 +99,6 @@ class Rule:
                 for n in rnum:
                     rule = rule.replace(f"@${n}", Rule.declared[int(n)])
 
-        print(rule)
         self.rule = eval("lambda x: " + rule)
 
     def test(self, data):
@@ -117,6 +116,7 @@ class Rule:
             if result:
                 if self.nextcheck < time.time():
                     self.nextcheck = time.time() + self.checkperiod
+                    print(f"Rule {str(self)} passed, next check at {self.nextcheck}")
                 else:
                     result = False
         return result
@@ -131,9 +131,9 @@ class RuleManager:
             csvdata = csv.DictReader(file)
             for each in csvdata:
                 self.rules.append(Rule(*each.values()))
-        self.testRules = filter(lambda x: x.ruletype != "init" and x.ruletype != "load", self.rules)
-        self.initRules = filter(lambda x: x.ruletype == "init" and len(x.requiredPredictionTime) == 0, self.rules)
-        self.loadRules = filter(lambda x: x.ruletype == "load" and len(x.requiredPredictionTime) == 0, self.rules)
+        self.testRules = list(filter(lambda x: x.ruletype != "init" and x.ruletype != "load", self.rules))
+        self.initRules = list(filter(lambda x: x.ruletype == "init" and len(x.requiredPredictionTime) == 0, self.rules))
+        self.loadRules = list(filter(lambda x: x.ruletype == "load" and len(x.requiredPredictionTime) == 0, self.rules))
         #printd(f"Loaded rule: {[str(x) for x in self.rules]}")
         self.__load()
 
@@ -178,13 +178,30 @@ class RuleManager:
     
     def test(self, data):
         return self.__run(data, self.testRules)
+    
+# def mock_prediction():
+#     return {
+#         5: {
+#             'LoadAvg1m': float(input("LoadAvg1m: ")),
+#             'LoadAvg5m': float(input("LoadAvg5m: ")),
+#             'LoadAvg15m': float(input("LoadAvg15m: ")),
+#             'CPUPercent': float(input("CPUPercent +5s: ")),
+#             'MemUsedPercent': float(input("MemUsedPercent +5s: ")),
+#         },
+#         10: {
+#             'CPUPercent': float(input("CPUPercent +10s: ")),
+#         }
+#     }
 
 # rm = RuleManager()
 # print(Rule.context)
-# rm.test({
-#     10: {
-#         'LoadAvg1m': 0.2,
-#         'MemUsedPercent': 50,
-#     }
-# })
-# print(Rule.context)
+# it = 1
+# while True:
+#     print("-"*10)
+#     print("Iteration", it)
+#     mockdata = mock_prediction()
+#     rules = rm.test(mockdata)
+#     for r in rules:
+#         print(r)
+#     print(Rule.context)
+#     it += 1
