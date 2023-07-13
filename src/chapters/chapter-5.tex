@@ -7,7 +7,7 @@ Penelitian tugas akhir ini mengimplementasikan metode baru untuk melakukan \text
 \begin{enumerate}
     \item Melalui implementasi sistem kontrol fleksibel, pengguna dapat mengatur \textit{autoscaler} untuk melakukan \textit{scaling} berdasarkan variabel yang ada pada \textit{Elastic Search}.
     \item Dengan metode \textit{autoscaler} berbasis model prediksi, sistem dapat lebih baik dalam melakukan \textit{scaling} dibandingkan dengan \textit{autoscaler} sederhana yang memakai \textit{treshold} karena tidak terpengaruh oleh fluktuasi data.
-    \item \textit{Autoscaler} menjadi lebih banyak ruang untuk melakukan \textit{scaling} karena tidak terbatas oleh sebuah angka \textit{treshold} melainkan oleh kondisi-kondisi yang disesuaikan dengan kebutuhan pemakai.
+    \item \textit{Autoscaler} menjadi lebih banyak ruang untuk melakukan \textit{scaling} karena tidak terbatas oleh sebuah angka \textit{treshold} melainkan oleh kondisi-kondisi yang disesuaikan dengan kebutuhan pemakai. Ditambah, tidak perlu mengikuti minimal kelipatan sumber daya yang dialokasikan dibandingkan dengan \textit{Horizontal Autoscaler}.
     \item Proses \textit{trial and error} hilang karena adanya sebab-akibat yang jelas pada alokasi sumber daya terhadap variabel \textit{throughput} pada operasi-operasi \textit{Elastic Search}. Pengguna hanya perlu menentukan standar \textit{throughput} pada operasi tertentu dan membuat kondisi yang keterhubungan untuk melakukan \textit{scaling}.
     \item \textit{Rolling Update} dapat dilakukan saat Kubernetes sudah merilis versi stabil dari 1.27 untuk melakukan \textit{In-pod resource resizing}.
 \end{enumerate}
