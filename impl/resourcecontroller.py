@@ -42,20 +42,30 @@ class ResourceController:
                 'queue': self.queue
             }
             json.dump(savedata, file, indent=4)
+
+    def last_queue_resource(self):
+        if len(self.queue) > 0:
+            return self.queue[-1]
+        else:
+            return {'cpu': self.last_cpu, 'mem': self.last_mem}
     
     def change_resource(self, cpu, memory):
         if (cpu == None and memory == None):
             return
         
+        lastrsrc = self.last_queue_resource()
+        lcpu = lastrsrc['cpu']
+        lmem = lastrsrc['mem']
+        
         if (cpu == None):
-            cpu = self.last_cpu
+            cpu = lcpu
         else:
-            cpu = self.last_cpu + cpu
+            cpu = lcpu + cpu
 
         if (memory == None):
-            memory = self.last_mem
+            memory = lmem
         else:
-            memory = self.last_mem + memory
+            memory = lmem + memory
 
         assert type(cpu) is int and cpu > 0
         assert type(memory) is int and memory > 0
@@ -63,7 +73,7 @@ class ResourceController:
         memory = max(memory, MEM_LIMIT_IN_MIB[0])
         cpu = min(cpu, CPU_LIMIT_IN_MILLI[1])
         memory = min(memory, MEM_LIMIT_IN_MIB[1])
-        if (cpu == self.last_cpu and memory == self.last_mem):
+        if (cpu == lcpu and memory == lmem):
             return
         
         self.queue.append({'cpu': cpu, 'mem': memory})
@@ -93,25 +103,15 @@ class ResourceController:
         self.deployment.spec.template.spec.containers[0].resources.limits["cpu"] = f"{cpu}m"
         self.deployment.spec.template.spec.containers[0].resources.limits["memory"] = f"{memory}Mi"
         self.apps.replace_namespaced_deployment(name=KUBERNETES_DEPLOYMENT_NAME, namespace=KUBERNETES_NAMESPACE, body=self.deployment)
+        printd(f"Changing Resource: CPU={cpu}m, MEM={memory}Mi")
 
     def auto_get_podname_from_deployment(self):
         listPods = self.api.list_namespaced_pod(KUBERNETES_NAMESPACE, label_selector="app=elasticsearch")
         if len(listPods.items) < 1:
-            print("Pod with label selector 'app=elasticsearch' not found.")
+            printd("Pod with label selector 'app=elasticsearch' not found.")
             exit(0)
         podname = list(listPods.items)[0].metadata.name
         return podname
     
     def __str__(self):
         return f"ResourceController(cpu={self.last_cpu}, mem={self.last_mem}, queue={self.queue}, next_change={self.next_change})"
-
-
-# rc = ResourceController()
-# print(str(rc))
-# rc.tick()
-# rc.change_resource(800,4000)
-# rc.change_resource(1000,5000)
-# rc.change_resource(1500,3000)
-# while True:
-#     rc.tick()
-#     time.sleep(1)
