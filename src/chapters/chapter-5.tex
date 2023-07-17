@@ -5,11 +5,18 @@ Bab Kesimpulan dan Saran akan menjadi bagian akhir dan penutup dari penelitian t
 \section{Kesimpulan}
 Penelitian tugas akhir ini mengimplementasikan metode baru untuk melakukan \textit{autoscaling} yang disebut sebagai sistem kontrol fleksibel. Setelah dilakukan analisis, implementasi, dan pengujian, dapat diambil kesimpulan sebagai berikut.
 \begin{enumerate}
-    \item Melalui implementasi sistem kontrol fleksibel, pengguna dapat mengatur \textit{autoscaler} untuk melakukan \textit{scaling} berdasarkan variabel yang ada pada \textit{Elastic Search}.
-    \item Dengan metode \textit{autoscaler} berbasis model prediksi, sistem dapat lebih baik dalam melakukan \textit{scaling} dibandingkan dengan \textit{autoscaler} sederhana yang memakai \textit{treshold} karena tidak terpengaruh oleh fluktuasi data.
-    \item \textit{Autoscaler} menjadi lebih banyak ruang untuk melakukan \textit{scaling} karena tidak terbatas oleh sebuah angka \textit{treshold} melainkan oleh kondisi-kondisi yang disesuaikan dengan kebutuhan pemakai. Ditambah, tidak perlu mengikuti minimal kelipatan sumber daya yang dialokasikan dibandingkan dengan \textit{Horizontal Autoscaler}.
-    \item Proses \textit{trial and error} hilang karena adanya sebab-akibat yang jelas pada alokasi sumber daya terhadap variabel \textit{throughput} pada operasi-operasi \textit{Elastic Search}. Pengguna hanya perlu menentukan standar \textit{throughput} pada operasi tertentu dan membuat kondisi yang keterhubungan untuk melakukan \textit{scaling}.
-    \item \textit{Rolling Update} dapat dilakukan saat Kubernetes sudah merilis versi stabil dari 1.27 untuk melakukan \textit{In-pod resource resizing}.
+    \item Mengontrol alokasi sumber daya memori dan prosesor dapat dilakukan dengan model prediksi berbasis \textit{time series}, salah satu model yang digunakan adalah ARIMA.
+    \item Dampak \textit{autoscaler} dengan kontrol fleksibel berbasis model prediksi, sistem dapat lebih baik dalam melakukan \textit{scaling} dibandingkan dengan \textit{autoscaler} sederhana yang memakai \textit{treshold} karena:
+
+        \begin{enumerate}
+            \item Dapat menghindari keputusan \textit{scaling} untuk waktu yang sangat singkat akibat \textit{spike} yang terjadi pada data metrik. Berbeda dengan sistem \textit{treshold}, yang akan langsung terpengaruh karena hanya melihat nilai metrik pada saat itu saja.
+            \item Memiliki lebih banyak ruang untuk melakukan \textit{scaling} karena tidak terbatas oleh sebuah angka \textit{treshold} melainkan oleh kondisi-kondisi yang disesuaikan dengan kebutuhan pemakai.
+            \item Tidak terpatok untuk melakukan \textit{scaling} dengan kelipatan minimum \textit{requirement} dari sebuah aplikasi karena replikasi \textit{pods} memaksa pengelola untuk membuat replikasi \textit{pods} (\textit{Horizontal Autoscaling}) dengan kelipatan minimum spesifikasi untuk menjalankan aplikasi tersebut.
+            \item Bisa melakukan \textit{scaling} secara \textit{vertical} dengan menambah alokasi memori dan prosesor pada \textit{pods} dengan aplikasi berbasis JVM yang spesifiknya adalah \textit{Elastic Search}. \textit{Vertical Autoscaling} tidak dapat melakukan \textit{scaling} pada aplikasi berbasis JVM karena keterbatasan Kubernetes dalam melihat penggunaan memori yang sebenarnya.
+            \item Dapat melakukan keputusan \textit{scaling} berdasarkan variabel-variabel yang spesifik kepada \textit{Elastic Search} seperti \textit{throughput} variabel tertentu.
+        \end{enumerate}
+
+    \item Melakukan \textit{autoscaling} tanpa melakukan \textit{restart} dapat dilakukan saat Kubernetes sudah merilis versi stabil dari 1.27 untuk melakukan \textit{In-pod resource resizing}.
 \end{enumerate}
 
 \section{Saran}

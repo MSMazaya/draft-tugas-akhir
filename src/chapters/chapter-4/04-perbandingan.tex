@@ -2,7 +2,7 @@
 
 Bagian ini akan menjelaskan pengujian dampak dari \textit{autoscaler} dengan kontrol fleksibel. Pengujian akan dilakukan dengan membandingkan \textit{autoscaler} yang dibuat dengan sistem kontrol fleksibel dengan \textit{autoscaler} sederhana yang memakai \textit{treshold} serta tanpa \textit{autoscaler}. 
 
-% \subsection{Perbandingan Performa}
+% \subsection{Perbandingan Kinerja}
 
 \subsection{Perbandingan Efisiensi}
 
@@ -10,7 +10,7 @@ Bagian ini akan menjelaskan perbandingan \textit{autoscaler} antara metode yang 
 
 \subsubsection{\textit{Horizontal Pod Autoscaler}}
 
-Metode ini melakukan replikasi terhadap \textit{pods} dengan menambah \textit{pods} baru apabila utilisasi sumber daya melewati suatu ambang batas. Sebagai informasi, agar \textit{Elastic Search} dapat berjalan dengan normal dibutuhkan memori minimal 4 GB. Sedangkan, dalam aplikasi skala yang kecil, akan kurang efisien apabila diperlukan 4 GB untuk setiap \textit{pods} ketika dibutuhkan hanya penambahan 2GB memori. Ditambah, penambahan sumber daya memori menjadi minimal kelipatan 4GB. Sehingga, dalam kasus ini, implementasi kontrol fleksibel lebih bebas mengatur dibandingkan dengan \textit{Horizontal Pod Autoscaler}.
+Metode ini melakukan replikasi terhadap \textit{pods} dengan menambah \textit{pods} baru apabila utilisasi sumber daya melewati suatu ambang batas. Sebagai informasi, agar \textit{Elastic Search} dapat berjalan dengan normal dibutuhkan memori minimal 4 GB. Sedangkan, dalam aplikasi skala yang kecil, akan kurang efisien apabila diperlukan minimal 4 GB untuk penambahan sumber daya dibawah 4 GB. Ditambah, proses tambahan untuk seluruh cluster dalam melakukan replikasi maupun \textit{sharding}. Sehingga, dalam kasus ini, implementasi kontrol fleksibel lebih bebas mengatur dibandingkan dengan \textit{Horizontal Pod Autoscaler}.
 
 \subsubsection{\textit{Vertical Pod Autoscaler}}
 
