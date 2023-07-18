@@ -15,9 +15,9 @@ SAVE_MODEL = True
 ELASTICSEARCH_HOST = 'http://localhost:9200'
 KUBERNETES_NAMESPACE = 'default'
 KUBERNETES_DEPLOYMENT_NAME = 'elasticsearch'
-RESOURCE_CHANGE_COOLDOWN = 10
-CPU_LIMIT_IN_MILLI = (500,8000)
-MEM_LIMIT_IN_MIB = (4096,8192)
+RESOURCE_CHANGE_COOLDOWN = 30
+CPU_LIMIT_IN_MILLI = (500,4000)
+MEM_LIMIT_IN_MIB = (4000,7000)
 
 # DO NOT CHANGE THIS
 COMPONENTS = ['Time', 'WriteLoad', 'Index', 'Get', 'Query', 'Fetch', 'Scroll', 'Suggest', 'Bulk', 'Flush', 'Refresh', 'CPUPercent', 'LoadAvg1m', 'LoadAvg5m', 'LoadAvg15m', 'MemUsedPercent']

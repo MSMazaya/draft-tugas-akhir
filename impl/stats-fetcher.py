@@ -2,6 +2,7 @@ import requests
 import time
 import json
 import copy
+import urllib3
 from configuration import STREAM_FILE_PATH, FETCHER_INTERVAL_SEC, ELASTICSEARCH_HOST, NODE_NAME
 
 GIB = 1073741824
@@ -98,6 +99,6 @@ def fetch_node_stats():
 while True:
     try:
         fetch_node_stats()
-    except ConnectionError:
-        print('Connection error')
+    except:
+        pass
     time.sleep(FETCHER_INTERVAL_SEC)
