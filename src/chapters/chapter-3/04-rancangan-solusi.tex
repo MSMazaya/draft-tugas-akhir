@@ -1,6 +1,7 @@
 \section{Rancangan Solusi}
 \label{sec:rancangan-solusi}
 
+\subsection{Gambaran Umum}
 Dengan segala kebutuhan yang sudah dianalisis, maka akan dibuat beberapa komponen penyusun sistem yang bisa dilihat pada gambar \ref{fig:rancangan-sistem}. Rencananya, sistem kontrol fleksibel akan dikembangkan dari luar kubernetes cluster sedangkan \textit{Elastic Search} itu sendiri diletakkan didalam kubernetes. Integrasi dengan API \textit{Elastic Search} akan melalui \textit{service} yang disediakan kubernetes sedangkan untuk mengontrol kubernetesnya sendiri akan digunakan \textit{Kubernetes Client Library}.
 
 \begin{figure}[h]
@@ -10,7 +11,7 @@ Dengan segala kebutuhan yang sudah dianalisis, maka akan dibuat beberapa kompone
     \label{fig:rancangan-sistem}
 \end{figure}
 
-Pada gambar \ref{fig:rancangan-sistem}, sistem kontrol fleksibel tersusun dari beberapa komponen, diantaranya sebagai berikut.
+Sistem kontrol fleksibel dirancangkan akan disusun dari beberapa penyusun, diantaranya sebagai berikut.
 
 \begin{enumerate}
     \item \textbf{Konfigurasi dan \textit{File Rule}}
@@ -41,3 +42,13 @@ Pada gambar \ref{fig:rancangan-sistem}, sistem kontrol fleksibel tersusun dari b
     
     Komponen \textit{Flexible Control} adalah komponen \textit{high-level} yang akan mengintegrasikan dan mengkolaborasikan komponen-komponen yang disebutkan sebelumnya.
 \end{enumerate}
+
+\subsection{Model Prediksi}
+
+\subsection{Sistem \textit{Rule}}
+
+\subsection{Arsitektur Sistem}
+
+\subsection{Rancangan Kelas Penyusun Sistem dan Spesifikasi Kelas}
+
+\subsection{Alur Kerja Sistem}

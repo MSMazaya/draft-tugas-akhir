@@ -5,10 +5,7 @@ Bagian ini akan menjelaskan tentang implementasi sistem kontrol adaptif secara t
 \subsection{Batasan Implementasi}
 Berikut adalah batasan yang ditetapkan dalam melakukan implementasi sistem kontrol adaptif.
 \begin{enumerate}
-    \item Masih menerapkan sistem \textit{single node} dan \textit{single pod}.
-    \item Tidak memperhatikan optimalisasi dari model ARIMA.
-    \item Hanya dapat menangani metrik yang sudah ditentukan, yaitu \textit{throughput} dari setiap operasi \textit{Elastic Search} serta utilisasi prosesor hingga memori.
-    \item Tidak mempertimbangkan besarnya model seiring bertambahnya data.
+    \item Semua batasan masalah dan konfigurasi yang telah dibahas pada bagian \ref{sec:batasan-masalah}.
     \item Komponen \textit{Metrics Fetcher} berjalan di proses lain dan diimplementasikan dalam \textit{script} yang berbeda dikarenakan bahasa Python memiliki kekurangan dalam penanganan \textit{multithreading}.
     \item Pertukaran data antara komponen \textit{Metrics Fetcher} dan \textit{Predictor} melalui stream file.
 \end{enumerate}
