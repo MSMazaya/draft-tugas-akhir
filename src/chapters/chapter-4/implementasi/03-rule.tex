@@ -1,30 +1,15 @@
 \subsection{Komponen \textit{Rule Manager}}
-Komponen \textbf{\textit{Rule Manager}} berfungsi untuk melakukan parsing terhadap file \textit{rule} yang telah diisi oleh pengguna serta menjadi aggregator untuk melakukan pengecekan \textit{rule} yang berlangsung serta memberi informasi data prediksi kapan saja yang dibutuhkan untuk melakukan pengecekan. Parsing komponen ini menggunakan format csv dan kondisi diekspresikan dengan sintaks python. Komponen akan mengonstruksi objek \textbf{\textit{Rule}} yang akan digunakan oleh komponen \textbf{\textit{Flexible Control}}. Agar terbayang, contoh dari \textit{file rule} dapat dilihat pada gambar \ref{fig:rule-example}. Spesifikasi dari kedua kelas tersebut dapat dilihat pada gambar \ref{fig:rule-spek}.
+% fungsi declare, assign, assignif, has
+% jelasin boolean etc.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{chapter-4/rule.png}
-    \caption{Spesifikasi Kelas Penyusun Komponen \textit{Rule Manager}}
-    \label{fig:rule-spek}
-\end{figure}
+Komponen \textbf{\textit{Rule Manager}} akan melakukan parsing terhadap file \textit{rule} yang telah diisi oleh pengguna serta menjadi aggregator untuk melakukan pengecekan \textit{rule} yang berlangsung serta memberi informasi data prediksi kapan saja yang dibutuhkan untuk melakukan pengecekan. Contoh kumpulan rule dapat dilihat pada gambar \ref{fig:rule-example}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{chapter-4/cth-rule.png}
     \caption{Contoh \textit{File Rule}}
     \label{fig:rule-example}
-\end{figure}
-
-% fungsi declare, assign, assignif, has
-% jelasin boolean etc.
-
-Sebuah \textit{rule} memiliki fungsi sebagai berikut.
-\begin{enumerate}
-    \item Memiliki sebuah kondisi yang akan dievaluasi dengan data prediksi pada waktu prediksi yang diinginkan. Contoh: kondisi \textit{throughput} untuk operasi X untuk 1 menit kedepan dan 5 menit kedepan lebih dari 1s, maka tingkatkan prosesor sebanyak 500m.
-    \item Memiliki jumlah serta target kategori untuk diubah, dalam kasus ini pilihannya memori atau prosesor.
-    \item Satuan untuk perubahan memori adalah dalam \textit{Mebibyte} atau MiB. Sedangkan untuk prosesor dalam satuan mili atau m.
-    \item Sebuah \textit{rule} memiliki periode pengecekan sehingga tidak akan dicek secara terus menerus yang menyebabkan perubahan alokasi sumber daya terlalu cepat. Periode pengecekan dibuat dalam satuan sekon.
-\end{enumerate}
+\end{figure} 
 
 Seperti yang bisa dilihat pada contoh gambar \ref{fig:rule-example}, untuk membuat sebuah \textit{rule}, terdapat 5 buah \textit{field} yang harus diisi. \textit{Field} tersebut adalah sebagai berikut.
 \begin{enumerate}
