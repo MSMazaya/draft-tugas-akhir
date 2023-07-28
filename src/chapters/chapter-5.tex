@@ -5,7 +5,7 @@ Bab Kesimpulan dan Saran akan menjadi bagian akhir dan penutup dari penelitian t
 \section{Kesimpulan}
 Penelitian tugas akhir ini mengimplementasikan metode baru untuk melakukan \textit{autoscaling} yang disebut sebagai sistem kontrol fleksibel. Setelah dilakukan analisis, implementasi, dan pengujian, dapat diambil kesimpulan sebagai berikut.
 \begin{enumerate}
-    \item Mengontrol alokasi sumber daya memori dan prosesor dapat dilakukan dengan model prediksi berbasis \textit{time series}, salah satu model yang digunakan adalah ARIMA.
+    \item Mengontrol alokasi sumber daya memori dan prosesor dapat dilakukan dengan model prediksi berbasis \textit{time series}, salah satu model yang digunakan adalah ARIMA dengan eror yang tidak terlalu signifikan dibanding Bi-LSTM namun memiliki keunggulan yaitu lebih sederhana.
     \item Dampak \textit{autoscaler} dengan kontrol fleksibel berbasis model prediksi, sistem dapat lebih baik dalam melakukan \textit{scaling} dibandingkan dengan \textit{autoscaler} sederhana yang memakai \textit{threshold} karena:
 
         \begin{enumerate}
@@ -15,8 +15,6 @@ Penelitian tugas akhir ini mengimplementasikan metode baru untuk melakukan \text
             \item Bisa melakukan \textit{scaling} secara \textit{vertical} dengan menambah alokasi memori dan prosesor pada \textit{pods} dengan aplikasi berbasis JVM yang spesifiknya adalah \textit{Elastic Search}. \textit{Vertical Autoscaling} tidak dapat melakukan \textit{scaling} pada aplikasi berbasis JVM karena keterbatasan Kubernetes dalam melihat penggunaan memori yang sebenarnya.
             \item Dapat melakukan keputusan \textit{scaling} berdasarkan variabel-variabel yang spesifik kepada \textit{Elastic Search} seperti \textit{throughput} variabel tertentu.
         \end{enumerate}
-
-    \item Melakukan \textit{autoscaling} tanpa melakukan \textit{restart} dapat dilakukan saat Kubernetes sudah merilis versi stabil dari 1.27 untuk melakukan \textit{In-pod resource resizing}.
 \end{enumerate}
 
 \section{Saran}
