@@ -2,16 +2,7 @@
 \label{sec:rancangan-solusi}
 
 \subsection{Gambaran Umum}
-Dengan segala kebutuhan yang sudah dianalisis, maka akan dibuat beberapa komponen penyusun sistem yang bisa dilihat pada gambar \ref{fig:rancangan-sistem}. Rencananya, sistem kontrol fleksibel akan dikembangkan dari luar kubernetes cluster sedangkan \textit{Elastic Search} itu sendiri diletakkan didalam kubernetes. Integrasi dengan API \textit{Elastic Search} akan melalui \textit{service} yang disediakan kubernetes sedangkan untuk mengontrol kubernetesnya sendiri akan digunakan \textit{Kubernetes Client Library}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.1\textwidth]{chapter-3/rancangan.png}
-    \caption{Rancangan Komponen Penyusun Sistem}
-    \label{fig:rancangan-sistem}
-\end{figure}
-
-Sistem kontrol fleksibel dirancangkan akan disusun dari beberapa penyusun, diantaranya sebagai berikut.
+Dengan segala kebutuhan yang sudah dianalisis, maka akan dibuat beberapa komponen penyusun sistem. Rencananya, sistem kontrol fleksibel akan dikembangkan dari luar kubernetes cluster sedangkan \textit{Elastic Search} itu sendiri diletakkan didalam kubernetes. Integrasi dengan API \textit{Elastic Search} akan melalui \textit{service} yang disediakan kubernetes sedangkan untuk mengontrol kubernetesnya sendiri akan digunakan \textit{Kubernetes Client Library}. Komponen penyusun dirancangkan diantaranya sebagai berikut.
 
 \begin{enumerate}
     \item \textbf{Konfigurasi dan \textit{File Rule}}
@@ -85,6 +76,7 @@ Dalam melakukan pemasangan \textit{autoscaler}, umumnya pengelola akan melakukan
 \end{enumerate}
 
 \subsection{Arsitektur Sistem}
+\label{sec:arsitektur-sistem}
 
 Arsitektur sistem akan mengikuti \textbf{MAPE Loop} yang direferensikan dari riset terkait, \parencite{riset1}. Gambar arsitektur ini bisa dilihat pada gambar \ref{fig:mape}. Berikut adalah rancangan fase dengan arsitektur tersebut.
 
@@ -113,4 +105,61 @@ Arsitektur sistem akan mengikuti \textbf{MAPE Loop} yang direferensikan dari ris
 
 \subsection{Alur Kerja Sistem}
 
-Untuk alur kerja sistem, secara spesifik \textit{autoscaler} dengan kontrol fleksibel akan melakukan tugasnya dengan alur yang bisa dilihat pada gambar XXX.
+Untuk alur kerja sistem, secara spesifik \textit{autoscaler} dengan kontrol fleksibel akan melakukan tugasnya dengan mengikuti fase-fase pada arsitektur sistem MAPE yang sudah dijelaskan pada bagian \ref{sec:arsitektur-sistem}. Pada fase-fase tersebut, ada alur kerja yang harus dilakukan oleh sistem, diantaranya sebagai berikut.
+
+\begin{enumerate}
+    \item \bfseries \textit{Monitor} \normalfont
+    
+        Alur pada fase ini dapat dilihat pada gambar \ref{fig:alur-monitor}.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.7\textwidth]{chapter-3/monitor.png}
+            \caption{Rancangan Alur Fase \textit{Monitor}}
+            \label{fig:alur-monitor}
+        \end{figure}
+        
+    \item \bfseries \textit{Analyse} \normalfont
+    
+        Fase ini memiliki alur yang dapat dilihat pada gambar \ref{fig:alur-analysis}.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{chapter-3/analysis.png}
+            \caption{Rancangan Alur Fase \textit{Analysis}}
+            \label{fig:alur-analysis}
+        \end{figure}
+        
+    \item \bfseries \textit{Planning} \normalfont
+    
+        Dalam melakukan fase ini, alur yang akan dilalui oleh sistem dapat dilihat pada gambar \ref{fig:alur-planning}.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{chapter-3/planning.png}
+            \caption{Rancangan Alur Fase \textit{Planning}}
+            \label{fig:alur-planning}
+        \end{figure}
+
+    \item \bfseries \textit{Execution} \normalfont
+    
+        Apabila terdapat hal yang perlu dieksekusi, fase ini akan memiliki alur yang dapat dilihat pada gambar \ref{fig:alur-execution}. Apabila tidak ada yang perlu dieksekusi, sistem akan melanjutkan ke loop berikutnya dan melewati alur pada fase ini.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.35\textwidth]{chapter-3/execution.png}
+            \caption{Rancangan Alur Fase \textit{Execution}}
+            \label{fig:alur-execution}
+        \end{figure}
+\end{enumerate}
+
+\subsection{Hubungan Kubernetes, \textit{Elastic Search} dengan \textit{Autoscaler} dengan Sistem Kontrol Fleksibel}
+
+Pada bagian ini, keterhubungan antara 3 buah sistem yang berbeda akan dijelaskan melalui gambar \ref{fig:rancangan-sistem}. Kubernetes akan mengekspos API yang akan dipakai oleh \textit{Autoscaler} dengan Sistem Kontrol Fleksibel melalui \textit{Kubernetes Client Library}. Sedangkan, \textit{Elastic Search} akan mengekspos API yang berbentuk REST API yang akan dipakai oleh \textit{Autoscaler} dengan Sistem Kontrol Fleksibel melalui \textit{HTTP Client}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.1\textwidth]{chapter-3/component.png}
+    \caption{Rancangan Sistem}
+    \label{fig:rancangan-sistem}
+\end{figure}
