@@ -3,7 +3,7 @@
 Masalah sudah dipetakan pada bagian \ref{sec:pemetaan-masalah} dan penanganan secara singkat telah dipaparkan. Bagian ini akan menguraikan kebutuhan secara detil untuk melakukan penanganan masalah tersebut.
 
 \begin{enumerate}
-    \item \textbf{(M1,M2) Menambah variabel \textit{throughput} dan spesifik terhadap\textit{Elastic Search}}
+    \item \textbf{(M1,M2) Menambah variabel \textit{throughput} dan spesifik terhadap \textit{Elastic Search}}
     
     Kebutuhan ini secara umum bisa didapatkan melalui \href{https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-stats.html}{\textit{Node Stats API}}. Untuk variabel yang akan ditarik, akan digunakan \textit{metrics response time} dari setiap operasi yang ada di \textit{Elastic Search} seperti \textit{Index, Get, Query, Fetch, Bulk, Refresh, Scroll, Suggest} dan \textit{Flush} serta metrik umum seperti utilisasi prosesor, beban tulis (\textit{write load}), serta memori.
 
