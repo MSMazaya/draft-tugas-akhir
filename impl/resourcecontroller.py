@@ -17,7 +17,7 @@ class ResourceController:
         self.next_change = 0
         self.queue = []
         self.last_cpu = 1000
-        self.last_mem = 4096
+        self.last_mem = 5000
         self.load()
 
     def load(self):
