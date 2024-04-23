@@ -1,28 +1,45 @@
 \clearpage
-\chapter*{ABSTRACT}
+\chapter*{\textit{ABSTRACT}}
 \addcontentsline{toc}{chapter}{Abstract}
 
+\vspace{5mm}
+
 \begin{center}
-    \center
-    \begin{singlespace}
-      \large\bfseries\MakeUppercase{Automatic Scaling with Flexible Control Based on Time Series Predictive Model for Kubernetes Resource Efficiency on Elastic Search Pods}
-  
-      \normalfont\normalsize
-      By:
-  
-      \bfseries \theauthor
-    \end{singlespace}
-\end{center} 
+	\center
+	\large\bfseries\MakeUppercase{\textit{DEVELOPMENT OF RISC-V BASED HARDWARE ACCELERATOR FOR REINFORCEMENT LEARNING}}
+	
+	\normalfont\normalsize
+	
+	By\\
+	\bfseries{\textit{Muhammad Sulthan Mazaya \hspace{5mm} NIM: 13320028}}
+	
+	\vspace{5mm}
+	\large\bfseries{\textit{(Engineering Physics Study Program)}}
+	\vspace{5mm}
+\end{center}
 
 
 \begin{singlespace}
-    \small
-    With the advancement of the digital world, applications greatly influence human life, from search engines and social media to e-commerce. These applications have transformed the way we interact and access information. Naturally, the development of such applications heavily relies on information retrieval systems. One of the most popular information retrieval systems nowadays is Elastic Search. In its application, Elastic Search is widely used to provide sophisticated search capabilities, enabling quick product discovery in e-commerce and relevant, personalized search results in social media platforms. However, a drawback of Elastic Search is that, by default, it will consume all available memory for processing. If allocated too little memory, the processor will struggle to perform search operations without memory assistance. On the other hand, resource overprovisioning doesn't always lead to poor performance for Elastic Search, as it depends on the context of stored data and user needs.
-
-    Therefore, a flexible autoscaling technique is needed to ensure Elastic Search runs optimally and aligns with the tradeoff tolerance between cost and performance. This autoscaler will be built on Kubernetes for container orchestration and use ARIMA as the prediction model. The system will retrieve metrics from Elastic Search and predict throughput and processor and memory utilization. These predictions will be used to meet user-defined requirements for scaling. Users can define conditions that the system will use as references to make scaling decisions. Testing has been conducted for each component and a full system to ensure that specifications and functionality meet the requirements. Comparisons with Vertical and Horizontal Autoscalers have been made, and in essence, this method can replace the options of Vertical and Horizontal Autoscalers in the context of Elastic Search pods.
-
-    Ultimately, the autoscaler with a prediction model performs better in scaling compared to a simple autoscaler that uses thresholds. A suitable prediction model is a time series-based prediction model like ARIMA.
-    \textbf{\textit{Keywords: Autoscaler, Kubernetes, Flexible Control, ARIMA, Elastic Search, Predictive Autoscaler}}
+	\small
+	\textit{Reinforcement Learning (RL) is one of the popular frameworks for developing
+		autonomous agents. RL serves as an alternative modeling solution for problems in
+		systems that are too complex to be mathematically or algorithmically modeled. As
+		a result, RL is widely employed in domains such as robotics and autonomous driver
+		agents. However, despite being a suitable alternative for many problems, RL is
+		often challenging to use due to hardware resource limitations. This is primarily
+		because RL typically demands significant hardware resources. This can be a
+		hindrance when deploying RL models on computers with limited resources, such as
+		Internet of Things (IoT) devices or edge computing platforms. Therefore, in this
+		research, a akselerator perangkat keras design is proposed to reduce the
+		computational power required for RL algorithm computation. This akselerator
+		perangkat keras design will be implemented on a Field Programmable Gate Array
+		with an RISC-V, an open instruction set architecture, architecture in the form of a
+		co-processor. The results achieved in this final project consist of hardware and
+		software configurations, along with the design of the software and hardware that
+		will be implemented.
+	}
+	
+	\textit{Keywords: reinforcement learning, co-processor, field programmable gate array, RISC-V}
 \end{singlespace}
 \clearpage
 
