@@ -43,6 +43,9 @@
 \usepackage{longtable}
 \usepackage{xcolor, colortbl}
 \usepackage{setspace}
+\usepackage{tabto}
+\usepackage{multicol}
+\usepackage[printonlyused,withpage]{acronym}
 
 \graphicspath{{resources/}}   % letak direktori penyimpanan gambar
 
@@ -117,14 +120,15 @@
 }
 
 % Line satu setengah spasi
-\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\baselinestretch}{1}
 
 % Setting judul
-\chapterfont{\centering \large}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\chapterfont{\centering\large}
 \titleformat{\chapter}[display]
-  {\Large\centering\bfseries}
+  {\large\centering\bfseries}
   {\chaptertitlename\ \thechapter}{0pt}
-    {\Large\bfseries\uppercase}
+    {\large\bfseries\uppercase}
 
 % Setting nomor pada subbsubsubbab
 \setcounter{secnumdepth}{3}
