@@ -1,22 +1,17 @@
-\section{Batasan Masalah}
+\section{Batasan Masalah dan Asumsi}
 \label{sec:batasan-masalah}
 
-Terdapat batasan yang diambil dalam pelaksanaan tugas akhir ini, yaitu sebagai berikut.
+Untuk memenuhi tujuan dan sasaran pada perancangan tugas akhir ini, beberapa batasan yang digunakan antara lain:
 
 \begin{enumerate}
-    \item Implementasi \textit{Autoscale} dengan kontrol fleksibel akan fokus pada level \textit{pods} Kubernetes atau \textit{node} pada \textit{Elastic Search}.
-    \item Pengguna dapat menetapkan sejumlah \textit{rule} yang akan digunakan untuk mengontrol alokasi sumber daya \textit{pods} \textit{Elastic Search}.
-    \item Tidak melakukan riset perbandingan model prediksi satu dengan yang lainnya.
-    \item Penentuan \textit{rule} untuk mengubah alokasi sumber daya tidak akan ditentukan secara otomatis melainkan ditentukan oleh pengguna. Hal ini disebabkan oleh kebutuhan serta karakteristik penggunaan \textit{Elastic Search} yang dapat berbeda antara pengguna.
-    \item Tidak melakukan optimasi model prediksi terutama saat data sudah sangat besar.
-    \item \textit{ElasticSearch} yang dipakai dalam pengembangan dan pengujian dibuat didalam \textit{cluster} Kubernetes lokal dengan batasan konfigurasi:
-        \begin{enumerate}
-            \item \textit{Node} Kubernetes hanya terdiri dari satu \textit{pod Elastic Search}.
-            \item \textit{Elastic Search} dibuat dari kosong menggunakan \textit{image} yang disediakan oleh docker.
-            \item Versi \textit{Elastic Search} yang digunakan adalah versi 8.8.1.
-            \item \textit{Elastic Search} hanya memiliki satu \textit{shard} dan satu \textit{replica}.
-            \item \textit{Elastic Search Cluster} berada di pod yang sama.
-            \item Data \textit{Elastic Search} diletakkan dalam sebuah \textit{Persistent Volume Claim}.
-        \end{enumerate}
- \end{enumerate}
+	\item Akselerator perangkat keras akan menggunakan arsitektur RISC-V.
+	\item Modul perangkat keras akan ditulis dengan bahasa Verilog dan SystemVerilog pada \ac{FPGA}.
+	\item Hasil desain akselerator perangkat keras tidak akan dicetak sebagai \textit{Application Specific Integrated Circuits}.
+\end{enumerate}
 
+Testing hasil akselerator perangkat keras akan dilakukan dengan kasus spesifik algoritma \ac{RL} untuk agen perencana jalur. Asumsi yang digunakan pada penelitian tugas akhir ini adalah:
+
+\begin{enumerate}
+	\item Penghitungan daya komputasi akan mengasumsikan \textit{clock cycle}/kWh yang konstan karena desain masih dalam prototype \ac{FPGA}.
+	\item Daya keluaran didominasi oleh \textit{processor}, sehingga perbandingan akan dilakukan hanya menggunakan \textit{cpu cycle}/kWh.
+\end{enumerate}

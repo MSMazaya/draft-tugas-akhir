@@ -1,0 +1,103 @@
+\value {tocdepth}=-1
+\babel@toc {bahasa}{}\relax 
+\babel@toc {bahasa}{}\relax 
+\contentsline {chapter}{Abstrak}{ii}{chapter*.1}%
+\contentsline {chapter}{Abstract}{iii}{chapter*.2}%
+\contentsline {chapter}{Halaman Pengesahan}{iv}{chapter*.3}%
+\contentsline {chapter}{Kata Pengantar}{v}{chapter*.4}%
+\contentsline {chapter}{DAFTAR ISI}{vi}{chapter*.5}%
+\contentsline {chapter}{DAFTAR LAMPIRAN}{viii}{chapter*.7}%
+\contentsline {chapter}{DAFTAR GAMBAR}{ix}{chapter*.8}%
+\contentsline {chapter}{DAFTAR TABEL}{xi}{chapter*.9}%
+\contentsline {chapter}{\numberline {I}Pendahuluan}{1}{chapter.1}%
+\contentsline {section}{\numberline {I.1}Latar Belakang}{1}{section.1.1}%
+\contentsline {section}{\numberline {I.2}Rumusan Masalah}{2}{section.1.2}%
+\contentsline {section}{\numberline {I.3}Tujuan}{2}{section.1.3}%
+\contentsline {section}{\numberline {I.4}Batasan Masalah}{2}{section.1.4}%
+\contentsline {section}{\numberline {I.5}Metodologi}{3}{section.1.5}%
+\contentsline {section}{\numberline {I.6}Sistematika Pembahasan}{4}{section.1.6}%
+\contentsline {chapter}{\numberline {II}Studi Literatur}{5}{chapter.2}%
+\contentsline {section}{\numberline {II.1}Kubernetes}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {II.1.1}Pod}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {II.1.2}\textit {Autoscaler}}{5}{subsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {II.1.2.1}\textit {Horizontal Autoscaler}}{6}{subsubsection.2.1.2.1}%
+\contentsline {subsubsection}{\numberline {II.1.2.2}\textit {Vertical Autoscaler}}{6}{subsubsection.2.1.2.2}%
+\contentsline {subsection}{\numberline {II.1.3}Kubernetes \textit {Client Library}}{7}{subsection.2.1.3}%
+\contentsline {section}{\numberline {II.2}Prediksi Statistik}{7}{section.2.2}%
+\contentsline {section}{\numberline {II.3}Pemodelan Prediksi dan Teknik Pengembangannya}{7}{section.2.3}%
+\contentsline {section}{\numberline {II.4}Model Prediktif berbasis \textit {Time Series}}{8}{section.2.4}%
+\contentsline {section}{\numberline {II.5}Penelitian dan Riset Terkait}{10}{section.2.5}%
+\contentsline {subsection}{\numberline {II.5.1}\textit {Deep Learning-Based Autoscaling Using Bidirectional Long Short-Term Memory for Kubernetes}}{10}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {II.5.2}Penelitian Lainnya}{11}{subsection.2.5.2}%
+\contentsline {section}{\numberline {II.6}\textit {Information Retrieval}}{12}{section.2.6}%
+\contentsline {section}{\numberline {II.7}Apache Lucene}{13}{section.2.7}%
+\contentsline {section}{\numberline {II.8}\textit {Elastic Search}}{13}{section.2.8}%
+\contentsline {section}{\numberline {II.9}Java \textit {Virtual Machine}}{15}{section.2.9}%
+\contentsline {chapter}{\numberline {III}Analisis Persoalan dan Rancangan Solusi}{16}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Analisis Persoalan}{16}{section.3.1}%
+\contentsline {section}{\numberline {III.2}Analisis Solusi}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Pemetaan Tantangan dan Penanganan}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Rencana Penanganan Masalah dan Analisis Kebutuhan}{17}{subsection.3.2.2}%
+\contentsline {section}{\numberline {III.3}Rancangan Solusi}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Gambaran Umum}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Model Prediksi}{19}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {III.3.3}Sistem \textit {Rule}}{20}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {III.3.4}Arsitektur Sistem}{21}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {III.3.5}Rancangan Kelas Penyusun Sistem dan Spesifikasi Kelas}{22}{subsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {III.3.5.1}Komponen \textbf {\textit {Metrics Fetcher}}}{22}{subsubsection.3.3.5.1}%
+\contentsline {subsubsection}{\numberline {III.3.5.2}Komponen \textbf {\textit {Predictor}}}{22}{subsubsection.3.3.5.2}%
+\contentsline {subsubsection}{\numberline {III.3.5.3}Komponen \textbf {\textit {Rule Manager}}}{23}{subsubsection.3.3.5.3}%
+\contentsline {subsubsection}{\numberline {III.3.5.4}Komponen \textbf {\textit {Resource Controller}}}{23}{subsubsection.3.3.5.4}%
+\contentsline {subsubsection}{\numberline {III.3.5.5}Komponen \textbf {\textit {Flexible Control}}}{24}{subsubsection.3.3.5.5}%
+\contentsline {subsection}{\numberline {III.3.6}Alur Kerja Sistem}{24}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {III.3.7}Hubungan Kubernetes, \textit {Elastic Search} dengan \textit {Autoscaler} dengan Sistem Kontrol Fleksibel}{26}{subsection.3.3.7}%
+\contentsline {chapter}{\numberline {IV}Implementasi dan Pengujian}{28}{chapter.4}%
+\contentsline {section}{\numberline {IV.1}Lingkungan}{28}{section.4.1}%
+\contentsline {section}{\numberline {IV.2}Implementasi}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {IV.2.1}Batasan Implementasi}{29}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {IV.2.2}Kakas yang Digunakan}{29}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {IV.2.3}Persiapan \textit {Pods Elastic Search}}{29}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {IV.2.4}Komponen \textit {Metrics Fetcher}}{29}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {IV.2.5}Komponen \textit {Predictor}}{29}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {IV.2.6}Komponen \textit {Rule Manager}}{30}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {IV.2.7}Komponen \textit {Resource Controller}}{33}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {IV.2.8}Komponen Pendukung: Konfigurasi dan Utilitas}{33}{subsection.4.2.8}%
+\contentsline {subsection}{\numberline {IV.2.9}Penggunaan untuk \textit {Pods} dengan Aplikasi Lain}{37}{subsection.4.2.9}%
+\contentsline {section}{\numberline {IV.3}Pengujian}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}Pengujian Komponen \textit {Metrics Fetcher}}{37}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {IV.3.1.1}Tujuan Pengujian}{37}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {IV.3.1.2}Skenario Pengujian}{38}{subsubsection.4.3.1.2}%
+\contentsline {subsubsection}{\numberline {IV.3.1.3}Hasil Pengujian dan Analisis}{38}{subsubsection.4.3.1.3}%
+\contentsline {subsection}{\numberline {IV.3.2}Pengujian Komponen \textit {Predictor}}{38}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {IV.3.2.1}Tujuan Pengujian}{38}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {IV.3.2.2}Skenario Pengujian}{38}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {IV.3.2.3}Evaluasi}{39}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {IV.3.2.4}Hasil Pengujian dan Analisis}{41}{subsubsection.4.3.2.4}%
+\contentsline {subsection}{\numberline {IV.3.3}Pengujian Komponen \textit {Rule Manager}}{42}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {IV.3.3.1}Tujuan Pengujian}{42}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {IV.3.3.2}Skenario Pengujian}{42}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {IV.3.3.3}Hasil Pengujian dan Analisis}{43}{subsubsection.4.3.3.3}%
+\contentsline {subsection}{\numberline {IV.3.4}Pengujian Komponen \textit {Resource Controller}}{43}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {IV.3.4.1}Tujuan Pengujian}{43}{subsubsection.4.3.4.1}%
+\contentsline {subsubsection}{\numberline {IV.3.4.2}Skenario Pengujian}{43}{subsubsection.4.3.4.2}%
+\contentsline {subsubsection}{\numberline {IV.3.4.3}Hasil Pengujian dan Analisis}{44}{subsubsection.4.3.4.3}%
+\contentsline {subsection}{\numberline {IV.3.5}Pengujian Sistem \textit {Flexible Control}}{45}{subsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {IV.3.5.1}Tujuan Pengujian}{45}{subsubsection.4.3.5.1}%
+\contentsline {subsubsection}{\numberline {IV.3.5.2}Skenario Pengujian}{45}{subsubsection.4.3.5.2}%
+\contentsline {subsubsection}{\numberline {IV.3.5.3}Hasil Pengujian dan Analisis}{45}{subsubsection.4.3.5.3}%
+\contentsline {section}{\numberline {IV.4}Perbandingan}{46}{section.4.4}%
+\contentsline {subsection}{\numberline {IV.4.1}Perbandingan Efisiensi}{47}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {IV.4.1.1}\textit {Horizontal Pod Autoscaler}}{47}{subsubsection.4.4.1.1}%
+\contentsline {subsubsection}{\numberline {IV.4.1.2}\textit {Vertical Pod Autoscaler}}{48}{subsubsection.4.4.1.2}%
+\contentsline {chapter}{\numberline {V}Penutup}{53}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Kesimpulan}{53}{section.5.1}%
+\contentsline {section}{\numberline {V.2}Saran}{53}{section.5.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{55}{section*.10}%
+\value {tocdepth}=-1
+\value {tocdepth}=2
+\ttl@change@i {\@ne }{chapter}{0pt}{\bfseries }{Lampiran \thecontentslabel .\quad }{}{\hfill \contentspage }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\contentsline {chapter}{\numberline {A}Eksperimen \textit {In-place Resource Resize} untuk \textit {pods Kubernetes}}{55}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Contoh Konfigurasi \textit {Pods Elastic Search}}{60}{appendix.B}%
+\contentsfinish 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

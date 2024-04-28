@@ -22,7 +22,7 @@
 \usepackage[bahasa]{babel}
 
 % Format citation
-\usepackage[style=apa,backend=biber]{biblatex}
+\usepackage[style=ieee,backend=biber]{biblatex}
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -46,6 +46,7 @@
 \usepackage{tabto}
 \usepackage{multicol}
 \usepackage[printonlyused,withpage]{acronym}
+\usepackage{caption}
 
 \graphicspath{{resources/}}   % letak direktori penyimpanan gambar
 
@@ -54,81 +55,81 @@
 \TOCclone[\lopname]{toc}{atoc}
 \addtocontents{atoc}{\protect\value{tocdepth}=-1}
 \newcommand\listofappendices{
-  \cleardoublepage
-  \phantomsection
-  \listofatoc
-  \addcontentsline{toc}{chapter}{\lopname}
+	\cleardoublepage
+	\phantomsection
+	\listofatoc
+	\addcontentsline{toc}{chapter}{\lopname}
 }
 
 \newcommand*\savedtocdepth{}
 \AtBeginDocument{%
-  \edef\savedtocdepth{\the\value{tocdepth}}%
+	\edef\savedtocdepth{\the\value{tocdepth}}%
 }
 
 \let\originalappendix\appendix
 \renewcommand\appendix{%
-  \originalappendix
-  \cleardoublepage
-  \addtocontents{toc}{\protect\value{tocdepth}=-1}%
-  \addtocontents{atoc}{\protect\value{tocdepth}=\savedtocdepth}%
-
-  \titlecontents{chapter}
-    [0pt]
-    {\bfseries}
-    {Lampiran \thecontentslabel.\quad}
-    {}
-    {\hfill\contentspage}
-
-  \titleformat{\chapter}[block]
-    {\bfseries}
-    {\chaptertitlename\ \thechapter.\quad}{0pt}
-    {\bfseries}
+	\originalappendix
+	\cleardoublepage
+	\addtocontents{toc}{\protect\value{tocdepth}=-1}%
+	\addtocontents{atoc}{\protect\value{tocdepth}=\savedtocdepth}%
+	
+	\titlecontents{chapter}
+	[0pt]
+	{\bfseries}
+	{Lampiran \thecontentslabel.\quad}
+	{}
+	{\hfill\contentspage}
+	
+	\titleformat{\chapter}[block]
+	{\bfseries}
+	{\chaptertitlename\ \thechapter.\quad}{0pt}
+	{\bfseries}
 }
 
 % Hilangkan titik pada toc
 \makeatletter
-\renewcommand{\@dotsep}{1} 
+\renewcommand{\@dotsep}{1}
 \makeatother
 
 % Setel title pada chapter-chapter di toc, lof, lot
 \titlecontents{chapter}
-  [0pt]
-  {\bfseries}
-  {\MakeUppercase{Bab} \thecontentslabel\quad\uppercase}
-  {}
-  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
+[0pt]
+{\bfseries}
+{\MakeUppercase{Bab} \thecontentslabel\quad\uppercase}
+{}
+{\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 \titlecontents{figure}
-  [0pt]
-  {}
-  {Gambar \thecontentslabel.\quad}
-  {}
-  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
+[0pt]
+{}
+{Gambar \thecontentslabel.\quad}
+{}
+{\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 \titlecontents{table}
-  [0pt]
-  {}
-  {Tabel \thecontentslabel.\quad}
-  {}
-  {\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
+[0pt]
+{}
+{Tabel \thecontentslabel.\quad}
+{}
+{\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
 
 % Masukin Daftar Pustaka ke toc
 \let\originalprintbibliography\printbibliography
 \renewcommand\printbibliography{%
-  \phantomsection
-  \cleardoublepage
-  \originalprintbibliography
-  \addcontentsline{toc}{chapter}{\bibname}
+	\phantomsection
+	\cleardoublepage
+	\originalprintbibliography
+	\addcontentsline{toc}{chapter}{\bibname}
 }
 
 % Line satu setengah spasi
-\renewcommand{\baselinestretch}{1}
+\renewcommand{\baselinestretch}{1.5}
 
 % Setting judul
 \titlespacing*{\chapter}{0pt}{0pt}{0pt}
 \chapterfont{\centering\large}
 \titleformat{\chapter}[display]
-  {\large\centering\bfseries}
-  {\chaptertitlename\ \thechapter}{0pt}
-    {\large\bfseries\uppercase}
+{\large\centering\bfseries}
+{\chaptertitlename\ \thechapter}{0pt}
+{\large\bfseries\uppercase}
 
 % Setting nomor pada subbsubsubbab
 \setcounter{secnumdepth}{3}

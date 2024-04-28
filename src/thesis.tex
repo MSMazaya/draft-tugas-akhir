@@ -33,6 +33,11 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
+% setting caption
+\captionsetup{labelsep=space}
+\captionsetup{labelfont=bf}
+\setlength{\belowcaptionskip}{0pt}
+
 \input{chapters/cover}
 \input{chapters/abstract-id}
 \input{chapters/abstract-en}
@@ -46,6 +51,7 @@
 \titlespacing*{\chapter}{0pt}{0pt}{4pt}
 
 % Setting judul toc, lot, lof, bib
+% \renewcommand{\cftXpagefont}{\normalfont} % make font non bold
 \renewcommand{\contentsname}{DAFTAR ISI}
 \renewcommand{\listfigurename}{DAFTAR GAMBAR}
 \renewcommand{\listtablename}{DAFTAR TABEL}
@@ -60,6 +66,8 @@
 \newpage
 
 \titleformat*{\section}{\bfseries\normalsize}
+\titlespacing*{\chapter}{0pt}{0pt}{*1}
+\titlespacing*{\section}{0pt}{10pt}{*1}
 \pagenumbering{arabic}
 
 %----------------------------------------------------------------%
@@ -67,7 +75,6 @@
 %----------------------------------------------------------------%
 \setcounter{page}{1}
 \renewcommand{\chaptername}{BAB}
-\renewcommand{\thechapter}{\Roman{chapter}}
 %----------------------------------------------------------------%
 
 %----------------------------------------------------------------%

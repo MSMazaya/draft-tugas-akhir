@@ -1,0 +1,272 @@
+\@writefile{atoc}{\value {tocdepth}=-1}
+\@writefile{toc}{\babel@toc {bahasa}{}\relax }
+\@writefile{atoc}{\babel@toc {bahasa}{}\relax }
+\@writefile{lof}{\babel@toc {bahasa}{}\relax }
+\@writefile{lot}{\babel@toc {bahasa}{}\relax }
+\@writefile{atoc}{\babel@toc {bahasa}{}\relax }
+\@writefile{toc}{\contentsline {chapter}{ABSTRAK}{ii}{chapter*.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{ABSTRAK}{ii}{chapter*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{ABSTRACT}{iii}{chapter*.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{ABSTRACT}{iii}{chapter*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{HALAMAN PENGESAHAN}{iv}{chapter*.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{HALAMAN PENGESAHAN}{iv}{chapter*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{KATA PENGANTAR}{v}{chapter*.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{KATA PENGANTAR}{v}{chapter*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{DAFTAR ISI}{vii}{chapter*.6}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{DAFTAR ISI}{vii}{chapter*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{DAFTAR GAMBAR}{x}{chapter*.7}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{DAFTAR GAMBAR}{x}{chapter*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{DAFTAR TABEL}{xii}{chapter*.9}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{DAFTAR TABEL}{xii}{chapter*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{DAFTAR SINGKATAN DAN LAMBANG}{xiii}{chapter*.10}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{DAFTAR SINGKATAN DAN LAMBANG}{xiii}{chapter*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Pendahuluan}{1}{chapter.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {1}Pendahuluan}{1}{chapter.1}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Diagram \textit {Reinforcement Learning}\relax }}{1}{figure.caption.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Ilustrasi \textit {Edge Computing}\relax }}{2}{figure.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Rumusan Masalah}{3}{section.1.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {1.2}Rumusan Masalah}{3}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Tujuan dan Sasaran}{3}{section.1.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {1.3}Tujuan dan Sasaran}{3}{section.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Batasan Masalah dan Asumsi}{4}{section.1.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {1.4}Batasan Masalah dan Asumsi}{4}{section.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Sistematika Pembahasan}{4}{section.1.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {1.5}Sistematika Pembahasan}{4}{section.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Studi Literatur}{5}{chapter.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {2}Studi Literatur}{5}{chapter.2}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}\textit {Reinforcement Learning}}{5}{section.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.1}\textit {Reinforcement Learning}}{5}{section.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Ilustrasi \ac {RL}\relax }}{5}{figure.caption.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Kubernetes}{5}{section.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.2}Kubernetes}{5}{section.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Pod}{6}{subsection.2.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {2.2.1}Pod}{6}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}\textit {Autoscaler}}{6}{subsection.2.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {2.2.2}\textit {Autoscaler}}{6}{subsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2.1}\textit {Horizontal Autoscaler}}{7}{subsubsection.2.2.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {2.2.2.1}\textit {Horizontal Autoscaler}}{7}{subsubsection.2.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2.2}\textit {Vertical Autoscaler}}{8}{subsubsection.2.2.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {2.2.2.2}\textit {Vertical Autoscaler}}{8}{subsubsection.2.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Kubernetes \textit {Client Library}}{8}{subsection.2.2.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {2.2.3}Kubernetes \textit {Client Library}}{8}{subsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Prediksi Statistik}{9}{section.2.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.3}Prediksi Statistik}{9}{section.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Pemodelan Prediksi dan Teknik Pengembangannya}{9}{section.2.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.4}Pemodelan Prediksi dan Teknik Pengembangannya}{9}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Model Prediktif berbasis \textit {Time Series}}{11}{section.2.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.5}Model Prediktif berbasis \textit {Time Series}}{11}{section.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Penelitian dan Riset Terkait}{13}{section.2.6}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.6}Penelitian dan Riset Terkait}{13}{section.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}\textit {Deep Learning-Based Autoscaling Using Bidirectional Long Short-Term Memory for Kubernetes}}{13}{subsection.2.6.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {2.6.1}\textit {Deep Learning-Based Autoscaling Using Bidirectional Long Short-Term Memory for Kubernetes}}{13}{subsection.2.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Arsitektur Sistem MAPE, \blx@tocontentsinit {0}\parencite {riset1}\relax }}{14}{figure.caption.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Penelitian Lainnya}{14}{subsection.2.6.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {2.6.2}Penelitian Lainnya}{14}{subsection.2.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Tabel Penelitian Lain terkait Pengembangan Metode \textit {Autoscaling}\relax }}{14}{table.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}\textit {Information Retrieval}}{16}{section.2.7}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.7}\textit {Information Retrieval}}{16}{section.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.8}Apache Lucene}{17}{section.2.8}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.8}Apache Lucene}{17}{section.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.9}\textit {Elastic Search}}{17}{section.2.9}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.9}\textit {Elastic Search}}{17}{section.2.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.10}Java \textit {Virtual Machine}}{19}{section.2.10}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {2.10}Java \textit {Virtual Machine}}{19}{section.2.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Analisis Persoalan dan Rancangan Solusi}{21}{chapter.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {3}Analisis Persoalan dan Rancangan Solusi}{21}{chapter.3}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Analisis Persoalan}{21}{section.3.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {3.1}Analisis Persoalan}{21}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Analisis Solusi}{22}{section.3.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {3.2}Analisis Solusi}{22}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Pemetaan Tantangan dan Penanganan}{22}{subsection.3.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.2.1}Pemetaan Tantangan dan Penanganan}{22}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Rencana Penanganan Masalah dan Analisis Kebutuhan}{22}{subsection.3.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.2.2}Rencana Penanganan Masalah dan Analisis Kebutuhan}{22}{subsection.3.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Tabel Pemetaan Tantangan dan Penanganan\relax }}{23}{table.caption.18}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Tabel Contoh Lain\relax }}{24}{table.caption.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Rancangan Solusi}{25}{section.3.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {3.3}Rancangan Solusi}{25}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Gambaran Umum}{25}{subsection.3.3.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.1}Gambaran Umum}{25}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Model Prediksi}{26}{subsection.3.3.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.2}Model Prediksi}{26}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Sistem \textit {Rule}}{28}{subsection.3.3.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.3}Sistem \textit {Rule}}{28}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Arsitektur Sistem}{28}{subsection.3.3.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.4}Arsitektur Sistem}{28}{subsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.5}Rancangan Kelas Penyusun Sistem dan Spesifikasi Kelas}{29}{subsection.3.3.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.5}Rancangan Kelas Penyusun Sistem dan Spesifikasi Kelas}{29}{subsection.3.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5.1}Komponen \textbf {\textit {Metrics Fetcher}}}{29}{subsubsection.3.3.5.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {3.3.5.1}Komponen \textbf {\textit {Metrics Fetcher}}}{29}{subsubsection.3.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5.2}Komponen \textbf {\textit {Predictor}}}{29}{subsubsection.3.3.5.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {3.3.5.2}Komponen \textbf {\textit {Predictor}}}{29}{subsubsection.3.3.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Spesifikasi Kelas Penyusun Komponen \textit {Predictor}\relax }}{30}{figure.caption.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5.3}Komponen \textbf {\textit {Rule Manager}}}{31}{subsubsection.3.3.5.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {3.3.5.3}Komponen \textbf {\textit {Rule Manager}}}{31}{subsubsection.3.3.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Spesifikasi Kelas Penyusun Komponen \textit {Rule Manager}\relax }}{31}{figure.caption.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5.4}Komponen \textbf {\textit {Resource Controller}}}{32}{subsubsection.3.3.5.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {3.3.5.4}Komponen \textbf {\textit {Resource Controller}}}{32}{subsubsection.3.3.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Spesifikasi Kelas Penyusun Komponen \textit {Resource Controller}\relax }}{32}{figure.caption.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5.5}Komponen \textbf {\textit {Flexible Control}}}{32}{subsubsection.3.3.5.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {3.3.5.5}Komponen \textbf {\textit {Flexible Control}}}{32}{subsubsection.3.3.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.6}Alur Kerja Sistem}{32}{subsection.3.3.6}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.6}Alur Kerja Sistem}{32}{subsection.3.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Spesifikasi Kelas Penyusun Komponen \textit {Flexible Control}\relax }}{33}{figure.caption.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Rancangan Alur Fase \textit {Monitor}\relax }}{33}{figure.caption.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Rancangan Alur Fase \textit {Analysis}\relax }}{34}{figure.caption.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Rancangan Alur Fase \textit {Planning}\relax }}{34}{figure.caption.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.7}Hubungan Kubernetes, \textit {Elastic Search} dengan \textit {Autoscaler} dengan Sistem Kontrol Fleksibel}{34}{subsection.3.3.7}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {3.3.7}Hubungan Kubernetes, \textit {Elastic Search} dengan \textit {Autoscaler} dengan Sistem Kontrol Fleksibel}{34}{subsection.3.3.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Rancangan Alur Fase \textit {Execution}\relax }}{35}{figure.caption.27}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Rancangan Sistem\relax }}{35}{figure.caption.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementasi dan Pengujian}{36}{chapter.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {4}Implementasi dan Pengujian}{36}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Lingkungan}{36}{section.4.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {4.1}Lingkungan}{36}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Implementasi}{37}{section.4.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {4.2}Implementasi}{37}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Batasan Implementasi}{37}{subsection.4.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.1}Batasan Implementasi}{37}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Kakas yang Digunakan}{37}{subsection.4.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.2}Kakas yang Digunakan}{37}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Persiapan \textit {Pods Elastic Search}}{38}{subsection.4.2.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.3}Persiapan \textit {Pods Elastic Search}}{38}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Komponen \textit {Metrics Fetcher}}{38}{subsection.4.2.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.4}Komponen \textit {Metrics Fetcher}}{38}{subsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Komponen \textit {Predictor}}{38}{subsection.4.2.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.5}Komponen \textit {Predictor}}{38}{subsection.4.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Komponen \textit {Rule Manager}}{40}{subsection.4.2.6}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.6}Komponen \textit {Rule Manager}}{40}{subsection.4.2.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Contoh \textit {File Rule}\relax }}{40}{figure.caption.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Komponen \textit {Resource Controller}}{43}{subsection.4.2.7}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.7}Komponen \textit {Resource Controller}}{43}{subsection.4.2.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Contoh File Antrian Pengubahan Alokasi\relax }}{44}{figure.caption.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.8}Komponen Pendukung: Konfigurasi dan Utilitas}{44}{subsection.4.2.8}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.8}Komponen Pendukung: Konfigurasi dan Utilitas}{44}{subsection.4.2.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Konfigurasi \textit {Flexible Control}\relax }}{45}{figure.caption.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.9}Penggunaan untuk \textit {Pods} dengan Aplikasi Lain}{47}{subsection.4.2.9}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.2.9}Penggunaan untuk \textit {Pods} dengan Aplikasi Lain}{47}{subsection.4.2.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Spesifikasi Fungsi Utilitas Pendukung\relax }}{48}{figure.caption.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Pengujian}{49}{section.4.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {4.3}Pengujian}{49}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Pengujian Komponen \textit {Metrics Fetcher}}{49}{subsection.4.3.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.3.1}Pengujian Komponen \textit {Metrics Fetcher}}{49}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.1}Tujuan Pengujian}{49}{subsubsection.4.3.1.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.1.1}Tujuan Pengujian}{49}{subsubsection.4.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.2}Skenario Pengujian}{49}{subsubsection.4.3.1.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.1.2}Skenario Pengujian}{49}{subsubsection.4.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1.3}Hasil Pengujian dan Analisis}{50}{subsubsection.4.3.1.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.1.3}Hasil Pengujian dan Analisis}{50}{subsubsection.4.3.1.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Hasil Pengujian Komponen \textit {Metrics Fetcher} Skenario 1\relax }}{50}{figure.caption.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Pengujian Komponen \textit {Predictor}}{50}{subsection.4.3.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.3.2}Pengujian Komponen \textit {Predictor}}{50}{subsection.4.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Hasil Pengujian Komponen \textit {Metrics Fetcher} Skenario 2\relax }}{51}{figure.caption.34}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Hasil Pengujian Komponen \textit {Metrics Fetcher} Skenario 3\relax }}{51}{figure.caption.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}Tujuan Pengujian}{51}{subsubsection.4.3.2.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.2.1}Tujuan Pengujian}{51}{subsubsection.4.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.2}Skenario Pengujian}{51}{subsubsection.4.3.2.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.2.2}Skenario Pengujian}{51}{subsubsection.4.3.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Agregat Log \textit {Web Server} NASA\relax }}{52}{figure.caption.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.3}Evaluasi}{52}{subsubsection.4.3.2.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.2.3}Evaluasi}{52}{subsubsection.4.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.4}Hasil Pengujian dan Analisis}{53}{subsubsection.4.3.2.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.2.4}Hasil Pengujian dan Analisis}{53}{subsubsection.4.3.2.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Tabel Pengujian Model\relax }}{54}{table.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Perbandingan Nilai Aktual dan Prediksi Model ARIMA\relax }}{54}{figure.caption.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Pengujian Komponen \textit {Rule Manager}}{55}{subsection.4.3.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.3.3}Pengujian Komponen \textit {Rule Manager}}{55}{subsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}Tujuan Pengujian}{55}{subsubsection.4.3.3.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.3.1}Tujuan Pengujian}{55}{subsubsection.4.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.2}Skenario Pengujian}{55}{subsubsection.4.3.3.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.3.2}Skenario Pengujian}{55}{subsubsection.4.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.3}Hasil Pengujian dan Analisis}{55}{subsubsection.4.3.3.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.3.3}Hasil Pengujian dan Analisis}{55}{subsubsection.4.3.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Program \textit {Test Driver 1} untuk Menguji \textit {Rule Manager}\relax }}{56}{figure.caption.38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Program \textit {Test Driver 2} untuk Menguji \textit {Rule Manager}\relax }}{56}{figure.caption.39}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {File Rule 1} untuk Pengujian \textit {Rule Manager}\relax }}{57}{figure.caption.40}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {File Rule 2} untuk Pengujian \textit {Rule Manager}\relax }}{57}{figure.caption.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Pengujian Komponen \textit {Resource Controller}}{57}{subsection.4.3.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.3.4}Pengujian Komponen \textit {Resource Controller}}{57}{subsection.4.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4.1}Tujuan Pengujian}{57}{subsubsection.4.3.4.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.4.1}Tujuan Pengujian}{57}{subsubsection.4.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4.2}Skenario Pengujian}{57}{subsubsection.4.3.4.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.4.2}Skenario Pengujian}{57}{subsubsection.4.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4.3}Hasil Pengujian dan Analisis}{57}{subsubsection.4.3.4.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.4.3}Hasil Pengujian dan Analisis}{57}{subsubsection.4.3.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Hasil Pengujian Skenario 1 (1/2)\relax }}{58}{figure.caption.42}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Hasil Pengujian Skenario 1 (2/2)\relax }}{58}{figure.caption.43}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.5}Pengujian Sistem \textit {Flexible Control}}{58}{subsection.4.3.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.3.5}Pengujian Sistem \textit {Flexible Control}}{58}{subsection.4.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5.1}Tujuan Pengujian}{58}{subsubsection.4.3.5.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.5.1}Tujuan Pengujian}{58}{subsubsection.4.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5.2}Skenario Pengujian}{58}{subsubsection.4.3.5.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.5.2}Skenario Pengujian}{58}{subsubsection.4.3.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Hasil Pengujian Skenario 2 dan 3 (1/2)\relax }}{59}{figure.caption.44}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Hasil Pengujian Skenario 2 dan 3 (2/2)\relax }}{59}{figure.caption.45}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Program \textit {Test Driver} untuk Menguji \textit {Resource Controller}\relax }}{60}{figure.caption.46}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces Status \textit {Pods} Sebelum Pengubahan Alokasi\relax }}{60}{figure.caption.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5.3}Hasil Pengujian dan Analisis}{60}{subsubsection.4.3.5.3}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.3.5.3}Hasil Pengujian dan Analisis}{60}{subsubsection.4.3.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Status \textit {Pods} Setelah Pengubahan Pertama\relax }}{61}{figure.caption.48}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces Status \textit {Pods} Setelah Pengubahan Kedua\relax }}{61}{figure.caption.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Perbandingan}{61}{section.4.4}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {4.4}Perbandingan}{61}{section.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.22}{\ignorespaces Status \textit {Pods} Setelah Pengubahan Ketiga\relax }}{62}{figure.caption.50}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.23}{\ignorespaces Status \textit {Pods} Setelah Pengubahan Keempat\relax }}{62}{figure.caption.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Perbandingan Efisiensi}{62}{subsection.4.4.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsection}{\numberline {4.4.1}Perbandingan Efisiensi}{62}{subsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.1}\textit {Horizontal Pod Autoscaler}}{62}{subsubsection.4.4.1.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.4.1.1}\textit {Horizontal Pod Autoscaler}}{62}{subsubsection.4.4.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.24}{\ignorespaces Antrian Pengubahan Alokasi\relax }}{63}{figure.caption.52}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.25}{\ignorespaces Hasil Pengujian Komponen \textit {Flexible Control} Skenario 1: Perubahan Prosesor\relax }}{63}{figure.caption.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.2}\textit {Vertical Pod Autoscaler}}{63}{subsubsection.4.4.1.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {subsubsection}{\numberline {4.4.1.2}\textit {Vertical Pod Autoscaler}}{63}{subsubsection.4.4.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.26}{\ignorespaces Hasil Pengujian Komponen \textit {Flexible Control} Skenario 1: Perubahan Spesifikasi Kubernetes\relax }}{64}{figure.caption.54}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.27}{\ignorespaces File Rule untuk Pengujian Komponen \textit {Flexible Control}\relax }}{64}{figure.caption.55}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.28}{\ignorespaces Hasil Pengujian Komponen \textit {Flexible Control} Skenario 2: Perubahan Memori\relax }}{64}{figure.caption.56}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.29}{\ignorespaces Hasil Pengujian Komponen \textit {Flexible Control} Skenario 2: Perubahan Spesifikasi Kubernetes\relax }}{65}{figure.caption.57}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.30}{\ignorespaces Hasil Pengujian Komponen \textit {Flexible Control} Skenario 2: Perubahan Memory Used Percent pada \textit {stream file}\relax }}{65}{figure.caption.58}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Penutup}{66}{chapter.5}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {5}Penutup}{66}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Kesimpulan}{66}{section.5.1}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {5.1}Kesimpulan}{66}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Saran}{67}{section.5.2}\protected@file@percent }
+\@writefile{atoc}{\contentsline {section}{\numberline {5.2}Saran}{67}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{DAFTAR PUSTAKA}{70}{chapter*.60}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{DAFTAR PUSTAKA}{70}{chapter*.60}\protected@file@percent }
+\@writefile{toc}{\value {tocdepth}=-1}
+\@writefile{atoc}{\value {tocdepth}=-1}
+\@writefile{atoc}{\value {tocdepth}=2}
+\@writefile{toc}{\ttl@change@i {\@ne }{chapter}{0pt}{\bfseries }{Lampiran \thecontentslabel .\quad }{}{\hfill \contentspage }\relax }
+\@writefile{atoc}{\ttl@change@i {\@ne }{chapter}{0pt}{\bfseries }{Lampiran \thecontentslabel .\quad }{}{\hfill \contentspage }\relax }
+\@writefile{toc}{\ttl@change@v {chapter}{}{}{}\relax }
+\@writefile{atoc}{\ttl@change@v {chapter}{}{}{}\relax }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Eksperimen \textit {In-place Resource Resize} untuk \textit {pods Kubernetes}}{71}{appendix.A}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {A}Eksperimen \textit {In-place Resource Resize} untuk \textit {pods Kubernetes}}{71}{appendix.A}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Pesan Error saat Melakukan \textit {Patch} pada \textit {Pods}\relax }}{72}{figure.caption.61}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces Dokumentasi Kubernetes: \textit {In-place Resource Resize}\relax }}{73}{figure.caption.62}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces Dokumentasi Kubernetes: Detail Informasi \textit {Pods} Tambahan pada Versi Terbaru\relax }}{74}{figure.caption.63}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces Informasi \textit {Update} Minikube 1.30.0\relax }}{75}{figure.caption.64}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces Konfigurasi \textit {Pods} untuk Eksperimen\relax }}{76}{figure.caption.65}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Contoh Konfigurasi \textit {Pods Elastic Search}}{77}{appendix.B}\protected@file@percent }
+\@writefile{atoc}{\contentsline {chapter}{\numberline {B}Contoh Konfigurasi \textit {Pods Elastic Search}}{77}{appendix.B}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Konfigurasi \textit {Pods Elastic Search}\relax }}{77}{figure.caption.66}\protected@file@percent }
+\@writefile{toc}{\contentsfinish }
+\@writefile{atoc}{\contentsfinish }
+\@writefile{lof}{\contentsfinish }
+\@writefile{lot}{\contentsfinish }
