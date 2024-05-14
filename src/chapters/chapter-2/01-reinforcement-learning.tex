@@ -1,7 +1,8 @@
-\section{\textit{Reinforcement Learning} dan \textit{Q-Learning}}
-\subsection{\textit{Reinforcement Learning}}
+\section{\acl{RL} dan \textit{Q-Learning}}
+\subsection{\acl{RL}}
+\label{sub:sub-rl}
 
-\textit{Reinforcement learning} (RL) merupakan sebuah kerangka pembelajaran sebuah kerangka pengembangan sebuah agen otonom yang dapat membuat suatu keputusan dalam ruang lingkup permasalahan yang terbatas. Secara umum, berikut merupakan formulasi sederhana dari kerangka \ac{RL}.
+\acf{RL} merupakan sebuah kerangka pembelajaran sebuah kerangka pengembangan sebuah agen otonom yang dapat membuat suatu keputusan dalam ruang lingkup permasalahan yang terbatas. Secara umum, berikut merupakan formulasi sederhana dari kerangka \ac{RL}.
 
 \begin{equation}
 	\pi(s,a)^* = argmax(V(s,a))
@@ -44,7 +45,7 @@ Dengan representasi tersebut, Persamaan 2.2 dapat dipahami sebagai pembaruan nil
 
 
 \begin{enumerate}
-	\item \((1-\alpha) Q(s_t,a_t)\): merupakan nilai \textit{Q-Table} yang akan diupdate, namun informasinya masih digunakan untuk mendapatkan nilai yang optimal sesuai dengan prinsip \textit{Markov Decision Process}.
+	\item \((1-\alpha) Q(s_t,a_t)\): merupakan nilai \textit{Q-Table} yang akan diupdate, namun informasinya masih digunakan untuk mendapatkan nilai yang optimal sesuai dengan prinsip \textit{Markov Decision Process} \parencite{littman1994markov}.
 	\item \(\alpha (r_t + \gamma \cdot maxQ(s_{t+1},a))\): merupakan nilai pembaruan \textit{Q-table} yang berasal dari keluaran fungsi penilai aksi pada state sekarang (\(r_t\)) dan sedikit kontribusi (bergantung \(\gamma\)) dari prediksi fungsi penilai pada state selanjutnya \(maxQ(s_{t+1},a)\).
 \end{enumerate}
 

@@ -1,13 +1,13 @@
-\section{\textit{Field Programmable Gate Array}}
+\section{\acl{FPGA}}
 
-\textit{Field Programmable Gate Array} (\ac{FPGA}) merupakan sebuah perangkat keras yang mampu direkonfigurasi menggunakan sebuah bahasa \ac{HDL} \parencite{smith2024FPGA}. \ac{FPGA}, sebagai perangkat keras yang \textit{reconfigurable}, mulai marak digunakan sebagai basis perangkat keras untuk mendesain maupun mengimplementasikan akselerator perangkat keras untuk optimasi permasalahan komputasi \parencite{gerlach2023fpgaplacement}.
+\acf{FPGA} merupakan sebuah perangkat keras yang mampu direkonfigurasi menggunakan sebuah bahasa \ac{HDL} \parencite{smith2024FPGA}. \ac{FPGA}, sebagai perangkat keras yang \textit{reconfigurable}, mulai marak digunakan sebagai basis perangkat keras untuk mendesain maupun mengimplementasikan akselerator perangkat keras untuk optimasi permasalahan komputasi \parencite{gerlach2023fpgaplacement}.
 
 Secara prinsip, \ac{FPGA} terdiri atas \textit{Configurable Logic Blocks} yang dibangun diatas rangkaian \textit{Look Up Table}. Ilustrasi internal dari \ac{FPGA} dapat ditinjau pada Gambar \ref{fig:ilustrasi-internal-fpga}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{chapter-2/fpga-internal.jpg}
-	\caption{Ilustrasi Internal FPGA \parencite{md2015field}}
+	\caption{Ilustrasi Internal \ac{FPGA} \parencite{md2015field}}
 	\label{fig:ilustrasi-internal-fpga}
 \end{figure}
 
@@ -24,7 +24,7 @@ Pada tugas akhir ini, akselerator perangkat keras yang akan diimplementasikan da
 			\hline
 			\textit{Look Up Tables}         & 63.400 \tabularnewline
 			\textit{Flip-flops}             & 126,800 \tabularnewline
-			\textit{Block RAM}              & 4,860 Kb \tabularnewline
+			\textit{Block \ac{RAM}}         & 4,860 Kb \tabularnewline
 			\textit{DSP Slices}             & 240 \tabularnewline
 			\textit{Clock Management Tiles} & 6 \tabularnewline
 			\hline

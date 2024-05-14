@@ -1,7 +1,6 @@
-\section{Akselerator Perangkat Keras untuk \textit{Reinforcement Learning}}
+\section{Akselerator Perangkat Keras untuk \acl{RL}}
 
 Sebelum penelitian tugas akhir ini, terdapat beberapa pengembangan akselerator perangkat keras untuk \ac{RL} yang diimplementasikan pada \ac{FPGA}. Berdasarkan \parencite{sutisna2023faraneq}, pengembangan akselerator perangkat keras untuk \ac{RL} menggunakan teknik \textit{Q-Learning} itu pertama kali dikembangkan oleh Da Silva et al pada \parencite{dasilva2019parallel}. Implementasi yang dikembangkan pada \parencite{dasilva2019parallel} berfokus untuk mengoptimalisasi perhitungan pada persamaan \ref{eq:q-learning} menggunakan teknik perhitungan paralel yang diilustrasikan pada Gambar \ref{fig:ilustrasi-dasilvi}.
-
 
 \begin{figure}[h]
 	\centering
@@ -10,7 +9,7 @@ Sebelum penelitian tugas akhir ini, terdapat beberapa pengembangan akselerator p
 	\label{fig:ilustrasi-dasilvi}
 \end{figure}
 
-Teknik perhitungan paralel tersebut berhasil mendapat kecepatan \textit{throughput} sebesar 13.4  \ac{MSps} untuk \textit{Q-Table} yang memiliki 132 \textit{state} dan 4 aksi. Lalu, ada pula implementasi akselerator perangkat keras dari Spanò et al \parencite{spano2019efficient}. Arsitektur akselerator perangkat keras yang dikembangkan oleh \parencite{spano2019efficient} merupakan akselerator yang memanfaatkan penggunaan \textit{internal RAM block} untuk menyimpan \textit{Q-Table} dan melakukan perhitungan pada persamaan \ref{eq:q-learning} secara simultan. Gambar \ref{fig:ilustrasi-spano} menggambarkan arsitektur yang dirancang oleh \parencite{spano2019efficient}.
+Teknik perhitungan paralel tersebut berhasil mendapat kecepatan \textit{throughput} sebesar 13.4  \ac{MSps} untuk \textit{Q-Table} yang memiliki 132 \textit{state} dan 4 aksi. Lalu, ada pula implementasi akselerator perangkat keras dari Spanò et al \parencite{spano2019efficient}. Arsitektur akselerator perangkat keras yang dikembangkan oleh \parencite{spano2019efficient} merupakan akselerator yang memanfaatkan penggunaan \textit{internal} \ac{RAM} \textit{block} untuk menyimpan \textit{Q-Table} dan melakukan perhitungan pada persamaan \ref{eq:q-learning} secara simultan. Gambar \ref{fig:ilustrasi-spano} menggambarkan arsitektur yang dirancang oleh \parencite{spano2019efficient}.
 
 \begin{figure}[h]
 	\centering
