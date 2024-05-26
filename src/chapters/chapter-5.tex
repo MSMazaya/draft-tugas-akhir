@@ -1,28 +1,22 @@
 \chapter{Penutup}
 
-Bab Kesimpulan dan Saran akan menjadi bagian akhir dan penutup dari penelitian tugas akhir ini. Bab ini akan membahas kesimpulan yang berisi ketercapaian tujuan penelitian tugas akhir dengan permasalahan yang diselesaikan dalam penelitian tugas akhir. Selain itu, bab ini akan membahas saran yang dapat dilakukan untuk pengembangan atau penelitian selanjutnya.
+Bab Kesimpulan dan Saran akan menjadi bagian penutup dari penelitian tugas akhir ini. Dalam bab ini, akan disajikan kesimpulan yang mencerminkan pencapaian tujuan penelitian beserta masalah-masalah yang telah diatasi selama penelitian berlangsung. Selain itu, akan dibahas pula saran-saran yang dapat diimplementasikan untuk pengembangan lebih lanjut atau penelitian berikutnya.
 
 \section{Kesimpulan}
-Penelitian tugas akhir ini mengimplementasikan metode baru untuk melakukan \textit{autoscaling} yang disebut sebagai sistem kontrol fleksibel. Setelah dilakukan analisis, implementasi, dan pengujian, dapat diambil kesimpulan sebagai berikut.
-\begin{enumerate}
-    \item Mengontrol alokasi sumber daya memori dan prosesor dapat dilakukan dengan model prediksi berbasis \textit{time series}, salah satu model yang digunakan adalah ARIMA dengan eror yang tidak terlalu signifikan dibanding Bi-LSTM namun memiliki keunggulan yaitu lebih sederhana.
-    \item Dampak \textit{autoscaler} dengan kontrol fleksibel berbasis model prediksi, sistem dapat lebih baik dalam melakukan \textit{scaling} dibandingkan dengan \textit{autoscaler} sederhana yang memakai \textit{threshold} karena:
 
-        \begin{enumerate}
-            \item Dapat menghindari keputusan \textit{scaling} untuk waktu yang sangat singkat akibat \textit{spike} yang terjadi pada data metrik. Berbeda dengan sistem \textit{threshold}, yang akan langsung terpengaruh karena hanya melihat nilai metrik pada saat itu saja.
-            \item Memiliki lebih banyak ruang untuk melakukan \textit{scaling} karena tidak terbatas oleh sebuah angka \textit{threshold} melainkan oleh kondisi-kondisi yang disesuaikan dengan kebutuhan pemakai.
-            \item Tidak terpatok untuk melakukan \textit{scaling} dengan kelipatan minimum \textit{requirement} dari sebuah aplikasi karena replikasi \textit{pods} memaksa pengelola untuk membuat replikasi \textit{pods} (\textit{Horizontal Autoscaling}) dengan kelipatan minimum spesifikasi untuk menjalankan aplikasi tersebut.
-            \item Bisa melakukan \textit{scaling} secara \textit{vertical} dengan menambah alokasi memori dan prosesor pada \textit{pods} dengan aplikasi berbasis JVM yang spesifiknya adalah \textit{Elastic Search}. \textit{Vertical Autoscaling} tidak dapat melakukan \textit{scaling} pada aplikasi berbasis JVM karena keterbatasan Kubernetes dalam melihat penggunaan memori yang sebenarnya.
-            \item Dapat melakukan keputusan \textit{scaling} berdasarkan variabel-variabel yang spesifik kepada \textit{Elastic Search} seperti \textit{throughput} variabel tertentu.
-        \end{enumerate}
+Pada penelitian ini, telah dikembangkan sebuah akselerator perangkat keras yang dapat digunakan untuk melakukan komputasi algoritma \ac{RL} secara efisien. Berikut merupakan poin-poin utama dari kesimpulan riset ini.
+
+\begin{enumerate}
+	\item Memoisasi pada algoritma \textit{Q-Learning} dapat digunakan untuk menghasilkan sebuah pembelajaran \ac{RL} yang stabil. Teknik ini, dapat digunakan untuk mengatasi inkonsistensi dari pembelajaran untuk agen yang memerlukan aksi diskrit.
+	\item Akselerator yang didesain, dapat menjawab tantangan keperluan \textit{real time} dari hasil uji pada permasalahan \textit{cart pole balancing} dengan waktu \textit{delay} hanya sebesar 0.2 milisekon.
+	\item Efisiensi sumber daya yang digunakan oleh akselerator bisa bersaing dengan \textit{state of the art} dari penelitian yang sudah dilakukan sebelumnya.
 \end{enumerate}
 
 \section{Saran}
-Adapun banyak kekurangan dan kelemahan yang ditemukan dalam penelitian tugas akhir ini. Berikut adalah beberapa saran yang dapat dilakukan untuk pengembangan atau penelitian selanjutnya.
+Terdapat beberapa saran tentang hal-hal yang dapat ditingkatkan pada penelitian selanjutnya.
 \begin{enumerate}
-    \item Melakukan permodelan dengan Bi-LSTM atau RNN untuk mengurangi waktu \textit{training}. Model ARIMA sangat memakan waktu saat \textit{training}.
-    \item Melakukan pengembangan di bahasa lain yang lebih cepat dalam melakukan pemrosesan dibanding Python. Tentunya hal ini akan berpengaruh terhadap pembuatan kakas model statistik maupun \textit{machine learning} dikarenakan Python merupakan bahasa yang paling banyak digunakan untuk \textit{data science} dan \textit{machine learning}.
-    \item Memasukkan sistem \textit{autoscaler} ke dalam \textit{cluster} Kubernetes seperti \textit{sidecar pods} agar memudahkan melakukan \textit{scaling Elastic Search} itu sendiri.
-    \item Riset replikasi multi-node \textit{Elastic Search}. 
-    \item Melakukan percobaan di \textit{cluster} Kubernetes dan \textit{Elastic Search} yang lebih besar dan lebih kompleks.
+	\item Penggunaan unit \textit{out-of-pipe} berakibatkan instruksi tidak dapat dioptimasi secara \textit{pipelined} pada tingkat \textit{processor stages}. Sehingga, dapat dipertimbangkan untuk membuat \textit{pipe} terpisah pada \textit{execute} dan \textit{memory stage}.
+	\item Implementasi blok \ac{RAM} internal seharusnya dapat dipindahkan kepada \ac{RAM} yang tertanam pada \textit{processor}. Sehingga, tidak terjadi redundansi pembuatan modul \ac{LSU}.
+	\item \textit{Register-register} pada \textit{Q-Table} \ac{LSU}, dapat dibuat sebagai blok-blok kecil \ac{RAM} sehingga dapat dimuat secara lebih efisien. Salah satu contohnya adalah \textit{Max Seeker Unit} yang berpotensi untuk melakukan pembandingan nilai maksimal dalam satu \textit{clock cycle}.
+	\item Unit \textit{floating addition unit} dan \textit{floating multiplyer unit} dapat dibuat \textit{superscalar} sehingga komputasi tidak perlu menunggu sampai 7 tahap.
 \end{enumerate}

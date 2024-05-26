@@ -119,7 +119,7 @@ Secara berurutan, mengacu kepada Algoritma \ref{alg:hw-sw-sep}, penggunaan aksel
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{chapter-3/q-table-lsu.png}
-	\caption{Ilustrasi Penggunaan \textit{Q-Table \ac{LSU}}}
+	\caption{Ilustrasi Penggunaan \textit{Q-Table LSU}}
 	\label{fig:q-table-lsu}
 \end{figure}
 
@@ -187,7 +187,7 @@ Langkah yang diambil dari nomor \ref{listline:max-seeker-start} hingga \ref{list
 Gambar \ref{fig:computation-order} menggambarkan urutan komputasi yang terjadi apabila masing-masing dari unit yang berhubungan dengan \textit{Q-Table Updater} itu menggunakan periode komputasi yang maksimal. Secara implementasi, urutan periode komputasi maksimal, terkecil menuju terbesar, dari unit yang berhubungan dengan \textit{Q-Table Updater} adalah sebagai berikut.
 
 \begin{enumerate}
-	\item \textit{Q-Table LSU}: 3 \textit{clock cycles}
+	\item \textit{Q-Table \ac{LSU}}: 3 \textit{clock cycles}
 	\item \textit{Floating Addition Unit}: 12 \textit{clock cycles}
 	\item \textit{Max Seeker Unit}: 13 \textit{clock cycles}
 	\item \textit{Floating Multiplying Unit}: 13 \textit{clock cycles}
@@ -249,5 +249,6 @@ Pada Gambar \ref{fig:riscv-registers}, terdapat tujuh \textit{register} yang dap
 \end{enumerate}
 
 \subsection{Pengujian Akurasi Akselerator Menggunakan \textit{Verilator}}
+\label{subsec:verilator}
 
-Pengujian akurasi akselerator, dilakukan menggunakan \textit{verilator}. \textit{Verilator} \parencite{verilator2024github} merupakan aplikasi perangkat lunak yang dapat menghasilkan uji sintesis yang berupa \textit{timing diagram} untuk melihat apakah hasil implementasi akselerator perangkat keras sudah sesuai dengan hasil kode dari perangkat lunak.
+Pengujian akurasi akselerator, dilakukan menggunakan \textit{verilator}. \textit{Verilator} \parencite{verilator2024github} merupakan aplikasi perangkat lunak yang dapat menghasilkan uji sintesis yang berupa \textit{timing diagram} untuk melihat apakah hasil implementasi akselerator perangkat keras sudah sesuai dengan hasil kode dari perangkat lunak. Pada penelitian ini, \textit{verilator} akan digunakan untuk mensintesis sebuah program dengan bahasa C menjadi \textit{timing diagram} dari \textit{register-register} verilog pada VeeR EL2. \textit{Timing diagram} tersebut, akan digunakan untuk mengecek kesesuaian hasil dari implementasi perangkat lunak dengan implementasi pada akselerator.

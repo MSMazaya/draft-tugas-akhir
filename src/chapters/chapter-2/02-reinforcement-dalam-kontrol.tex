@@ -1,4 +1,5 @@
 \section{\acl{RL} dalam Sistem Kontrol}
+\label{sec:rl-kontrol}
 
 \ac{RL}, sebagai kerangka agen otonom, merupakan salah satu alternatif yang bagus sebagai sistem komplementer maupun utama dari sebuah sistem kontrol. Hal tersebut merupakan akibat dari kapabilitas \ac{RL} untuk menentukan sinyal kontrol. yang dekat ke nilai optimal dengan cara \textit{trial-and-error} \parencite{vichugov2005application}. Secara umum, sistem RL yang dikembangkan dapat menjadi tambahan \textit{feedback loop} dari sebuah sistem kontrol diskrit yang dapat diilustrasikan pada Gambar \ref{fig:RL-loop-kontrol}.
 
@@ -28,4 +29,4 @@ Pada sistem fisis sederhana Gambar \ref{fig:cartpole-illustration}, didefinisika
 
 Kasus permasalahan \textit{Cart Pole Balancing}, sebagaimana kasus kontrol klasik lainnya, memerlukan sistem komputasi yang memiliki \textit{time delay} (\(t_d\)) yang kecil bila diimplementasikan pada sistem nyata. Bila \(t_d\) terlalu besar, maka sistem dapat menjadi tidak stabil sehingga tidak berhasil dikontrol oleh perhitungan dari agen \ac{RL}.
 
-Seiring dengan semakin maraknya perkembangan \ac{RL}, sudah banyak kasus yang mengadopsi kerangka ini untuk digunakan pada sistem kontrol yang lebih kompleks [1, 2, 3]. Sehingga, \ac{RL} dapat tetap digunakan tanpa mengakibatkan ketidakstabilan pada sistem kontrol, maka diperlukan mekanisme universal yang dapat digunakan untuk mempercepat iterasi perhitungan RL pada \textit{processor} komputer.
+Seiring dengan semakin maraknya perkembangan \ac{RL}, sudah banyak kasus yang mengadopsi kerangka ini untuk digunakan pada sistem kontrol yang lebih kompleks \parencite{hubert2022perancangan, dawne2023algoritma, mardhatillah2023strategi}. Sehingga, \ac{RL} dapat tetap digunakan tanpa mengakibatkan ketidakstabilan pada sistem kontrol, maka diperlukan mekanisme universal yang dapat digunakan untuk mempercepat iterasi perhitungan RL pada \textit{processor} komputer.

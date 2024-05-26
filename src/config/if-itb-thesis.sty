@@ -16,7 +16,6 @@
 % Setting margin
 \usepackage[top=2cm,bottom=2cm,left=4cm,right=3cm]{geometry}
 
-\usepackage{mathptmx}
 
 % Judul bahasa Indonesia
 \usepackage[bahasa]{babel}
@@ -53,6 +52,16 @@
 \usepackage{rotating}
 \usepackage{lipsum}
 \usepackage{listings}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{nicematrix}
+\usepackage[lighttt]{lmodern}
+\usepackage{mathptmx}
+\usepackage{ragged2e}
+
+\makeatletter
+\algrenewcommand\ALG@beginalgorithmic{\ttfamily}
+\makeatother
 
 \newcommand{\alghighlight}[2]{
 	\hspace*{-\fboxsep}\colorbox{#1}{\parbox{\linewidth}{#2}}
