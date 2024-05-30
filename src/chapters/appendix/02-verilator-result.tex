@@ -1,13 +1,13 @@
-\chapter{Konfigurasi dan hasil timing diagram dari Verilator}
+\chapter{Konfigurasi dan Hasil Timing Diagram dari Verilator}
 \label{appendix:verilator}
 
 Terdapat dua unit pengujian yang dilakukan untuk mengetahui akurasi yang dimiliki oleh akselerator: q.max dan q.update. Instruksi lain, digunakan dan diuji sekaligus untuk menguji kedua instruksi tersebut.
 
-Pertama, pengujian q.max, dilakukan dengan membuat sebuah program pada bahasa C pada gambar \ref{fig:verilator-qmax}.
+Pertama, pengujian q.max, dilakukan dengan membuat sebuah program pada bahasa C pada kode \ref{fig:verilator-qmax}.
 
 \begin{figure}[H]
 	\centering
-	\begin{lstlisting}[language=C,escapechar=|,numbers=left]
+	\begin{lstlisting}[language=C,escapechar=|,numbers=left,caption={Program bahasa C untuk pengujian q.max},label={fig:verilator-qmax},captionpos=b]
 int main() {
   setAMax(4);
   storeQValue(10.2, 0);
@@ -17,8 +17,6 @@ int main() {
   getMax(0);
 }
 \end{lstlisting}
-	\caption{Program bahasa C untuk pengujian q.max}
-	\label{fig:verilator-qmax}
 \end{figure}
 
 Hasil dari program diatas, seharusnya menghasilkan indeks 3 sebagai jawaban dari fungsi getMax yang merupakan \ac{BSP} dari q.max. Berikut merupakan hasil sintesis \textit{timing diagram} untuk program \ref{fig:verilator-qmax}.
@@ -37,7 +35,7 @@ Selanjutnya, untuk instruksi q.update, berikut merupakan program yang digunakan 
 
 \begin{figure}[H]
 	\centering
-	\begin{lstlisting}[language=C,escapechar=|,numbers=left]
+	\begin{lstlisting}[language=C,escapechar=|,numbers=left,caption={Program bahasa C untuk pengujian q.update},label={fig:verilator-qupdate},captionpos=b]
 int main() {
   setAMax(4);
   setConstant(CONSTANT_TYPE_LEARNING_RATE, 0.4);
@@ -50,11 +48,9 @@ int main() {
   qUpdate(0, 2.5);
 }
 \end{lstlisting}
-	\caption{Program bahasa C untuk pengujian q.update}
-	\label{fig:verilator-qupdate}
 \end{figure}
 
-Bila menggunakan persamaan \ref{eq:q-learning}, maka didapat nilai hasil dari gambar \ref{fig:verilator-qupdate} adalah 8.26. Nilai tersebut, bila diubah ke heksadesimal maka akan bernilai 0x410432cb. Program \ref{fig:verilator-qupdate} kemudian dicoba dan didapatkan hasil pada gambar \ref{fig:gtkwave-qupdate}.
+Bila menggunakan persamaan \ref{eq:q-learning}, maka didapat nilai hasil dari kode \ref{fig:verilator-qupdate} adalah 8.26. Nilai tersebut, bila diubah ke heksadesimal maka akan bernilai 0x410432cb. Program \ref{fig:verilator-qupdate} kemudian dicoba dan didapatkan hasil pada gambar \ref{fig:gtkwave-qupdate}.
 
 \begin{figure}[h]
 	\centering

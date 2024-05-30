@@ -8,8 +8,9 @@ Pada penelitian ini, telah dikembangkan sebuah akselerator perangkat keras yang 
 
 \begin{enumerate}
 	\item Memoisasi pada algoritma \textit{Q-Learning} dapat digunakan untuk menghasilkan sebuah pembelajaran \ac{RL} yang stabil. Teknik ini, dapat digunakan untuk mengatasi inkonsistensi dari pembelajaran untuk agen yang memerlukan aksi diskrit.
-	\item Akselerator yang didesain, dapat menjawab tantangan keperluan \textit{real time} dari hasil uji pada permasalahan \textit{cart pole balancing} dengan waktu \textit{delay} hanya sebesar 0.2 milisekon.
-	\item Efisiensi sumber daya yang digunakan oleh akselerator bisa bersaing dengan \textit{state of the art} dari penelitian yang sudah dilakukan sebelumnya.
+	\item Hasil utilisasi sumber daya akselerator dapat bersaing dengan \textit{state of the art} dari penelitian yang sudah dilakukan sebelumnya untuk resolusi 32-bit dengan 759 \ac{LUTs}, 1259 \textit{flip-flops}, dan 1 blok \ac{RAM}.
+	\item Performa kecepatan akselerator berhasil mengalahkan performa kecepatan perangkat lunak. Tren perkembangan pembelajaran menggunakan akselerator adalah $y = 5494.05x + 7364.74$ dengan $y$ adalah \textit{clock cycles} yang diperlukan dan $x$ adalah iterasi pembelajaran. Tren perkembangan \textit{inference} pada menggunakan akselerator adalah $y = 120.36x - 12.55$ dengan $y$ adalah \textit{clock cycles} yang diperlukan dan $x$ adalah banyak aksi dalam lingkungan \ac{RL}.
+	\item Akselerator yang didesain, dapat menjawab tantangan keperluan \textit{real time} dari hasil uji pada permasalahan \textit{cart pole balancing} dengan waktu eksekusi hanya sebesar 0.2 milisekon.
 \end{enumerate}
 
 \section{Saran}
