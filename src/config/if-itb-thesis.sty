@@ -18,7 +18,7 @@
 
 
 % Judul bahasa Indonesia
-\usepackage[bahasa]{babel}
+\usepackage[english]{babel}
 
 % Format citation
 \usepackage[style=ieee,backend=biber]{biblatex}
@@ -44,7 +44,7 @@
 \usepackage{setspace}
 \usepackage{tabto}
 \usepackage{multicol}
-\usepackage[printonlyused,withpage]{acronym}
+\usepackage[printonlyused,withpage,nolist]{acronym}
 \usepackage{caption}
 \usepackage{float}
 \usepackage{algorithm}
@@ -55,13 +55,17 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{nicematrix}
-\usepackage[lighttt]{lmodern}
+% \usepackage[lighttt]{lmodern}
 \usepackage{mathptmx}
 \usepackage{ragged2e}
+\usepackage[none]{hyphenat}
+\sloppy
 
-\makeatletter
-\algrenewcommand\ALG@beginalgorithmic{\ttfamily}
-\makeatother
+\renewcommand{\lstlistingname}{Kode} % Listing -> Kode
+
+% \makeatletter
+% \algrenewcommand\ALG@beginalgorithmic{\ttfamily}
+% \makeatother
 
 \newcommand{\alghighlight}[2]{
 	\hspace*{-\fboxsep}\colorbox{#1}{\parbox{\linewidth}{#2}}
@@ -85,19 +89,24 @@
 	\edef\savedtocdepth{\the\value{tocdepth}}%
 }
 
+\newcommand\adjustabledotfill[1]{%
+	\leavevmode%
+	\cleaders\hbox to #1{.}\hfill%
+}
+
 \let\originalappendix\appendix
 \renewcommand\appendix{%
 	\originalappendix
 	\cleardoublepage
-	\addtocontents{toc}{\protect\value{tocdepth}=-1}%
-	\addtocontents{atoc}{\protect\value{tocdepth}=\savedtocdepth}%
+	%	\addtocontents{toc}{\protect\value{tocdepth}=-1}%
+	%	\addtocontents{atoc}{\protect\value{tocdepth}=\savedtocdepth}%
 	
 	\titlecontents{chapter}
 	[0pt]
 	{\bfseries}
 	{Lampiran \thecontentslabel.\quad}
 	{}
-	{\hfill\contentspage}
+	{\normalfont\adjustabledotfill{1.5mm}{\bfseries\contentspage}}
 	
 	\titleformat{\chapter}[block]
 	{\bfseries}
@@ -122,13 +131,13 @@
 {}
 {Gambar \thecontentslabel.\quad}
 {}
-{\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
+{\mdseries\titlerule*[0.35em]{.}\contentspage}
 \titlecontents{table}
 [0pt]
 {}
 {Tabel \thecontentslabel.\quad}
 {}
-{\mdseries\titlerule*[0.35em]{.}\bfseries\contentspage}
+{\mdseries\titlerule*[0.35em]{.}\contentspage}
 
 % Masukin Daftar Pustaka ke toc
 \let\originalprintbibliography\printbibliography
