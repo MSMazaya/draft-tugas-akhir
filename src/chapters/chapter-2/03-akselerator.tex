@@ -5,29 +5,29 @@ Sebelum penelitian tugas akhir ini, terdapat beberapa pengembangan akselerator p
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{chapter-2/dasilvi.jpg}
+	\makebox[\textwidth]{\includegraphics[width=1.05\textwidth]{chapter-2/dasilvi.jpg}}
 	\caption{Ilustrasi teknik perhitungan paralel \parencite{dasilva2019parallel}}
 	\label{fig:ilustrasi-dasilvi}
 \end{figure}
 
-Teknik perhitungan paralel tersebut berhasil mendapat kecepatan \textit{throughput} sebesar 13.4  \ac{MSps} untuk \textit{Q-Table} yang memiliki 132 \textit{state} dan 4 aksi. Lalu, ada pula implementasi akselerator perangkat keras dari Spanò et al \parencite{spano2019efficient}. Arsitektur akselerator perangkat keras yang dikembangkan oleh \parencite{spano2019efficient} merupakan akselerator yang memanfaatkan penggunaan \textit{internal} \ac{RAM} \textit{block} untuk menyimpan \textit{Q-Table} dan melakukan perhitungan pada persamaan \ref{eq:q-learning} secara simultan. Gambar \ref{fig:ilustrasi-spano} menggambarkan arsitektur yang dirancang oleh \parencite{spano2019efficient}.
+Teknik perhitungan paralel tersebut berhasil mendapat kecepatan \textit{throughput} sebesar 13,4  \ac{MSps} untuk \textit{Q-Table} yang memiliki 132 \textit{state} dan 4 aksi. Lalu, ada pula implementasi akselerator perangkat keras dari Spanò et al \parencite{spano2019efficient}. Arsitektur akselerator perangkat keras yang dikembangkan oleh \parencite{spano2019efficient} merupakan akselerator yang memanfaatkan penggunaan \textit{internal} \ac{RAM} \textit{block} untuk menyimpan \textit{Q-Table} dan melakukan perhitungan pada persamaan \ref{eq:q-learning} secara simultan. Gambar \ref{fig:ilustrasi-spano} menggambarkan arsitektur yang dirancang oleh \parencite{spano2019efficient}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{chapter-2/spano.jpg}
+	\includegraphics[width=1\textwidth]{chapter-2/spano.jpg}
 	\caption{Ilustrasi arsitektur akselerator \parencite{spano2019efficient}}
 	\label{fig:ilustrasi-spano}
 \end{figure}
 
 Akselerator perangkat keras dari \parencite{spano2019efficient} berhasil mendapatkan kecepatan \textit{throughput} sebesar 112 MSps untuk \textit{Q-Table} dengan 128 \textit{state} and 4 aksi. Arsitektur yang dikembangkan oleh \parencite{spano2019efficient}, merupakan akselerator \textit{Q-Learning} yang dapat digunakan secara \textit{Generic} karena implementasinya memberikan fleksibilitas kepada pengguna akselerator untuk membangun desain lingkungan agen \ac{RL}.
 
-Pengembangan akselerator perangkat keras untuk \ac{RL} dengan performa paling tinggi, sejauh ini, merupakan desain yang dibuat oleh Sutisna et al \parencite{sutisna2023faraneq} yang menggunakan teknik paralelisme, \textit{pipelining}, dan berbagai implementasi teknik optimasi untuk perhitungan algoritma dari Persamaan \ref{eq:q-learning} seperti \textit{barrel shifter}  dan \textit{Fibonacci Linear Feedback Shift Register} \parencite{panda2012FPGA}. Arsitektur tersebut, diilustrasikan pada gambar \ref{fig:ilustrasi-faraneq}. Dengan teknik optimasi tersebut, akselerator pada \parencite{sutisna2023faraneq} berhasil mendapatkan kecepatan \textit{throughput} sampai dengan 148.55 MSps.
+Pengembangan akselerator perangkat keras untuk \ac{RL} dengan performa paling tinggi, sejauh ini, merupakan desain yang dibuat oleh Sutisna et al \parencite{sutisna2023faraneq} yang menggunakan teknik paralelisme, \textit{pipelining}, dan berbagai implementasi teknik optimasi untuk perhitungan algoritma dari Persamaan \ref{eq:q-learning} seperti \textit{barrel shifter}  dan \textit{Fibonacci Linear Feedback Shift Register} \parencite{panda2012FPGA}. Arsitektur tersebut, diilustrasikan pada gambar \ref{fig:ilustrasi-faraneq}. Dengan teknik optimasi tersebut, akselerator pada \parencite{sutisna2023faraneq} berhasil mendapatkan kecepatan \textit{throughput} sampai dengan 148,55 MSps.
 
 % Selain \parencite{spano2019efficient}, terdapat juga arsitektur akselerator \textit{Q-Learning Generic} lainnya yang didesain oleh Meng et al \parencite{meng2020generic}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{chapter-2/faraneq.jpg}
+	\includegraphics[width=1\textwidth]{chapter-2/faraneq.jpg}
 	\caption{Ilustrasi arsitektur keseluruhan dari \parencite{sutisna2023faraneq}}
 	\label{fig:ilustrasi-faraneq}
 \end{figure}

@@ -7,9 +7,11 @@ Subbab ini akan menjelaskan secara detail tentang dua hal yang menjadi subjek ut
 
 \acf{RL} merupakan sebuah kerangka pembelajaran sebuah kerangka pengembangan sebuah agen otonom yang dapat membuat suatu keputusan dalam ruang lingkup permasalahan yang terbatas. Secara umum, berikut merupakan formulasi sederhana dari kerangka \ac{RL}.
 
-\begin{equation}
-	\pi(s,a)^* = argmax(V(s,a))
-\end{equation}
+\vspace{-12mm}
+\begin{flalign}
+	\pi(s,a)^* = argmax(V(s,a)) &  &
+\end{flalign}
+\vspace{-12mm}
 
 \(\pi\) merupakan notasi dari hasil fungsi kebijakan (\textit{policy}) yang merupakan keluaran dari \ac{RL}. Terdapat dua input untuk fungsi kebijakan tersebut, yaitu state (\(s\)) dan aksi (\(\alpha\)). Hasil yang diinginkan dari fungsi tersebut, adalah didapatkannya aksi yang terbaik dengan hasil evaluasi sebuah fungsi penilai (\(V\)). Berikut merupakan contoh dari penggunaan \ac{RL} pada gambar \ref{fig:ilustrasi-RL} sebagai ilustrasi cara kerja fungsi kebijakan.
 
@@ -28,10 +30,12 @@ Pada kasus diatas, gambar 2.1, aksi yang akan diambil adalah aksi gerak bawah. B
 \subsection{\textit{Q-Learning}}
 \textit{Q-Learning} merupakan sebuah metode yang dapat digunakan untuk melakukan konstruksi fungsi penilai yang optimal untuk membangun fungsi kebijakan pada \ac{RL}. \textit{Q-Learning} menggunakan algoritma yang marak digunakan pada pengembangan agen \ac{RL} karena merupakan algoritma yang memiliki konvergensi yang stabil \parencite{lim2022regularized}. Cara kerja \textit{Q-Learning} dapat dirangkum menggunakan persamaan berikut.
 
-\begin{equation}
+\vspace{-12mm}
+\begin{flalign}
 	\label{eq:q-learning}
-	Q_{new}(s_t,a_t) = (1-\alpha) Q(s_t, a_t) + \alpha (r_t + \gamma \cdot maxQ(s_{t+1},a))
-\end{equation}
+	Q_{new}(s_t,a_t) = (1-\alpha) Q(s_t, a_t) + \alpha (r_t + \gamma \cdot maxQ(s_{t+1},a)) &  &
+\end{flalign}
+\vspace{-12mm}
 
 \(Q\) merupakan alternatif bentuk fungsi \(V\) yang memiliki dimensi terbatas, sebesar banyaknya aksi \(\times\) banyaknya \textit{state}. \(Q\) sering dilihat sebagai sebuah \textit{lookup table}, disebut \textit{Q-Table}, yang memiliki nilai diskrit untuk posibilitas keluaran nilai aksi berdasarkan \textit{state} terkini. Berikut, pada gambar \ref{fig:ilustrasi-qtable}, merupakan ilustrasi dari \textit{Q-Table}.
 

@@ -1,0 +1,175 @@
+\chapter{Analisis Kestabilan Kontrol \textit{Cart Pole Balancing}}
+\label{appendix:real-time}
+
+Sistem \textit{cart pole} terdiri dari sebuah gerobak dengan massa \(M\) yang dapat bergerak secara horizontal tanpa gesekan, dan sebuah batang dengan panjang \(l\) dan massa \(m\) yang terpasang pada gerobak dan dapat berayun bebas. Berikut merupakan persamaan gerak dari masing-masing gerobak dan batang.
+
+\begin{itemize}
+	\item Persamaan Gerak Gerobak
+	      \begin{flalign}
+		      \label{eq:gerak-gerobak}
+		      M\ddot{x} + m\ddot{x} + ml\ddot{\theta}\cos\theta - ml\dot{\theta}^2\sin\theta = F &  &
+	      \end{flalign}
+	\item Persamaan Gerak Batang
+	      \begin{flalign}
+		      \label{eq:gerak-batang}
+		      ml^2\ddot{\theta} + ml\ddot{x}\cos\theta = mgl\sin\theta &  &
+	      \end{flalign}
+\end{itemize}
+
+Untuk menurunkan matriks \(A\) dan \(B\), dilakukan linierisasi persamaan gerak di sekitar titik ekuilibrium \((x = 0, \theta = 0, \dot{x} = 0, \dot{\theta} = 0)\). Pada titik ini, \(\cos\theta \approx 1\) dan \(\sin\theta \approx \theta\). Dengan melakukan linierisasi dan menyederhanakan persamaan \ref{eq:gerak-gerobak} dan \ref{eq:gerak-batang}, didapat:
+
+\begin{itemize}
+	\item Persamaan Gerak Gerobak Linier:
+	      \begin{flalign}
+		      \label{eq:linier-gerak-gerobak}
+		      (M + m)\ddot{x} + ml\ddot{\theta} = F &  &
+	      \end{flalign}
+	\item Persamaan Gerak Batang Linier:
+	      \begin{flalign}
+		      \label{eq:linier-batang-gerobak}
+		      ml\ddot{x} + ml^2\ddot{\theta} = mgl\theta &  &
+	      \end{flalign}
+\end{itemize}
+
+Dari persamaan linier ini, ruang keadaan dapat direpresentasikan dengan persamaan linier matriks \(\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}\). Dari persamaan \ref{eq:linier-gerak-gerobak} dan \ref{eq:linier-batang-gerobak} untuk \(\ddot{x}\) dan \(\ddot{\theta}\).
+
+\begin{flalign}
+	\label{eq:x-double-dot}
+	\ddot{x} = \frac{F - ml\ddot{\theta}}{M + m} &  &
+\end{flalign}
+
+Substitusi \(\ddot{x}\) dari \ref{eq:x-double-dot} ke dalam persamaan \ref{eq:linier-batang-gerobak}.
+\begin{flalign*}
+	ml\left(\frac{F - ml\ddot{\theta}}{M + m}\right) + ml^2\ddot{\theta} = mgl\theta &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \frac{mlF}{M + m} + ml^2\ddot{\theta} - \frac{m^2l^2\ddot{\theta}}{M + m} = mgl\theta &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta}\left(ml^2 - \frac{m^2l^2}{M + m}\right) = mgl\theta - \frac{mlF}{M + m} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta}\left(\frac{ml^2(M + m) - m^2l^2}{M + m}\right) = mgl\theta - \frac{mlF}{M + m} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta}\left(\frac{ml^2M}{M + m}\right) = mgl\theta - \frac{mlF}{M + m} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta} = \frac{(M + m)mgl\theta - mlF}{ml^2M} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta} = \frac{Mmg\theta + mmg\theta - mlF}{ml^2M} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{\theta} = \frac{m(M + m)g\theta - mlF}{ml^2M} &  &
+\end{flalign*}
+\begin{flalign}
+	\label{eq:theta-double-dot}
+	\Leftrightarrow \ddot{\theta} = \frac{(M + m)g\theta - \frac{F}{l}}{l(M + m)} &  &
+\end{flalign}
+
+Substitusi \ref{eq:theta-double-dot} ke persamaan \ref{eq:x-double-dot}:
+\begin{flalign*}
+	\ddot{x} = \frac{F - ml\left(\frac{(M + m)g\theta - \frac{F}{l}}{l(M + m)}\right)}{M + m} &  &
+\end{flalign*}
+\begin{flalign*}
+	\Leftrightarrow \ddot{x} = \frac{F - m(M + m)g\theta + m\frac{F}{l}}{(M + m)} &  &
+\end{flalign*}
+\begin{flalign}
+	\Leftrightarrow \ddot{x} = \frac{F - mg\theta(M + m)}{M + m} &  &
+\end{flalign}
+
+Dengan menggunakan notasi ruang keadaan \(\mathbf{x} = [x, \dot{x}, \theta, \dot{\theta}]^T\) dan \(\mathbf{u} = F\), matriks \(A\) dan \(B\) dapat disusun sebagai berikut:
+
+\begin{flalign*}
+	\dot{\mathbf{x}} = \begin{bmatrix}
+		                   \dot{x}      \\
+		                   \ddot{x}     \\
+		                   \dot{\theta} \\
+		                   \ddot{\theta}
+	                   \end{bmatrix} = A \mathbf{x} + B u &  &
+\end{flalign*}
+
+\begin{flalign}
+	\label{eq:a-raw}
+	A = \begin{bmatrix}
+		    0 & 1 & 0                         & 0 \\
+		    0 & 0 & \frac{mg}{M + m}          & 0 \\
+		    0 & 0 & 0                         & 1 \\
+		    0 & 0 & \frac{(M + m)g}{l(M + m)} & 0
+	    \end{bmatrix} &  &
+\end{flalign}
+
+\begin{flalign}
+	\label{eq:b-raw}
+	B = \begin{bmatrix}
+		    0               \\
+		    \frac{1}{M + m} \\
+		    0               \\
+		    \frac{1}{l(M + m)}
+	    \end{bmatrix} &  &
+\end{flalign}
+
+Dengan substitusi parameter dari OpenAI Gym \parencite{towers2023gymnasium} \(M = 1,0 \, \text{kg}\), \(m = 0,1 \, \text{kg}\), \(l = 0,5 \, \text{m}\), dan \(g = 9,8 \, \text{m/s}^2\) ke \ref{eq:a-raw} dan \ref{eq:b-raw} maka didapat:
+
+\begin{flalign}
+	\label{eq:a-final}
+	A = \begin{bmatrix}
+		    0 & 1 & 0                                   & 0 \\
+		    0 & 0 & \frac{0,1 \cdot 9,8}{1,1}           & 0 \\
+		    0 & 0 & 0                                   & 1 \\
+		    0 & 0 & \frac{1,1 \cdot 9,8}{0,5 \cdot 1,1} & 0
+	    \end{bmatrix} = \begin{bmatrix}
+		                    0 & 1 & 0     & 0 \\
+		                    0 & 0 & 0,98  & 0 \\
+		                    0 & 0 & 0     & 1 \\
+		                    0 & 0 & 21,56 & 0
+	                    \end{bmatrix} &  &
+\end{flalign}
+
+\begin{flalign}
+	\label{eq:b-final}
+	B = \begin{bmatrix}
+		    0             \\
+		    \frac{1}{1,1} \\
+		    0             \\
+		    \frac{1}{0,5 \cdot 1,1}
+	    \end{bmatrix} = \begin{bmatrix}
+		                    0     \\
+		                    0,909 \\
+		                    0     \\
+		                    1,818
+	                    \end{bmatrix} &  &
+\end{flalign}
+
+
+Untuk analisis kestabilan sistem kontrol diskrit, kita perlu melakukan konversi dari model kontinu ke model diskrit dengan menggunakan interval waktu sampling $T_s$. Lalu, apabila hasil pole dari berubah secara drastis dari nilai 1, maka sistem kontrol mulai tidak stabil. Berikut merupakan pole dari $T_s = 9 \text{ ms}$ dan $T_s = 0,2 \text{ ms}$.
+
+
+\begin{itemize}
+	\item $T_s = 9 \text{ ms}$
+	      \label{eq-poles-ts-9}
+	      \begin{flalign}
+		      \text{Poles} =
+		      \begin{bmatrix}
+			      1,0427 \\
+			      1,0000 \\
+			      1,0000 \\
+			      0,9591
+		      \end{bmatrix} &  &
+	      \end{flalign}
+	\item $T_s = 0,2 \text{ ms}$
+	      \label{eq-poles-ts-0.2}
+	      \begin{flalign}
+		      \text{Poles} =
+		      \begin{bmatrix}
+			      1,0009 \\
+			      1,0000 \\
+			      1,0000 \\
+			      0,9991
+		      \end{bmatrix} &  &
+	      \end{flalign}
+\end{itemize}
+
+% Dari hasil \ref{eq-poles-ts-9} dan \ref{eq-poles-ts-0.2}, dapat dilihat bahwa untuk \( T_s = 9 \text{ ms} \), terdapat pole yang memiliki nilai lebih besar dari 1, yaitu 1,0427. Hal ini menunjukkan bahwa sistem kontrol mulai tidak stabil. Sedangkan untuk \( T_s = 0.2 \text{ ms} \), semua pole berada sangat dekat dengan nilai 1, menunjukkan bahwa sistem kontrol lebih stabil dibandingkan saat \( T_s = 9 \text{ ms} \).
+Dari hasil \ref{eq-poles-ts-9} dan \ref{eq-poles-ts-0.2}, dapat dilihat bahwa untuk \( T_s = 9 \text{ ms} \), terdapat pole yang memiliki nilai lebih besar dari 1, yaitu 1,0427. Hal ini menunjukkan bahwa sistem kontrol mulai tidak stabil. Sedangkan untuk \( T_s = 0,2 \text{ ms} \), semua pole berada sangat dekat dengan nilai 1, menunjukkan sistem kontrol lebih stabil.
