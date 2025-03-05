@@ -1,8 +1,14 @@
-\chapter{Implementasi dan Pengujian}
+\chapter{Pengujian Sistem}
 
-Pada pengujian performa akselerator \ac{RL}, terdapat dua komponen yang penting dilihat kecepatannya yaitu kecepatan pada tahap pembelajaran dan kecepatan pada tahap \textit{inference}. Pengujian kecepatan pada kedua tahap ini dilakukan menggunakan modul \textit{timer} yang dapat menghasilkan perbedaan \textit{clock cycles} dari hasil komputasi pada \textit{processor} VeeR EL2. Implementasi timer yang dibangun pada \textit{processor} VeeR EL2 merupakan adopsi dari spesifikasi OpenCores yang tersedia secara terbuka pada \parencite{open2024ptc}.
+Pada pengujian performa akselerator \ac{RL}, terdapat tiga komponen yang penting yang perlu ditinjau:
 
-Modul timer tersebut, akan digunakan untuk menguji performa dua tahap sebagai berikut.
+\begin{enumerate}
+	\item Akurasi algoritma dan akselerator perangkat keras.
+	\item Utilisasi sumber daya pada akselerator.
+	\item Kecepatan akselerator dibanding dengan implementasi perangkat lunak.
+\end{enumerate}
+
+Ketiga komponen tersebut, akan diuji dan dibahas hasilnya pada bab ini. Akurasi algoritma akan ditinjau terhadap implementasi \ac{DFS}, begitu pula dengan akselerator. Kecepatan yang akan ditinjau adalah kecepatan pada tahap pembelajaran dan kecepatan pada tahap \textit{inference}. Pengujian kecepatan pada kedua tahap ini dilakukan menggunakan modul \textit{timer} yang dapat menghasilkan perbedaan \textit{clock cycles} dari hasil komputasi pada \textit{processor} VeeR EL2. Implementasi timer yang dibangun pada \textit{processor} VeeR EL2 merupakan adopsi dari spesifikasi OpenCores yang tersedia secara terbuka pada \parencite{open2024ptc}.
 
 \begin{enumerate}
 	\item Pembelajaran \acl{RL}\\
@@ -23,11 +29,11 @@ Pada pengujian tersebut, lingkungan pengujian permasalahan \textit{cart pole bal
 		\hline
 		Observation           & Min                             & Max                           \\
 		\hline
-		Cart Position         & -4.8                            & 4.8                           \\
+		Cart Position         & -4,8                            & 4,8                           \\
 		\hline
 		Cart Velocity         & $-\infty$                       & $\infty$                      \\
 		\hline
-		Pole Angle            & $\sim -0.418$ rad $(-24^\circ)$ & $\sim 0.418$ rad $(24^\circ)$ \\
+		Pole Angle            & $\sim -0,418$ rad $(-24^\circ)$ & $\sim 0,418$ rad $(24^\circ)$ \\
 		\hline
 		Pole Angular Velocity & $-\infty$                       & $\infty$                      \\
 		\hline
@@ -43,7 +49,7 @@ Dengan spesifikasi $state$ sesuai dengan tabel \ref{tab:state-space-cart-pole}, 
 	\label{fig:cartpole-openai}
 \end{figure}
 
-Tujuan dari lingkungan permasalahan pada gambar \ref{fig:cartpole-openai} adalah agar terbentukan sebuah model agen \ac{RL} yang mampu menentukan arah gaya yang sesuai untuk setiap saat sehingga \textit{cart pole} tidak jatuh. Tentunya, delay dari komputasi akan sangatlah berpengaruh kepada pengambilan keputusan oleh agen \ac{RL}. Pada permasalahan di penelitian ini, aksi diskrit yang digunakan akan dibuat lebih besar, tidak hanya dua kemungkinan. Kemungkinan dari aksi diskrit akan diperpanjang dengan sebuah limit [$-F$, $F$] dengan pencacahan diskrit sehingga aksi menjadi sebanyak 1000 kemungkinan. Hal ini dilakukan untuk meninjau kemampuan akselerator untuk mengatasi permasalahan \textit{large branching factor} \parencite{amado2018qtable}.
+Tujuan dari lingkungan permasalahan pada gambar \ref{fig:cartpole-openai} adalah agar terbentukan sebuah model agen \ac{RL} yang mampu menentukan arah gaya yang sesuai untuk setiap saat sehingga \textit{cart pole} tidak jatuh. Tentunya, delay dari komputasi akan sangatlah berpengaruh kepada pengambilan keputusan oleh agen \ac{RL}. Pada permasalahan di penelitian ini, aksi diskrit yang digunakan akan dibuat lebih besar, tidak hanya dua kemungkinan. Kemungkinan dari aksi diskrit akan diperpanjang dengan sebuah limit [$-F$, $F$] dengan pencacahan diskrit sehingga aksi menjadi sebanyak 1.000 kemungkinan. Hal ini dilakukan untuk meninjau kemampuan akselerator untuk mengatasi permasalahan \textit{large branching factor} \parencite{amado2018qtable}.
 
 \input{chapters/chapter-4/01-akurasi-akselerator}
 \input{chapters/chapter-4/02-utilisasi-sumber-daya-akselerator}

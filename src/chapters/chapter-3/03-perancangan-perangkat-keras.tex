@@ -14,39 +14,6 @@ Kedua komponen tersebut, kemudian perlu diuji akurasinya menggunakan perangkat l
 
 Agar dapat membangun akselerator perangkat keras yang dapat digunakan secara \textit{generic}, maka perlu dibuat sebuah separasi jelas bagian komputasi yang ingin dioptimasi menggunakan perangkat keras dan bagian yang tetap berada pada tingkat perangkat lunak agar dapat dibuat secara fleksibel oleh pendesain agen \ac{RL}. Pembagian ini, umumnya disebut sebagai \textit{hardware/software} (HW/SW) \textit{co-design}. Pada kasus pengembangan akselerator perangkat keras ini, HW/SW \textit{co-design} dilakukan sesuai dengan deskripsi pada algoritma \ref{alg:hw-sw-sep}.
 
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{Pembagian HW/SW \textit{co-design}}\label{alg:hw-sw-sep}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require jumlah episode, \textit{learning rate} ($\alpha$), dan \textit{discount factor} ($\gamma$)
-		\Ensure \textit{Q-Table}
-		\State \alghighlight{yellow!50}{Inisialisasi \textit{Q-Table} untuk setiap \textit{state} dan aksi \label{algline:initialize-q-table-hw} \Comment{\textbf{Perangkat keras}}}
-		\State \alghighlight{yellow!50}{Simpan $\gamma$ dan $\alpha$ pada akselerator \Comment{\textbf{Perangkat keras}}}
-		\While{$banyak\_episode < jumlah\_episode$}
-		\State $s_{t} \gets s_0$
-		\While{$s_t \neq s_{terminal}$}
-		\State \alghighlight{yellow!50}{Pilih aksi ($A$) untuk \textit{state} kini ($s_t$) \label{algline:choose-action-hw}  \Comment{\textbf{Perangkat keras}}}
-		\State Lakukan $A$, dapatkan \textit{reward} dan $s_{t+1}$
-		\State \alghighlight{yellow!50}{Simpan $s_{t+1}$ pada akselerator \Comment{\textbf{Perangkat keras}}}
-		\State \alghighlight{yellow!50}{Hitung nilai \textit{Q-Table} indeks terkini \label{algline:q-table-update-hw} \Comment{\textbf{Perangkat keras}}}
-		\State $s_t \gets s_{t+1}$
-		\EndWhile
-		\State $banyak\_episode \gets banyak\_episode + 1$
-		\State $cr_t$ $\gets$ \textit{cumulative reward} dari \textit{Q-Table}
-		\If{$cr_t\ >\ cr_{t-1}$}
-		\State Ubah nilai $maxQ(s_{t+1},a))$ dari \textit{Q-Table}
-		\EndIf
-		\State $cr_{t-1} \gets cr_t$
-		\State \textit{memori Q-Table} $\gets$ \textit{Q-Table}
-		\State $episode \gets episode + 1$
-		\EndWhile
-	\end{algorithmic}
-\end{algorithm}
-
 Baris pada algoritma \ref{alg:hw-sw-sep} yang berwarna kuning dan berkomentar "Perangkat Keras" merupakan bagian dari Algoritma \ref{alg:rl-qmemo} yang dioptimasi menggunakan akselerator perangkat keras. Implementasi dari perangkat keras tersebut berupa ekstensi modul pada \textit{processor} VeeR EL2 yang memiliki detail implementasi sesuai pada ilustrasi di lampiran \ref{appendix:veer-el2-full}. Pada ilustrasi tersebut, terdapat sebuah fitur \textit{out-of-pipe divider} pada \textit{decode stage} dari \textit{processor} VeeR EL2 pada gambar \ref{fig:veer-el2-decode}.
 
 \begin{figure}[H]
@@ -89,17 +56,7 @@ Implementasi akselerator perangkat lunak memiliki empat komponen utama sebagai b
 	      Merupakan unit yang dapat menghasilkan dua nilai: $maxQ(s_{t+1},a)$ dan $a_{max}$, aksi yang menghasilkan $maxQ(s_{t+1},a)$.
 \end{enumerate}
 
-
-Secara lebih detail, implementasi dari seluruh komponen unit tersebut secara lengkap pada akselerator diilustrasikan pada gambar \ref{fig:hw-accel}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{chapter-3/hw-accel.png}
-	\caption{Unit akselerator perangkat keras}
-	\label{fig:hw-accel}
-\end{figure}
-
-Komponen-komponen pada akselerator, sesuai pada gambar \ref{fig:hw-accel}, digunakan untuk mengimplementasikan lima ekstensi instruksi sebagai berikut.
+Secara lebih detail, implementasi dari seluruh komponen unit tersebut secara lengkap pada akselerator diilustrasikan pada lampiran \ref{appendix:modul-akselerator} gambar \ref{fig:hw-accel}. Komponen-komponen pada akselerator digunakan untuk mengimplementasikan lima ekstensi instruksi sebagai berikut.
 
 \begin{enumerate}
 	\item q.store\\

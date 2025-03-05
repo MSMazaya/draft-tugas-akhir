@@ -17,33 +17,7 @@ Ketiga hal tersebut, akan dijelaskan secara sebagai pada sub sub-bab \ref{sec:su
 \subsection{Algoritma Prim untuk \textit{Generator} Labirin}
 \label{sec:sub-prim}
 
-Skema labirin yang akan digunakan untuk melakukan pengujian implementasi \ac{RL} pada perangkat lunak dan perangkat keras akan dihasilkan dari algoritma Prim \parencite{devian2013implementasi}. Algoritma Prim dipilih karena dapat menghasilkan skema labirin yang dinamik berdasarkan masukan dimensi labirin, dengan entropi yang relatif konsisten. Implementasi detail dari algoritma Prim terdapat pada algoritma \ref{alg:prim}.
-
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{Prim \textit{Generator} Labirin}\label{alg:prim}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require $labirin$ dan $dimensi$
-		\Ensure $labirin$ yang telah terbangun
-		\State Inisialisasi $labirin$ penuh dengan halangan
-		\State Buat halangan pertama jadi sel kosong
-		\State Tambah semua halangan, disamping sel kosong, ke $list\_halangan$
-		\While{$list\_halangan$ belum kosong}
-		\State $halangan\_kini$ $\gets$ halangan acak di $list\_halangan$
-		\If{$halangan\_kini$ hanya punya satu sel kosong didekatnya}
-		\State Ubah $halangan\_kini$ menjadi sel kosong
-		\State Masukkan halangan di sekitar $halangan\_kini$ ke $list\_halangan$
-		\EndIf
-		\State hapus $halangan\_kini$ dari $list\_halangan$
-		\EndWhile
-	\end{algorithmic}
-\end{algorithm}
-
-Algoritma \ref{alg:prim}, dapat diilustrasikan sesuai dengan gambar \ref{fig:prim-visual}.
+Skema labirin yang akan digunakan untuk melakukan pengujian implementasi \ac{RL} pada perangkat lunak dan perangkat keras akan dihasilkan dari algoritma Prim \parencite{devian2013implementasi}. Algoritma Prim dipilih karena dapat menghasilkan skema labirin yang dinamik berdasarkan masukan dimensi labirin, dengan entropi yang relatif konsisten. Implementasi detail dari algoritma Prim terdapat pada algoritma \ref{alg:prim}. Algoritma \ref{alg:prim}, dapat diilustrasikan sesuai dengan gambar \ref{fig:prim-visual}.
 
 \begin{figure}[H]
 	\centering
@@ -57,45 +31,7 @@ Pada gambar \ref{fig:prim-visual}, halangan berkotak oranye merupakan halangan y
 \subsection{Algoritma \ac{DFS} untuk \textit{benchmark} hasil \acl{RL}}
 \label{sec:sub-dfs}
 
-\acf{DFS} merupakan algoritma yang digunakan untuk memecahkan banyak permasalahan yang berhubungan dengan data struktur \textit{graph}. Algoritma ini pertama kali dipopulerkan oleh J. Hopcroft dan R. Tarjan pada \parencite{hopcroft1973algorithm} dengan ilustrasi diagram alir algoritma pada gambar \ref{fig:hopcroft-dfs}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{chapter-3/path-finding-hopcroft.jpeg}
-	\caption{Algoritma \ac{DFS} untuk \textit{pathfinding} \parencite{hopcroft1973algorithm}}
-	\label{fig:hopcroft-dfs}
-\end{figure}
-
-Pada penelitian ini, algoritma dari gambar \ref{fig:hopcroft-dfs} disesuaikan dengan konteks permasalahan labirin. Hasil dari penyesuaian yang dilakukan dijelaskan secara detail pada algoritma \ref{alg:dfs-sw}.
-
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{\ac{DFS} pada labirin}\label{alg:dfs-sw}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require $baris$, $kolom$, dan $memori$
-		\Ensure $langkah\_diambil$
-		\State $memori \gets$ [$baris$,$kolom$]
-		\If{[$baris$,$kolom$] = tujuan}
-		\State return 0 \EndIf
-		\State $langkah\_diambil$ $\gets$ NULL
-		\For{$aksi$ dari [$gerak\_atas$, $gerak\_bawah$, $gerak\_kiri$, $gerak\_kanan$]}
-		\State $kolom\_baru$, $baris\_baru$ $\gets$ lingkungan($aksi$, $kolom$, $baris$)
-		\If{[$kolom\_baru$,$baris\_baru$] \textbf{tidak di} $memori$}
-		\State $langkah\_DFS$ $\gets$ DFS($kolom\_baru$, $baris\_baru$, $memori$) + 1
-		\If{$langkah\_diambil$ = NULL \textbf{or} $langkah\_diambil < langkah\_DFS$}
-		\State $langkah\_diambil \gets langkah\_DFS$
-		\EndIf
-		\EndIf
-		\EndFor
-		\State return $langkah\_diambil$
-	\end{algorithmic}
-\end{algorithm}
-
-Algoritma \ref{alg:dfs-sw} dapat divisualisasikan cara kerjanya sesuai dengan gambar \ref{fig:dfs-visualization}.
+\acf{DFS} merupakan algoritma yang digunakan untuk memecahkan banyak permasalahan yang berhubungan dengan data struktur \textit{graph}. Algoritma ini pertama kali dipopulerkan oleh J. Hopcroft dan R. Tarjan pada \parencite{hopcroft1973algorithm} dengan ilustrasi diagram alir algoritma pada gambar \ref{fig:hopcroft-dfs} yang disesuaikan dengan konteks permasalahan labirin. Hasil dari penyesuaian yang dilakukan dijelaskan secara detail pada algoritma \ref{alg:dfs-sw}. Algoritma \ref{alg:dfs-sw} dapat divisualisasikan cara kerjanya sesuai dengan gambar \ref{fig:dfs-visualization}.
 
 \begin{figure}[H]
 	\centering
@@ -109,57 +45,7 @@ Pada gambar \ref{fig:dfs-visualization}, lingkaran merupakan analogi pemanggilan
 \subsection{Algoritma Pembelajaran \acl{RL}}
 \label{sec:sub-pembelajaran-rl}
 
-Algoritma pembelajaran \ac{RL} yang digunakan pada penelitian ini diadopsi dari pembelajaran \ac{RL} menggunakan \textit{Q-Learning} dari penelitian \parencite{sutisna2023faraneq} yang dideskripsikan pada algoritma \ref{alg:rl-qlearning}.
-
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{\ac{RL} menggunakan \textit{Q-Learning} diadaptasi dari \parencite{sutisna2023faraneq}}\label{alg:rl-qlearning}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require jumlah episode, \textit{learning rate ($\alpha$)}, dan \textit{discount factor ($\gamma$)}
-		\Ensure \textit{Q-Table}
-		\State Inisialisasi \textit{Q-Table} untuk setiap \textit{state} dan aksi
-		\While{$banyak\_episode < jumlah\_episode$}
-		\State $s_{t} \gets s_0$
-		\While{$s_t \neq s_{terminal}$}
-		\State Pilih aksi ($A$) untuk \textit{state} kini ($s_t$)
-		\State Lakukan $A$, dapatkan \textit{reward} dan $s_{t+1}$ \label{algline:q-reward}
-		\State Hitung nilai Q-Table indeks terkini \Comment{dengan Persamaan \ref{eq:q-learning}}
-		\State $s_t \gets s_{t+1}$
-		\EndWhile
-		\State $banyak\_episode \gets banyak\_episode + 1$
-		\EndWhile
-	\end{algorithmic}
-\end{algorithm}
-
-Fungsi \textit{reward} yang menghasilkan dari algoritma \ref{alg:rl-qlearning} pada baris \ref{algline:q-reward} pada penelitian ini didesain sebagai fungsi skalar yang didesain secara iteratif, cara umum untuk mendesain fungsi \textit{reward} berdasarkan \parencite{hayes2022practical} pada agen \ac{RL}. Detail dari implementasi fungsi \textit{reward} pada penelitian ini terangkum pada Algoritma \ref{alg:rl-reward-function}.
-
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{Desain fungsi \textit{reward}}\label{alg:rl-reward-function}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require $baris$, $kolom$, $memori$, dan aksi
-		\Ensure $reward$
-		\State $kolom\_baru$, $baris\_baru$ $\gets$ lingkungan($aksi$, $kolom$, $baris$)
-		\If{[$kolom\_baru$,$baris$] = halangan} \label{algline:reward-c1}
-		\State return $C_1$
-		\EndIf
-		\If{[$kolom\_baru$,$baris$] \textbf{ada di} $memori$} \label{algline:reward-c2}
-		\State return $C_2$
-		\EndIf
-		\If{[$kolom\_baru$,$baris$] = tujuan} \label{algline:reward-c3}
-		\State return $C_3$
-		\EndIf
-		\State return $C_4$ \label{algline:reward-c4}
-	\end{algorithmic}
-\end{algorithm}
+Algoritma pembelajaran \ac{RL} yang digunakan pada penelitian ini diadopsi dari pembelajaran \ac{RL} menggunakan \textit{Q-Learning} dari penelitian \parencite{sutisna2023faraneq} yang dideskripsikan pada algoritma \ref{alg:rl-qlearning}. Fungsi \textit{reward} yang menghasilkan dari algoritma \ref{alg:rl-qlearning} pada baris \ref{algline:q-reward} pada penelitian ini didesain sebagai fungsi skalar yang didesain secara iteratif, cara umum untuk mendesain fungsi \textit{reward} berdasarkan \parencite{hayes2022practical} pada agen \ac{RL}. Detail dari implementasi fungsi \textit{reward} pada penelitian ini terangkum pada Algoritma \ref{alg:rl-reward-function}.
 
 Pada algoritma \ref{alg:rl-reward-function} baris \ref{algline:reward-c1}, reward yang diberikan ($C_1$) akan berupa $punishment$, atau $reward$ yang bernilai negatif, yang digunakan untuk menghentikan agen dari melakukan pergerakan menuju halangan. Lalu, $punishment$ lain berada pada baris \ref{algline:reward-c2} ($C_2$) yang berupa $punishment$ untuk menghentikan agen bergerak ke sel kosong yang pernah dilalui sebelumnya. Satu-satunya $reward$ positif yang didapatkan berada pada baris \ref{algline:reward-c3} ($C_3$) yang digunakan untuk memastikan bahwa agen selalu menuju tujuan, menghindari efek $C_4$. Sedangkan $C_4$, pada baris \ref{algline:reward-c4}, merupakan $punishment$ yang digunakan untuk memastikan agen selalu mengambil jalut tercepat.
 
@@ -172,45 +58,14 @@ Algoritma \ref{alg:rl-reward-function} memiliki kekurangan ketidakstabilan untuk
 	\label{fig:cumulative-reward-faraneq}
 \end{figure}
 
-Grafik \textit{cumulative reward} yang ditunjukkan pada gambar \ref{fig:cumulative-reward-faraneq} memperlihatkan bahwa hasil \textit{cumulative reward} yang didapatkan dari pembelajaran \ac{RL} dari penelitian \parencite{sutisna2023faraneq} itu masih mengalami ketidakstabilan. Pada kasus lingkungan yang dimodelkan dengan fungsi \textit{reward} yang skalar dan diskrit, hal ini menjadi masalah karena turunnya grafik \textit{cumulative reward} adalah sebuah indikasi terjadinya pengambilan strategi/\textit{policy} yang tidak optimal setelah sebuah iterasi pembelajaran. Secara intrinsik, hal tersebut berarti algoritma pembelajaran tidak berhasil secara stabil menghasilkan strategi optimal atau $\pi^*$. Maka, algoritma \ref{alg:rl-qlearning} diekstensi menggunakan metode memoisasi pintar yang diadopsi dari \parencite{mazaya2024reinforcement} yang dijelaskan pada Algoritma \ref{alg:rl-qmemo}.
+Grafik \textit{cumulative reward} yang ditunjukkan pada gambar \ref{fig:cumulative-reward-faraneq} memperlihatkan bahwa hasil \textit{cumulative reward} yang didapatkan dari pembelajaran \ac{RL} dari penelitian \parencite{sutisna2023faraneq} itu masih mengalami ketidakstabilan. Pada kasus lingkungan yang dimodelkan dengan fungsi \textit{reward} yang skalar dan diskrit, hal ini menjadi masalah karena turunnya grafik \textit{cumulative reward} adalah sebuah indikasi terjadinya pengambilan strategi/\textit{policy} yang tidak optimal setelah sebuah iterasi pembelajaran. Secara intrinsik, hal tersebut berarti algoritma pembelajaran tidak berhasil secara stabil menghasilkan strategi optimal atau $\pi^*$. Maka, algoritma \ref{alg:rl-qlearning} diekstensi menggunakan metode memoisasi pintar yang diadopsi dari \parencite{mazaya2024reinforcement} yang dijelaskan pada Algoritma \ref{alg:rl-qmemo}. Inti dari ekstensi algoritma \ref{alg:rl-qmemo} berada pada baris \ref{algline:q-memo-equation} yang melakukan perubahan nilai $maxQ(s_{t+1},a))$ dari \textit{Q-Table} menggunakan Persamaan .
 
-\begin{algorithm}
-	\makeatletter
-	\renewcommand{\ALG@name}{Algoritma}
-	\makeatother
-	\caption{Ekstensi algoritma \ac{RL} dengan memoisasi pintar adopsi dari \parencite{mazaya2024reinforcement}}\label{alg:rl-qmemo}
-	\renewcommand{\algorithmicrequire}{\textbf{Masukan:}}
-	\renewcommand{\algorithmicensure}{\textbf{Keluaran:}}
-	\begin{algorithmic}[1]
-		\Require jumlah episode, \textit{learning rate} ($\alpha$), dan \textit{discount factor} ($\gamma$)
-		\Ensure \textit{Q-Table}
-		\State Inisialisasi \textit{Q-Table} untuk setiap \textit{state} dan aksi
-		\While{$banyak\_episode < jumlah\_episode$}
-		\State $s_{t} \gets s_0$
-		\While{$s_t \neq s_{terminal}$}
-		\State Pilih aksi ($A$) untuk \textit{state} kini ($s_t$)
-		\State Lakukan $A$, dapatkan \textit{reward} dan $s_{t+1}$
-		\State Hitung nilai Q-Table indeks terkini \Comment{dengan Persamaan \ref{eq:q-learning}}
-		\State $s_t \gets s_{t+1}$
-		\EndWhile
-		\State $banyak\_episode \gets banyak\_episode + 1$
-		\State $cr_t$ $\gets$ \textit{cumulative reward} dari \textit{Q-Table}
-		\If{$cr_t\ >\ cr_{t-1}$}
-		\State Ubah nilai $maxQ(s_{t+1},a))$ dari \textit{Q-Table} \label{algline:q-memo-equation} \Comment{dengan Persamaan \ref{eq:q-memo-overwrite}}
-		\EndIf
-		\State $cr_{t-1} \gets cr_t$
-		\State \textit{memori Q-Table} $\gets$ \textit{Q-Table}
-		\State $episode \gets episode + 1$
-		\EndWhile
-	\end{algorithmic}
-\end{algorithm}
-
-Inti dari ekstensi algoritma \ref{alg:rl-qmemo} berada pada baris \ref{algline:q-memo-equation} yang melakukan perubahan nilai $maxQ(s_{t+1},a))$ dari \textit{Q-Table} menggunakan Persamaan .
-
-\begin{equation}
+\vspace{-12mm}
+\begin{flalign}
 	\label{eq:q-memo-overwrite}
-	Q(s_{t},a_{t_x}) =	Q(s_{t},a_{t_y}) + \delta
-\end{equation}
+	Q(s_{t},a_{t_x}) =	Q(s_{t},a_{t_y}) + \delta &  &
+\end{flalign}
+\vspace{-12mm}
 
 Pada Persamaan \ref{eq:q-memo-overwrite}, \(a_{t_x}\) adalah aksi yang memberikan nilai \textit{memori Q-Table} yang maksimal pada state $s_t$; \(a_{t_y}\) adalah aksi yang memberikan nilai \textit{Q-Table} yang maksimal pada state $s_t$; \(\delta\) adalah konstanta yang digunakan untuk membuat \(Q(s_{t},a_{t_x})\) di \textit{Q-Table} lebih besar dari \(Q(s_{t},a_{t_y})\) di \textit{memori Q-Table} sehingga menjadikan \(Q(s_{t},a_{t_x})\) nilai maksimal pada \textit{Q-Table}.
 

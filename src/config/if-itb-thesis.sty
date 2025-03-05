@@ -14,8 +14,7 @@
 \special{papersize=210mm,297mm}
 
 % Setting margin
-\usepackage[top=2cm,bottom=2cm,left=4cm,right=3cm]{geometry}
-
+\usepackage[top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 
 % Judul bahasa Indonesia
 \usepackage[english]{babel}
@@ -55,9 +54,15 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{nicematrix}
-% \usepackage[lighttt]{lmodern}
 \usepackage{mathptmx}
 \usepackage{ragged2e}
+\usepackage{inconsolata}
+
+\lstset{basicstyle=\ttfamily,breaklines=true}
+\makeatletter
+\algrenewcommand\ALG@beginalgorithmic{\ttfamily}
+\makeatother
+
 \usepackage[none]{hyphenat}
 \sloppy
 
@@ -94,6 +99,9 @@
 	\cleaders\hbox to #1{.}\hfill%
 }
 
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
 \let\originalappendix\appendix
 \renewcommand\appendix{%
 	\originalappendix
@@ -112,6 +120,11 @@
 	{\bfseries}
 	{\chaptertitlename\ \thechapter.\quad}{0pt}
 	{\bfseries}
+	
+	\renewcommand\thefigure{\Alph{chapter}.\arabic{figure}}
+	\renewcommand\thetable{\Alph{chapter}.\arabic{table}}
+	\renewcommand\theequation{\Alph{chapter}.\arabic{equation}}
+	\renewcommand\thelstlisting{\Alph{chapter}.\arabic{lstlisting}}
 }
 
 % Hilangkan titik pada toc
@@ -152,7 +165,7 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Setting judul
-\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing*{\chapter}{0pt}{-30pt}{0pt}
 \chapterfont{\centering\large}
 \titleformat{\chapter}[display]
 {\large\centering\bfseries}
@@ -190,3 +203,9 @@
 \renewcommand*{\FancyVerbLineautorefname}{garis}%
 \renewcommand*{\theoremautorefname}{Teorema}%
 \renewcommand*{\pageautorefname}{halaman}%
+\renewcommand\thefigure{\arabic{chapter}.\arabic{figure}}
+\renewcommand\thetable{\arabic{chapter}.\arabic{table}}
+\renewcommand\theequation{\arabic{chapter}.\arabic{equation}}
+\AtBeginDocument{
+	\renewcommand\thelstlisting{\arabic{chapter}.\arabic{lstlisting}}
+}
